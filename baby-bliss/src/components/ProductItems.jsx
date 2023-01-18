@@ -5,7 +5,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   return (
     <Box>
         <GridItem border={"2px solid red"} textAlign={"left"}>
-<Image src={image} width="300"  height="250" margin="auto" />
+<Image src={image} width="300"  height="250" margin="auto" alt="img" />
 
 <Text mt="2" w="90%" fontFamily={"RobotoLR"} noOfLines={3}
 fontSize={"15px"}
