@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import Sidebar from '@/components/Sidebar'
+import Sidebar from '@/components/BoySidebar'
 import { Grid,Box } from '@chakra-ui/react'
 import ProductItems from '@/components/ProductItems'
 const boys = ({T_shirts}) => {
