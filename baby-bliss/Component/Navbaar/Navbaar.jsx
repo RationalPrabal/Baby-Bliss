@@ -62,7 +62,7 @@ import Image from 'next/image';
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}>
-            <Image src={logo} alt="..." width={50} height={10}/>
+            {/* <Image src={logo} alt="..." width={50} height={10}/> */}
             </Text>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -257,6 +257,9 @@ import Image from 'next/image';
 //   }
   
   const NAV_ITEMS= [
+    {
+      label: 'All Category',
+    },
     {
       label: 'Boy Fashion',
       children: [
