@@ -4,8 +4,8 @@ import Navbaar from 'Component/Navbaar/Navbaar'
 export default function App({ Component, pageProps }) {
   return <ChakraProvider>
     <Navbaar/>
-<Component {...pageProps} />
+    <Component {...pageProps} />
 
-  </ChakraProvider>
+    </ChakraProvider>
   
 }
