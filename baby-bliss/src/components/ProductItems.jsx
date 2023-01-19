@@ -13,7 +13,7 @@ lineHeight={"12px"}
 fontWeight={"400"}
 >{title}</Text>
 
-<Box display={"flex"} justifyContent={"space-between"} w="65%" mt="2">
+<Box display={"flex"} justifyContent={"space-between"} w="70%" mt="2">
 <Text as="b"> ₹ {price}</Text>
 <Text as="s"> ₹ {mrp}</Text>
 <Text color={"red"}>{discount}</Text>
