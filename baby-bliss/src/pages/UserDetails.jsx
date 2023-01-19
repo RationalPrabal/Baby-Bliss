@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormControl, FormLabel, Input, Radio, Button,Grid,GridItem,Box,Heading,Text,HStack, Stack, Flex } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Radio, Button,Grid,GridItem,Box,Heading,Text,Spacer,Stack, Flex,Image, Container, VStack, HStack } from "@chakra-ui/react";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -44,21 +44,97 @@ const Form = () => {
   return (
     <>
 
-      <Grid  templateColumns='repeat(2, 1fr)' width="90%" mt="200px" marginLeft="150px" gap={2}>
+      <Grid  templateColumns='repeat(2, 1fr)' width="90%" mt="200px" marginLeft="80px" gap={2}>
 
-                      <GridItem  width="40%" h='10' bg='tomato' >
+                      <GridItem  width="40%" height="100%" h='10' bg='white' >
                               
-                            SIDEBAR
+                        <Heading  height={8} fontSize="lg" bg="grey" color="blackAlpha">Account</Heading>
+                        <Box mt={5}>
+
+                          <Text  mb={2}>Order History</Text>
+                          <Text  mb={2}>Manage Returns</Text>
+                          <Text  mb={2}>Quick Reorder</Text>
+                          <Text  mb={2}>Track Order</Text>
+                          <Text  mb={2}>Your Queries</Text>
+                          
+                        </Box>
+
+                        <Heading  mt={5} fontSize="lg" bg="grey" height={8} color="blackAlpha">Cash in My Account</Heading>
+                        <Box mt={5}>
+
+                          <Text  mb={2}>Club Cash</Text>
+                          <Text mb={2}>Cash refund</Text>
+                          <Text  mb={2}>My Payment Details</Text>
+                          <Text  mb={2}>Cash Coupons</Text>
+                          <Text mb={2}>Cashback Codes</Text>
+                          <Text>My Refunds</Text>
+                          
+                        </Box>
                         
                       </GridItem>
               
 
-      
+      {/*  ///////////////////////////  Profile Details ////////////////////////////////////////// */}
 
-           <GridItem width="70%" h='100%' bg='white'>
+     <GridItem width="70%" h='100%' bg='white'>
+
+           <Heading  fontSize='lg' backgroundColor="grey">Profile</Heading> 
+                 <Container marginBottom="40px" width="100%" >  
+               
+            <Flex gap={20} >   
+               <Box marginTop="50px">
+                    <Text  fontSize='lg'  as='b'>Yogesh Nishad</Text>
+                    
+                </Box>
+                <Spacer />
+                    <Box>
+
+                        <Image width="100px" height="120px" 
+                        src='https://static.vecteezy.com/system/resources/previews/002/002/427/non_2x/man-avatar-character-isolated-icon-free-vector.jpg'>
+
+                        </Image>
+                   </Box>
+              </Flex> 
+                 </Container>  
+
+     {/* M///////////////////////////////////  My Conatct Details   ////////////////////////////////////////////////////////// */}
+
+                 <Heading  height="30px" fontSize='lg'  backgroundColor="grey">My Contact</Heading> 
+              <Flex justifyContent="space-between">
+                 <Box marginTop="50px" >
+                     <HStack marginBottom="20px">
+                  
+                          <Text fontSize='sm'  as='b'>Email:</Text>
+                          <Text> yogiatoy27518@gmail.com</Text>
+                  </HStack>
+
+                     <HStack>
+
+                          <Text fontSize='sm'  as='b'>Mobile No :
+                         </Text><Text> 7999959808</Text>
+                    </HStack>  
+
+                  </Box>
+                     
+                     <Spacer/>
+                <Box marginLeft="80px" marginTop="40px"  mb={10}>
+
+                   <Text fontSize='sm'  as='b'>
+                   Your Mobile Number is Verified
+                   </Text>
+                 
+                 <HStack>
+                   <Text > 
+                    Your Mobile Number is VerifiedBy verifying your mobile number with us you can now Shop'n'Earn Club Cash at our FirstCry.com stores too! To earn Club Cash on store purchases,
+                   simply provide your verified mobile number at the time of billing.
+                   </Text>
+                   </HStack>
+                </Box>   
+          </Flex>
+
+                     {/*/////////////////////////////////////// Form Input ////////////////////////////// */}    
               
-              
-                    <form onSubmit={handleSubmit}>
+             <form onSubmit={handleSubmit}>
                           <FormControl as='fieldset'>
                             <FormLabel htmlFor="name">Name</FormLabel>
                             <Input  size='sm' maxW="250px" type="text" id="name" name="name" value={formData.name} onChange={handleChange} required/>
