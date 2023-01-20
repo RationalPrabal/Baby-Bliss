@@ -44,7 +44,7 @@
       "price": 354.71,
       "mrp": 449,
       "discount": "(21% Off)",
-      "id": 345.73,
+      "id": 345,
       "size": "3 - 6M",
       "size href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-bear-patch-brown/11610487/product-detail",
       "size 2": "6 - 9M",
@@ -98,40 +98,6 @@
       "more_size href": "",
       "size 8": "",
       "size href 8": "",
-      "lft": "Buy & Earn Club Cash upto :2.24",
-      "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
-      "lft 2": "Shortlist",
-      "lft href 2": "javascript:void(0);",
-      "shortlist": "",
-      "shortlist href": ""
-    },
-    {
-      "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627589/product-detail",
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12627589a.webp",
-      "title": "Babyhug Cotton Half Sleeves T-Shirt Stripes & Text Print Pack of 3 -...",
-      "price": 779.22,
-      "mrp": 999,
-      "discount": "(upto 22% Off)",
-      "id": 759.24,
-      "size": "3 - 6M",
-      "size href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627583/product-detail",
-      "size 2": "6 - 9M",
-      "size href 2": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627584/product-detail",
-      "size 3": "9 - 12M",
-      "size href 3": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627585/product-detail",
-      "bld_spn": "3 - 4Y",
-      "size 4": "12 - 18M",
-      "size href 4": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627586/product-detail",
-      "size 5": "18 - 24M",
-      "size href 5": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627587/product-detail",
-      "size 6": "2 - 3Y",
-      "size href 6": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627588/product-detail",
-      "size 7": "4 - 5Y",
-      "size href 7": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627590/product-detail",
-      "more_size": "+more",
-      "more_size href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627589/product-detail",
-      "size 8": "5 - 6Y",
-      "size href 8": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-t-shirt-stripes-and-text-print-pack-of-3-blue-white-and-yellow/12627591/product-detail",
       "lft": "Buy & Earn Club Cash upto :2.24",
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
       "lft 2": "Shortlist",
@@ -44631,6 +44597,118 @@
 }],
   "cart": [
     {
+<<<<<<< HEAD
+      "id": 384.23,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Pine Kids 100% Cotton Half Sleeves Bio Washed T-Shirt Sailing Ship..."
+    },
+    {
+      "id": 345.73,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11610489a.webp",
+      "price": 354.71,
+      "mrp": 449,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Bear Patch - Brown"
+    },
+    {
+      "id": 706.04,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12223088a.webp",
+      "price": 724.62,
+      "mrp": 929,
+      "discount": "(22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Jersey Knit Half Sleeves Striped T-Shirt Shark..."
+    },
+    {
+      "id": 345,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11610489a.webp",
+      "price": 354.71,
+      "mrp": 449,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Bear Patch - Brown"
+    },
+    {
+      "id": 759.24,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12627463a.webp",
+      "price": 779.22,
+      "mrp": 999,
+      "discount": "(upto 22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Striped & Dino Print Pack of 3 -..."
+    },
+    {
+      "id": 1291.24,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11683450a.webp",
+      "price": 1325.22,
+      "mrp": 1699,
+      "discount": "(22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Full Sleeves Tee Stripes & Car Print Pack of 5-..."
+    },
+    {
+      "id": 769.23,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12627966a.webp",
+      "price": 789.21,
+      "mrp": 999,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Stripes & Shark Print Pack of 3 -..."
+    },
+    {
+      "id": 1215.24,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11237169a.webp",
+      "price": 1247.22,
+      "mrp": 1599,
+      "discount": "(22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Full Sleeves Cotton T-Shirts Printed Pack of 5- Multicolor"
+    },
+    {
+      "id": 330.33,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12245557a.webp",
+      "price": 338.91,
+      "mrp": 429,
+      "discount": "(upto 21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Tie & Dye Half Sleeves T-Shirt Tiger Print- Blue..."
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 345,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11610489a.webp",
+      "price": 354.71,
+      "mrp": 449,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Bear Patch - Brown"
+    },
+    {
+      "id": 759.24,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12627463a.webp",
+      "price": 779.22,
+      "mrp": 999,
+      "discount": "(upto 22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Babyhug Cotton Half Sleeves T-Shirt Striped & Dino Print Pack of 3 -..."
+    },
+    {
+      "id": 384.23,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Pine Kids 100% Cotton Half Sleeves Bio Washed T-Shirt Sailing Ship..."
+    }
+  ]
+=======
 	"img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/8837055a.jpg",
 	"desc": "0 to 3 Years, L 85 x B 48.8 x H 108.5 cm, Carrying Capacity 15 kg, UPF 50+...",
 	"price": "11699.1",
@@ -44661,4 +44739,5 @@
 }
   ],
   "userDetails":[]
+>>>>>>> 76af6f9fce12223f34c80ae7eb47b2bf23e9f393
 }

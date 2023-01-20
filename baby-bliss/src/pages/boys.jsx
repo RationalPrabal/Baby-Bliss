@@ -44,7 +44,7 @@ set_shirts(res.data)
     </Box>
     <Box w={{base:"70%", sm:"70%",md:"80%"}}>
     <Grid templateColumns={{base:'repeat(1, 1fr)',sm:'repeat(2, 1fr)',md:'repeat(3, 1fr)'}} gap={{base:0,sm:2,md:6}} w={{base:"100%",sm:"100%",md:"100%"}}>
-    {shirts.map((el,id)=> <ProductItems key={id} title={el.title} price={el.price} image={el.img} mrp={el.mrp} id={id} discount={el.discount} lft={el.lft} />)
+    {shirts.map((el,id)=> <ProductItems key={id} title={el.title} price={el.price} image={el.img} mrp={el.mrp} id={el.id} discount={el.discount} lft={el.lft} />)
 }
         </Grid>
         </Box>
