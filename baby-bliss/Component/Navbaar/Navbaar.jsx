@@ -8,6 +8,7 @@ import {
     IconButton,
     Button,
     Stack,
+    Input,
     Collapse,
     Icon,
     Link,
@@ -321,8 +322,12 @@ import Image from 'next/image';
       {
         label: 'Diapering',
         href: '#',
+      },{
+        label: <Input type="text" />,
       }
+      
   ];
 
+ 
   
 export default Navbaar

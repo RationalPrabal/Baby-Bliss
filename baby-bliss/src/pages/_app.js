@@ -5,7 +5,7 @@ import NavbaarF from 'Component/Navbaar/NavbaarF'
 import Footer from './footer'
 export default function App({ Component, pageProps }) {
   return <ChakraProvider>
-    <NavbaarF/>
+    {/* <NavbaarF/> */}
     <Navbaar/>
 
 
