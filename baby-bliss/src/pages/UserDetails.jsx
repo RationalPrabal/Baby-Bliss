@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FormControl, FormLabel, Input, Radio, Button,Grid,GridItem,Box,Heading,Text,Spacer,Stack, Flex,Image, Container, VStack, HStack } from "@chakra-ui/react";
 
+import UserInput from "../components/UserInput";
+
+
 const Form = () => {
   const [formData, setFormData] = useState({
   
@@ -97,6 +100,7 @@ const Form = () => {
               </Flex> 
                  </Container>  
 
+       {/*////////////////////////////   PENDING SIGNUP DATA FECTH HERE  //////////////////// */}
      {/* M///////////////////////////////////  My Conatct Details   ////////////////////////////////////////////////////////// */}
 
                  <Heading  height="30px" fontSize='lg'  backgroundColor="grey">My Contact</Heading> 
@@ -132,7 +136,11 @@ const Form = () => {
                 </Box>   
           </Flex>
 
-                     {/*/////////////////////////////////////// Form Input ////////////////////////////// */}    
+                     {/*/////////////////////////////////////// Form Input ////////////////////////////// */}  
+
+                     <UserInput/>  
+                     <br/>
+                     <br/>
               
              <form onSubmit={handleSubmit}>
                           <FormControl as='fieldset'>
