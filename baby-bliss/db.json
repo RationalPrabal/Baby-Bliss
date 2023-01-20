@@ -1,28 +1,8 @@
 {
-  "user": [
-    {
-      "user": "deepak",
-      "phn": "741",
-      "id": 1
-    },
-    {
-      "user": "Deepak",
-      "name": "Deepak",
-      "phn": "852369756",
-      "email": "dkp041297@gmail.com",
-      "password": "123456",
-      "id": 2
-    },
-    {
-      "user": "Deepak",
-      "name": "dk",
-      "phn": "12345",
-      "email": "eve.holt@reqres.in",
-      "password": "123456",
-      "id": 3
-    }
+  "user":[
+
   ],
-  "boy-tshirts": [
+  "boys": [
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-100-cotton-half-sleeves-bio-washed-t-shirt-sailing-ship-print-white/12642726/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
@@ -1382,13 +1362,11 @@
       "lft href 2": "",
       "shortlist": "Shortlist",
       "shortlist href": "javascript:void(0);"
-    }
-  ],
-  "boy-shirts": [
+    },
     {
       "list_img href": "https://www.firstcry.com/cavio/cavio-full-sleeves-checked-zipper-hooded-shirt-with-printed-t-shirt-grey/12968121/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12968121a.webp",
-      "title": "CAVIO Full Sleeves Checked Zipper Hooded Shirt With Printed T Shirt...",
+      "title": "CAVIO Full Sleeves Checked Zipper Hooded shirt With Printed T shirt...",
       "price": 1390,
       "id": 1390,
       "bld_spn": "2 - 3Y",
@@ -1417,7 +1395,7 @@
     {
       "list_img href": "https://www.firstcry.com/bonfino/bonfino-full-sleeves-solid-party-wear-shirt-with-bow-white/12624413/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12624413a.webp",
-      "title": "Bonfino Full Sleeves Solid Party Wear Shirt With Bow- White",
+      "title": "Bonfino Full Sleeves Solid Party Wear shirt With Bow- White",
       "price": 779.22,
       "id": 759.24,
       "bld_spn": "9 - 12M",
@@ -1446,7 +1424,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyoye/babyoye-full-sleeves-party-shirt-with-tie-blue/11616173/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11616173a.webp",
-      "title": "Babyoye Full Sleeves Party Shirt With Tie - Blue",
+      "title": "Babyoye Full Sleeves Party shirt With Tie - Blue",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "3 - 4Y",
@@ -1475,7 +1453,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-half-sleeves-shirt-checks-pattern-blue/11291661/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11291661a.webp",
-      "title": "Babyhug Half Sleeves Shirt Checks Pattern - Blue",
+      "title": "Babyhug Half Sleeves shirt Checks Pattern - Blue",
       "price": 473.21,
       "id": 461.23,
       "bld_spn": "18 - 24M",
@@ -1504,7 +1482,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-knit-half-sleeves-shirt-tropical-print-green/12587374/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12587374a.webp",
-      "title": "Babyhug Cotton Knit Half Sleeves Shirt Tropical Print - Green",
+      "title": "Babyhug Cotton Knit Half Sleeves shirt Tropical Print - Green",
       "price": 404.19,
       "id": 394.21,
       "bld_spn": "5 - 6Y",
@@ -1533,7 +1511,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-full-sleeves-shirt-text-embroidery-blue/11750759/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11750759a.webp",
-      "title": "Babyhug Cotton Full Sleeves Shirt Text Embroidery - Blue",
+      "title": "Babyhug Cotton Full Sleeves shirt Text Embroidery - Blue",
       "price": 631.21,
       "id": 615.23,
       "bld_spn": "18 - 24M",
@@ -1562,7 +1540,7 @@
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-cotton-full-sleeves-solid-shirt-maroon/12628547/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12628547a.webp",
-      "title": "Pine Kids Cotton Full Sleeves Solid Shirt - Maroon",
+      "title": "Pine Kids Cotton Full Sleeves Solid shirt - Maroon",
       "price": 701.22,
       "id": 683.24,
       "bld_spn": "7 - 8Y",
@@ -1591,7 +1569,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-half-sleeves-cotton-washed-shirt-with-t-shirt-text-print-blue/11750778/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11750778a.webp",
-      "title": "Babyhug Half Sleeves Cotton Washed Shirt With T-shirt  Text Print-...",
+      "title": "Babyhug Half Sleeves Cotton Washed shirt With T-shirt  Text Print-...",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "9 - 12M",
@@ -1649,7 +1627,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-knit-boys-shirt-car-and-bus-print-white/12446576/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12446576a.webp",
-      "title": "Babyhug Cotton Half Sleeves Knit Boys Shirt Car & Bus Print - White",
+      "title": "Babyhug Cotton Half Sleeves Knit Boys shirt Car & Bus Print - White",
       "price": 394.21,
       "id": 384.23,
       "bld_spn": "4 - 5Y",
@@ -1678,7 +1656,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-half-sleeves-checkered-shirt-with-a-t-shirt-car-print-white/11291710/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11291710a.webp",
-      "title": "Babyhug Cotton Half Sleeves Checkered Shirt With A T-Shirt...",
+      "title": "Babyhug Cotton Half Sleeves Checkered shirt With A T-shirt...",
       "price": 552.21,
       "id": 538.23,
       "bld_spn": "18 - 24M",
@@ -1707,7 +1685,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-full-sleeves-solid-shirt-with-a-t-shirt-text-print-navy-blue/11544735/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11544735a.webp",
-      "title": "Babyhug Cotton Full Sleeves Solid Shirt With A T-shirt Text Print-...",
+      "title": "Babyhug Cotton Full Sleeves Solid shirt With A T-shirt Text Print-...",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "2 - 3Y",
@@ -1736,7 +1714,7 @@
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-cotton-full-sleeves-camo-military-print-shirt-with-soft-hand-feel-green/12603342/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12603342a.webp",
-      "title": "Pine Kids Cotton Full Sleeves Camo Military Print Shirt With Soft...",
+      "title": "Pine Kids Cotton Full Sleeves Camo Military Print shirt With Soft...",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "5 - 6Y",
@@ -1765,7 +1743,7 @@
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-100-cotton-half-sleeves-shirt-leaf-print-blue/12628102/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12628102a.webp",
-      "title": "Pine Kids 100% Cotton Half Sleeves Shirt Leaf Print - Blue",
+      "title": "Pine Kids 100% Cotton Half Sleeves shirt Leaf Print - Blue",
       "price": 631.21,
       "id": 615.23,
       "bld_spn": "6 - 7Y",
@@ -1794,7 +1772,7 @@
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-full-sleeves-printed-shirt-with-soft-hand-feel-cotton-white-grey/12673361/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12673361a.webp",
-      "title": "Pine Kids Full Sleeves Printed Shirt With Soft Hand Feel Cotton- White...",
+      "title": "Pine Kids Full Sleeves Printed shirt With Soft Hand Feel Cotton- White...",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "5 - 6Y",
@@ -1823,7 +1801,7 @@
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-cotton-turn-up-full-sleeves-check-shirt-with-double-flap-pockets-red-blue/12603531/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12603531a.webp",
-      "title": "Pine Kids Cotton Turn Up Full Sleeves Check Shirt With Double...",
+      "title": "Pine Kids Cotton Turn Up Full Sleeves Check shirt With Double...",
       "price": 710.21,
       "id": 692.23,
       "bld_spn": "7 - 8Y",
@@ -1852,7 +1830,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-knitted-half-sleeves-collar-neck-shirt-animal-faces-printed-blue/12595399/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12595399a.webp",
-      "title": "Babyhug Cotton Knitted Half Sleeves Collar Neck Shirt Animal Faces...",
+      "title": "Babyhug Cotton Knitted Half Sleeves Collar Neck shirt Animal Faces...",
       "price": 315.21,
       "id": 307.23,
       "bld_spn": "6 - 9M",
@@ -1881,7 +1859,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-full-sleeves-shirt-car-print-peach/11743744/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11743744a.webp",
-      "title": "Babyhug Cotton Full Sleeves Shirt Car Print - Peach",
+      "title": "Babyhug Cotton Full Sleeves shirt Car Print - Peach",
       "price": 552.21,
       "id": 538.23,
       "bld_spn": "3 - 4Y",
@@ -1910,7 +1888,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-half-sleeves-cotton-striped-shirt-navy-blue/11543449/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11543449a.webp",
-      "title": "Babyhug Half Sleeves Cotton Striped Shirt - Navy Blue",
+      "title": "Babyhug Half Sleeves Cotton Striped shirt - Navy Blue",
       "price": 394.21,
       "id": 384.23,
       "bld_spn": "5 - 6Y",
@@ -1939,7 +1917,7 @@
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-half-sleeves-cotton-shirt-floral-print-olive/11743651/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11743651a.webp",
-      "title": "Babyhug Half Sleeves Cotton Shirt Floral Print - Olive",
+      "title": "Babyhug Half Sleeves Cotton shirt Floral Print - Olive",
       "price": 394.21,
       "id": 384.23,
       "bld_spn": "18 - 24M",
@@ -1964,9 +1942,7 @@
       "mrp": 499,
       "mrp href": "https://www.firstcry.com/babyhug/babyhug-half-sleeves-cotton-shirt-floral-print-olive/11743651/product-detail",
       "discount": "(21% Off)"
-    }
-  ],
-  "boy-pants": [
+    },
     {
       "list_img href": "https://www.firstcry.com/babyhug/babyhug-cotton-full-length-washed-denim-stretchable-jeans-solid-light-blue/12143030/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12143030a.webp",
@@ -3286,9 +3262,7 @@
       "clr_size href 24": "https://www.firstcry.com/babyhug/babyhug-full-length-cotton-trousers-solid-brown/12254880/product-detail",
       "clr_size 25": "12 - 18M",
       "clr_size href 25": "https://www.firstcry.com/babyhug/babyhug-full-length-cotton-trousers-solid-brown/12254887/product-detail"
-    }
-  ],
-  "boy-sweetshirts": [
+    },
     {
       "list_img href": "https://www.firstcry.com/aww-hunnie/aww-hunnie-full-sleeves-polar-bear-printed-sweatshirt-blue/12649009/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12649009a.webp",
@@ -3850,7 +3824,7 @@
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)"
     }
   ],
-  "girl-suits": [
+  "girls": [
     {
       "list_img href": "https://www.firstcry.com/babyoye/babyoye-full-sleeves-checks-printed-frock-style-onesies-with-leggings-multicolour/11881390/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11881390a.webp",
@@ -4550,9 +4524,7 @@
       "clr_size href 7": "",
       "more_size": "",
       "more_size href": ""
-    }
-  ],
-  "girl-tops": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12250395a.webp",
       "title": "Babyhug Cotton Half Sleeves Tees with Graphics & Frill Detailing...",
@@ -4912,9 +4884,7 @@
       "lft": "Buy & Earn Club Cash upto :2.24",
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
       "clr_size 7": "5 - 6Y"
-    }
-  ],
-  "girl-frocks": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12631712a.webp",
       "title": "Lilpicks Couture Puffed Full Sleeves Cubic Printed Tee With Solid Fit...",
@@ -5314,9 +5284,7 @@
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
       "lft 3": "",
       "lft 4": null
-    }
-  ],
-  "girl-jeans": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/10734579a.webp",
       "title": "Babyhug Full Length Flower Embroidered Trousers - Pink",
@@ -5658,7 +5626,7 @@
       "clr_size 6": ""
     }
   ],
-  "casual-shoes": [
+  "shoes": [
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12820038a.webp",
       "title": "KIDLINGSS Colour Block Side Zipped Boots - White",
@@ -6458,9 +6426,7 @@
       "clr_size href 16": "",
       "clr_size 17": "",
       "clr_size href 17": ""
-    }
-  ],
-  "sandles": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11938586a.webp",
       "title": "Babyoye Party Wear Sandals With Bow Applique - Black",
@@ -7000,9 +6966,7 @@
       "bld_spn": "3 - 3.5Y",
       "lft": "Buy & Earn Club Cash upto :2.24",
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)"
-    }
-  ],
-  "formal & party shoes": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/8649334a.webp",
       "lft": "Left",
@@ -8842,9 +8806,7 @@
       "clr_size href 17": "",
       "shortlist": "Shortlist",
       "shortlist href": "javascript:void(0);"
-    }
-  ],
-  "sneakers": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11244752a.webp",
       "title": "Cute Walk by Babyhug Velcro Closure Sport Shoes - Red",
@@ -9446,7 +9408,7 @@
       "clr_size href 12": ""
     }
   ],
-  "musical-toys": [
+  "toys": [
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/10690144a.webp",
       "title": "Musical Talking Tom Cat - Grey",
@@ -9846,9 +9808,7 @@
       "sz_txt 3": "",
       "clr_size 2": "",
       "bld_spn href 2": ""
-    }
-  ],
-  "soft-toys": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/3626087a.webp",
       "title": "Zoe Crocodile Soft Toy Green - Length 80cm",
@@ -10208,9 +10168,7 @@
       "bld_spn": "Height 58 cm",
       "clr_size": "Height 58 cm",
       "bld_spn href 2": "https://www.firstcry.com/mummasmile/mummasmile-elephant-soft-toy-blue-height-58-cm/10559096/product-detail"
-    }
-  ],
-  "stacking-toys": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/10031448a.webp",
       "title": "Intellibaby Rocking Stacker Level 4 - 3 Pieces",
@@ -10510,9 +10468,7 @@
       "loyal_popup": "Earn Club Cash up to 0.74/- for this product, depending upon membership plan. 12-months plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
       "questionsprt": "?",
       "frev": "(190 Reviews)"
-    }
-  ],
-  "puzzles": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/2611411a.webp",
       "bestsell": "Bestseller",
@@ -10954,7 +10910,7 @@
       "clr_size 9": "Birds"
     }
   ],
-  "diaper-pants": [
+  "diapers": [
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/2855491a.webp",
       "title": "Huggies Complete Comfort Wonder Pants Extra Large (XL)...",
@@ -11214,9 +11170,7 @@
       "discount": "(44% Off)",
       "id": 671.92,
       "lft": "(12 Per Diaper)"
-    }
-  ],
-  "taped-daipers": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/10477472a.webp",
       "title": "Babyhug Pro Bubble care premium Tape Style Diaper...",
@@ -11556,9 +11510,7 @@
       "loyal_popup": "",
       "questionsprt": "",
       "bestsell": ""
-    }
-  ],
-  "baby-wipes": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/cc6278a.webp",
       "combo": "Super Saver",
@@ -11918,9 +11870,7 @@
       "L11_42": "With Glycerine and Ph Balance for gentle cleansing and effective...",
       "L11_42 href": "https://www.firstcry.com/babyhug/babyhug-premium-baby-wipes-80-pieces/390732/product-detail",
       "frev": "(2073 Reviews)"
-    }
-  ],
-  "rash-creams": [
+    },
     {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/8587980a.webp",
       "title": "Himalaya Herbal Diaper Rash Cream - 100 g",
@@ -12200,6 +12150,49 @@
       "lft": "Buy & Earn Club Cash upto :1.5",
       "loyal_popup": "Earn Club Cash up to 1.5/- for this product, depending upon membership plan. 12-months plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)",
       "questionsprt": "?"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24"
+    },
+    {
+      "id": 2,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12223088a.webp",
+      "price": 724.62,
+      "mrp": 929,
+      "discount": "(22% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24"
+    },
+    {
+      "id": 3,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24"
+    },
+    {
+      "id": 20,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11525698a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2"
+    },
+    {
+      "id": 21,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
+      "price": 394.21,
+      "mrp": 499,
+      "discount": "(21% Off)",
+      "lft": "Buy & Earn Club Cash upto :2.24",
+      "title": "Pine Kids 100% Cotton Half Sleeves Bio Washed T-Shirt Sailing Ship..."
     }
   ]
 }
