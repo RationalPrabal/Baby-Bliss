@@ -60,7 +60,7 @@ const handleUpdate = (editId) => {
   }
 
   return (
-    <Box >
+    <Box  >
       {!isSubmitted ? (
         <form onSubmit={handleAdd} >
           <FormControl mb={5}>
