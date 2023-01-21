@@ -16,3 +16,33 @@
     margin: 20px 0px;
 
 }
+
+.grid_banner{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.card:hover .b{
+    display: block;
+    z-index: 10;
+}
+.card:hover .c{
+    display: none;
+}
+.b{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+.a{
+    position: relative;
+}
+
+.Ti{
+    border: 2px solid red;
+}

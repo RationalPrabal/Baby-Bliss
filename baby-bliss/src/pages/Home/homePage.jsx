@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 import SimpleImageSlider from "react-simple-image-slider";
 import home from "../../styles/HomePage.module.css"
@@ -34,6 +35,153 @@ const HomePage = () => {
         />
       </div>
       <h3 className={home.P}>PREMIUM BOUTIQUES</h3>
+      
+      {/* 1 done*/}
+      <div className={home.grid_banner}>
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28870.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+       
+        {/* 2 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28876.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 3 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28877.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 4 done */}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28889.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 5 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28880.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 6 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28888.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 7 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28881.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 8 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28862.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 9 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28863.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 10 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28874.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 11 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28871.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* 12 done*/}
+        <div className={home.card}>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/boutique/670x670/28873.webp" alt="a" width={400} height={400}></Image>
+          <div className={`${home.Ti}`}>
+            <p>Ready For Some Fun | Up To 12+Y</p>
+            <div className={`${home.a}` }>
+              <p className={`${home.c}`}>Onesies, Sets, T-Shirts&More</p>
+              <p className={home.b}>SHOP NOW</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     
     </>
