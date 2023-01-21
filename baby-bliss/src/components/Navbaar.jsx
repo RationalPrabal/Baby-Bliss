@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "./logo.png";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+ import { FiShoppingCart} from 'react-icons/fa';
 import { CartContext } from '@/Context/CartContext';
 import { useContext } from 'react';
 import {
@@ -87,7 +88,7 @@ import { useRouter } from 'next/router'
             direction={'row'}
             spacing={6}>
           
-      <ShoppingCartIcon/>
+      <FiShoppingCart/>
             <Button
               as={'a'}
               fontSize={'sm'}
