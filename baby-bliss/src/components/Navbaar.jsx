@@ -1,6 +1,7 @@
 import React from 'react'
-import logo from "../Image/logo.png"
-
+import logo from "./logo.png";
+import { CartContext } from '@/Context/CartContext';
+import { useContext } from 'react';
 import {
     Box,
     Flex,
@@ -27,10 +28,11 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
 import Image from 'next/image';
-  
+import { useRouter } from 'next/router'
   const Navbaar = () => {
+    const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-  
+    const {cartCount,setText}= useContext(CartContext);
     return (
       <Box>
         <Flex
@@ -94,7 +96,7 @@ import Image from 'next/image';
               _hover={{
                 bg: 'pink.300',
               }}>
-              Sign Up
+             Sign Up ${cartCount}
             </Button>
           </Stack>
         </Flex>
@@ -323,9 +325,11 @@ import Image from 'next/image';
         label: 'Diapering',
         href: '#',
       },{
-        label: <Input type="text" />,
+        label: <Input type="text" onChange={(e)=>setText(e.target.value)} />
+      },{
+        label: <Button onClick={()=>router.push("/all")}>Search</Button>
       }
-      
+    
   ];
 
  
