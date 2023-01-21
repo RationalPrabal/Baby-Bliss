@@ -18,12 +18,15 @@ set_data(res.data)
  const Search=async()=>{
     let res =  await axios.get(`http://localhost:8080/all?q=${text}`)
     console.log(res.data)
+    console.log(res.data)
+    console.log("prabal")
     set_data(res.data)
  }
+ console.log(text)
  React.useEffect(()=>{
    Search()
- },[])
-
+ },[text])
+console.log(data)
  // function for sort by discount
  const OrderDiscount=async(order)=>{
   let res =  await axios.get(`http://localhost:8080/all?_sort=discount&_order=${order}`)

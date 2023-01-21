@@ -78,7 +78,7 @@ fontWeight={"400"}
 
 
 {
- text==="Added" ?  <Button isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added</Button>: 
+ text==="Added" ?  <Button isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added To Cart</Button>: 
  <Button bg="red" _hover="" onClick={()=>AddToCart()}>{text}</Button>
 }
 

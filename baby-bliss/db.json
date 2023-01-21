@@ -42165,10 +42165,28 @@
       "discount": "(23% Off)",
       "quantity": 1,
       "title": "Babyhug Half Sleeves Polo T-Shirt Text Embroidery - Maroon"
+    },
+    {
+      "id": 1279.36,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/8690386a.webp",
+      "price": 1319.34,
+      "mrp": 1999,
+      "discount": "(34% Off)",
+      "quantity": 1,
+      "title": "Carter's 4-Piece S'mores 100% Snug Fit Cotton PJs - Multicolor"
+    },
+    {
+      "id": 1101.7,
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/9356371a.webp",
+      "price": 1137.63,
+      "mrp": 2395,
+      "discount": "(52% Off)",
+      "quantity": 1,
+      "title": "Babyhug Advanced Pant Style Diapers Extra Large..."
     }
   ],
   "userDetails": [],
-  "all":[
+  "all": [
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-100-cotton-half-sleeves-bio-washed-t-shirt-sailing-ship-print-white/12642726/product-detail",
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
@@ -42954,7 +42972,8 @@
       "clr_size href 16": "",
       "clr_size 17": "",
       "clr_size href 17": ""
-    }, {
+    },
+    {
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/10690144a.webp",
       "title": "Musical Talking Tom Cat - Grey",
       "title href": "https://www.firstcry.com/fab-n-funky/musical-talking-tom-cat-grey/10690144/product-detail",
@@ -45478,6 +45497,5 @@
       "lft": "Buy & Earn Club Cash upto :2.24",
       "loyal_popup": "Earn Club Cash up to 2.24/- for this product, depending upon membership plan. 12-month plan club members receive 2 X Club Cash. You can redeem it in your future purchase (Min. 100/- Club Cash is required.)"
     }
-
   ]
 }
