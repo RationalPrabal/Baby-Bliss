@@ -2,17 +2,22 @@ import React from 'react'
 import Image from 'next/image'
 import { Button, GridItem,Text,Box ,Badge} from '@chakra-ui/react';
 import axios from 'axios';
+import { CartContext } from '@/Context/CartContext';
+import { useContext } from 'react';
 const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
+  const {cartCount,setCartCount}= useContext(CartContext);
+
   const [text,setText]= React.useState("Add To Cart")
   const [data,setData]= React.useState([])
   const AddToCart=async()=>{
    await axios.post("http://localhost:8080/cart",{
-      id,img:image,price,mrp,discount,lft,title
+      id,img:image,price,mrp,discount,quantity:1,title
   }
   
   )
  //setText("Added")
   getCart()
+  setCartCount(data.length)
   }
 
   const AddToWishlist=async()=>{
@@ -27,14 +32,14 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   const getCart=async()=>{
   let res=  await axios.get("http://localhost:8080/cart")
 setData(res.data)
-
+setCartCount(res.data.length)
 
   }
   //console.log(data)
 
   React.useEffect(()=>{
 getCart()
-
+setCartCount(data.length)
 
 
   },[])
