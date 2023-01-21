@@ -1,5 +1,7 @@
 import React from 'react'
 import logo from "./logo.png";
+
+ import { FiShoppingCart} from 'react-icons/fa';
 import { CartContext } from '@/Context/CartContext';
 import { useContext } from 'react';
 import {
@@ -32,9 +34,16 @@ import { useRouter } from 'next/router'
   const Navbaar = () => {
     const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-    const {cartCount,setText}= useContext(CartContext);
+    const {cartCount, setText}= useContext(CartContext);
+
+ 
     return (
-      <Box>
+      <Box position="fixed" 
+      left="0"
+      right="0"
+      top="0"
+      zIndex="111"
+      >
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -61,14 +70,14 @@ import { useRouter } from 'next/router'
             />
           </Flex>
           <Flex flex={{ base: 1 }} bgColor={"yellow"} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-            {/* <Image src={logo} alt="..." width={50} height={10}/> */}
-            </Text>
+           
+          <Image src={logo} alt="..." width={50} height={10}/>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+           
+            <Input w="15%" type="text" onChange={(e)=>{setText(e.target.value)
+              router.push("/all")
+              }} placeholder="Search Product" />
               <DesktopNav />
             </Flex>
           </Flex>
@@ -78,6 +87,8 @@ import { useRouter } from 'next/router'
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
+          
+      <FiShoppingCart/>
             <Button
               as={'a'}
               fontSize={'sm'}
@@ -265,33 +276,11 @@ import { useRouter } from 'next/router'
     },
     {
       label: 'Boy Fashion',
-      children: [
-        {
-          label: 'Explore Design Work',
-          subLabel: 'Trending Design to inspire you',
-          href: '#',
-        },
-        {
-          label: 'New & Noteworthy',
-          subLabel: 'Up-and-coming Designers',
-          href: '#',
-        },
-      ],
+      
     },
     {
       label: 'Girl fashion',
-      children: [
-        {
-          label: 'Job Board',
-          subLabel: 'Find your dream design job',
-          href: '#',
-        },
-        {
-          label: 'Freelance Projects',
-          subLabel: 'An exclusive list for contract work',
-          href: '#',
-        },
-      ],
+    
     },
     {
       label: 'Footwear',
@@ -301,18 +290,9 @@ import { useRouter } from 'next/router'
       label: 'Toys',
       href: '#',
     },
-    {
-        label: 'Gear',
-        href: '#',
-      },
-      {
-        label: 'Feeding',
-        href: '#',
-      },
-      {
-        label: 'Bath',
-        href: '#',
-      },
+  
+    
+   
       {
         label: 'Mom',
         href: '#',
@@ -324,12 +304,7 @@ import { useRouter } from 'next/router'
       {
         label: 'Diapering',
         href: '#',
-      },{
-        label: <Input type="text" onChange={(e)=>setText(e.target.value)} />
-      },{
-        label: <Button onClick={()=>router.push("/all")}>Search</Button>
       }
-    
   ];
 
  
