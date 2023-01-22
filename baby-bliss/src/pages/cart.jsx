@@ -1,97 +1,394 @@
 import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
   Flex,
-  Heading,
+  Grid,
   Image,
-  Stack,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
   Text,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Heading,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  HStack,
+  InputRightElement,
+  Stack,
+  useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
+import { CheckCircleIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import Link from "next/link";
-import React from "react";
-
-const temp = {
-  img: "https://cdn.fcglcdn.com/brainbees/images/products/219x265/12214478a.jpg",
-  desc: "0 Months+, product dimensions L 24 x W 4.50 cm, durable, easy to attach.",
-  price: "739.03",
-  mrp: "1999",
-  discount: "(63% Off)",
-  title: "Little Story Premium Stroller Hooks Pack of 2 - Yellow",
-};
+import React, { useEffect, useState } from "react";
+import CartItem from "@/components/CartItem";
+import { red } from "@mui/material/colors";
 
 function cart({ cartItems }) {
-  return (
-    <Tabs w={"80%"} m={"auto"} mt={4} size="md" variant="enclosed">
-      <TabList>
-        <Tab>Shopping Cart</Tab>
-        <Tab>Wishlist</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>
-          {cartItems.length === 0 ? (
-            <Flex
-              flexDirection={"column"}
-              m={"auto"}
-              mt={6}
-              w={"max-content"}
-              textAlign={"center"}>
-              <Image
-                m={"auto"}
-                w={"320px"}
-                src="https://cdn.fcglcdn.com/brainbees/checkout/empty_cart.gif"
-              />
-              <Text fontSize={"xl"} as={"b"} mt={4}>
-                Your shopping cart is empty
-              </Text>
-              <Link href="/">Continue browsing</Link>
-            </Flex>
-          ) : (
-            <Box>
-              <Card
-                direction={{ base: "column", sm: "row" }}
-                overflow="hidden"
-                variant="outline">
-                <Image
-                  objectFit="cover"
-                  maxW={{ base: "100%", sm: "200px" }}
-                  src={temp.img}
-                  alt="Caffe Latte"
+  const [order, setOrder] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [step, setStep] = useState(1);
+
+  const confirmOrder = () => {
+    setLoading(true);
+    setTimeout(completeOrder, 5000);
+  };
+
+  const completeOrder = () => {
+    setLoading(false);
+    setOrder(true);
+    axios.delete(`https://baby-bliss-backend.vercel.app/cart`);
+    setTimeout(redirect, 3000);
+  };
+
+  const redirect = () => {
+    location.href = "/";
+  };
+
+  useEffect(() => {
+    let sum = 0;
+    cartItems.map((item) => {
+      sum += item.price * item.quantity;
+    });
+    setTotal(sum.toFixed(2));
+    console.log(typeof total);
+  }, []);
+
+  if (order) {
+    return (
+      <Box mt={"100px"} textAlign="center" py={10} px={6}>
+        <CheckCircleIcon boxSize={"50px"} color={"green.500"} />
+        <Heading as="h2" size="xl" mt={6} mb={2}>
+          Order placed successfully
+        </Heading>
+        <Text color={"gray.500"}>
+          You will recieve an email with tracking information once your goods
+          have shipped.
+        </Text>
+      </Box>
+    );
+  }
+
+  if (step === 3) {
+    return (
+      <Grid
+        gridTemplateColumns={"3fr 1fr"}
+        gap={6}
+        w={"80%"}
+        m={"auto"}
+        mt={"100px"}>
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}>
+          <Stack spacing={4}>
+            <HStack>
+              <Box w={"100%"}>
+                <FormControl id="name" isRequired>
+                  <FormLabel>CARDHOLDER'S NAME</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl isRequired id="CVV">
+                  <FormLabel>CVV</FormLabel>
+                  <Input
+                    type="number"
+                    onInput={(e) =>
+                      (e.target.value = e.target.value.slice(0, 3))
+                    }
+                  />
+                </FormControl>
+              </Box>
+            </HStack>
+            <HStack>
+              <Box w={"100%"}>
+                <FormControl id="email" isRequired>
+                  <FormLabel>CARD NUMBER</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="email" isRequired>
+                  <FormLabel>EXPIRATION DATE</FormLabel>
+                  <Flex alignItems={"center"}>
+                    <Input
+                      onInput={(e) =>
+                        (e.target.value = e.target.value.slice(0, 2))
+                      }
+                      type="number"
+                    />
+                    <Text mx={2}>/</Text>
+                    <Input
+                      onInput={(e) =>
+                        (e.target.value = e.target.value.slice(0, 2))
+                      }
+                      type="number"
+                    />
+                  </Flex>
+                </FormControl>
+              </Box>
+            </HStack>
+
+            <Stack spacing={10} pt={2}>
+              <Button
+                type="submit"
+                isLoading={loading === true}
+                onClick={() => confirmOrder()}
+                loadingText="PLEASE WAIT WHILE WE CONFIRM YOUR PAYMENT"
+                size="lg"
+                bg={"blue.400"}
+                color={"white"}
+                _hover={{
+                  bg: "blue.500",
+                }}>
+                CONFIRM ORDER
+              </Button>
+            </Stack>
+          </Stack>
+        </Box>
+
+        {cartItems.length > 0 ? (
+          <Card h={"max-content"}>
+            <CardHeader>
+              <Heading size="md">Order summary</Heading>
+            </CardHeader>
+            <CardBody>
+              <Flex justifyContent={"space-between"}>
+                <Text>Subtotal</Text>
+                <Text>₹{total}</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text>Tax</Text>
+                <Text>₹{(total * 0.05).toFixed(2)}</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text>Shipping</Text>
+                <Text color={"#00A300"}>FREE</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text as={"b"}>GRAND TOTAL</Text>
+                <Text>₹{(Number(total) + total * 0.05).toFixed(2)}</Text>
+              </Flex>
+            </CardBody>
+            <CardFooter>
+              <Button onClick={() => setStep(2)}>GO BACK</Button>
+            </CardFooter>
+          </Card>
+        ) : null}
+      </Grid>
+    );
+  }
+
+  if (step === 2) {
+    return (
+      <Grid
+        gridTemplateColumns={"3fr 1fr"}
+        gap={6}
+        w={"80%"}
+        m={"auto"}
+        mt={"100px"}>
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}>
+          <Stack spacing={4}>
+            <HStack>
+              <Box>
+                <FormControl id="firstName" isRequired>
+                  <FormLabel>First name</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="lastName">
+                  <FormLabel>Last name</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+            </HStack>
+            <FormControl id="email" isRequired>
+              <FormLabel>Address</FormLabel>
+              <Input type="text" />
+            </FormControl>
+            <FormControl id="email" isRequired>
+              <FormLabel>Apartment, suite, etc</FormLabel>
+              <Input type="text" />
+            </FormControl>
+            <HStack>
+              <Box>
+                <FormControl id="firstName" isRequired>
+                  <FormLabel>City</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="lastName">
+                  <FormLabel>State</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="lastName">
+                  <FormLabel>Postal code</FormLabel>
+                  <Input type="text" />
+                </FormControl>
+              </Box>
+            </HStack>
+            <FormControl id="password" isRequired>
+              <FormLabel>Phone Number</FormLabel>
+              <InputGroup>
+                <Input
+                  type={"number"}
+                  onInput={(e) =>
+                    (e.target.value = e.target.value.slice(0, 10))
+                  }
                 />
+                <InputRightElement h={"full"}></InputRightElement>
+              </InputGroup>
+            </FormControl>
+            <Stack spacing={10} pt={2}>
+              <Button
+                onClick={() => setStep(3)}
+                loadingText="Submitting"
+                size="lg"
+                bg={"blue.400"}
+                color={"white"}
+                _hover={{
+                  bg: "blue.500",
+                }}>
+                PROCEED TO PAYMENT
+              </Button>
+            </Stack>
+          </Stack>
+        </Box>
 
-                <Stack>
-                  <CardBody>
-                    <Heading size="md">{temp.title}</Heading>
+        {cartItems.length > 0 ? (
+          <Card h={"max-content"}>
+            <CardHeader>
+              <Heading size="md">Order summary</Heading>
+            </CardHeader>
+            <CardBody>
+              <Flex justifyContent={"space-between"}>
+                <Text>Subtotal</Text>
+                <Text>₹{total}</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text>Tax</Text>
+                <Text>₹{(total * 0.05).toFixed(2)}</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text>Shipping</Text>
+                <Text color={"#00A300"}>FREE</Text>
+              </Flex>
+              <Flex mt={3} justifyContent={"space-between"}>
+                <Text as={"b"}>GRAND TOTAL</Text>
+                <Text>₹{(Number(total) + total * 0.05).toFixed(2)}</Text>
+              </Flex>
+            </CardBody>
+            <CardFooter>
+              <Button onClick={() => setStep(1)}>GO BACK</Button>
+            </CardFooter>
+          </Card>
+        ) : null}
+      </Grid>
+    );
+  }
 
-                    <Text py="2">{temp.desc ? temp.desc : null}</Text>
-                  </CardBody>
+  return (
+    <Grid
+      gridTemplateColumns={"3fr 1fr"}
+      gap={6}
+      w={"80%"}
+      m={"auto"}
+      mt={"100px"}>
+      <Tabs size="md" variant="enclosed">
+        <TabList>
+          <Tab>Shopping Cart</Tab>
+          <Tab>Wishlist</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            {cartItems.length === 0 ? (
+              <Flex
+                flexDirection={"column"}
+                m={"auto"}
+                mt={6}
+                w={"max-content"}
+                textAlign={"center"}>
+                <Image
+                  m={"auto"}
+                  w={"320px"}
+                  src="https://cdn.fcglcdn.com/brainbees/checkout/empty_cart.gif"
+                />
+                <Text fontSize={"xl"} as={"b"} mt={4}>
+                  Your shopping cart is empty
+                </Text>
+                <Link href="/">Continue browsing</Link>
+              </Flex>
+            ) : (
+              cartItems.map((item) => {
+                return (
+                  <CartItem
+                    mpr={item.mrp}
+                    title={item.title}
+                    price={item.price}
+                    desc={item.desc ? item.desc : null}
+                    qty={item.quantity}
+                    img={item.img}
+                    id={item.id}
+                    discount={item.discount}
+                  />
+                );
+              })
+            )}
+          </TabPanel>
+          <TabPanel>
+            <p>Wishlist</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
 
-                  <CardFooter>
-                    <Button mr={6} variant="solid" colorScheme="blue">
-                      REMOVE
-                    </Button>
-                    <Button variant="solid" colorScheme="blue">
-                      ADD TO WISHLIST
-                    </Button>
-                  </CardFooter>
-                </Stack>
-              </Card>
-            </Box>
-          )}
-        </TabPanel>
-        <TabPanel>
-          <p>two!</p>
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+      {cartItems.length > 0 ? (
+        <Card h={"max-content"}>
+          <CardHeader>
+            <Heading size="md">Order summary</Heading>
+          </CardHeader>
+          <CardBody>
+            <Flex justifyContent={"space-between"}>
+              <Text>Subtotal</Text>
+              <Text>₹{total}</Text>
+            </Flex>
+            <Flex mt={3} justifyContent={"space-between"}>
+              <Text>Tax</Text>
+              <Text>₹{(total * 0.05).toFixed(2)}</Text>
+            </Flex>
+            <Flex mt={3} justifyContent={"space-between"}>
+              <Text>Shipping</Text>
+              <Text color={"#00A300"}>FREE</Text>
+            </Flex>
+            <Flex mt={3} justifyContent={"space-between"}>
+              <Text as={"b"}>GRAND TOTAL</Text>
+              <Text>₹{(Number(total) + total * 0.05).toFixed(2)}</Text>
+            </Flex>
+          </CardBody>
+          <CardFooter>
+            <Button onClick={() => setStep(2)}>PROCEED TO CHECKOUT</Button>
+          </CardFooter>
+        </Card>
+      ) : null}
+    </Grid>
   );
 }
 
