@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FormControl, FormLabel, Input, Box, Button, Flex, HStack ,Text,InputLeftAddon, InputGroup, VStack} from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, Box, Button, Flex, HStack ,Text,InputLeftAddon, InputGroup, VStack, Heading} from '@chakra-ui/react'
 import axios from 'axios'
 
 function UserInput() {
@@ -138,6 +138,8 @@ const handleUpdate = (editId) => {
       <Box>
         { editId === entry.id ? (
           <>
+
+          
             <FormControl>
                 
               <FormLabel htmlFor="name">Name</FormLabel>
