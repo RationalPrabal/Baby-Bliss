@@ -4,7 +4,8 @@ import { FormControl, FormLabel, Input, Radio, Button,Grid,GridItem,Box,Heading,
 import UserInput from "../components/UserInput";
 
 
-const Form = () => {
+const Form = ({data}) => {
+  
   const [formData, setFormData] = useState({
   
     name: "",
@@ -47,7 +48,7 @@ const Form = () => {
   return (
     <>
 
-      <Grid  templateColumns='repeat(2, 1fr)' width="90%" mt="200px" marginLeft="80px" gap={2}>
+      <Grid  templateColumns='repeat(2, 1fr)' width="90%" mt="200px" marginLeft="70px" gap={2}>
 
                       <GridItem  width="40%" height="100%" h='10' bg='white' >
                               
@@ -62,7 +63,7 @@ const Form = () => {
                           
                         </Box>
 
-                        <Heading  mt={5} fontSize="lg" bg="grey" height={8} color="blackAlpha">Cash in My Account</Heading>
+                        <Heading   mt={5} fontSize="lg" bg="grey" height={8} color="blackAlpha">Cash in My Account</Heading>
                         <Box mt={5}>
 
                           <Text  mb={2}>Club Cash</Text>
@@ -79,7 +80,7 @@ const Form = () => {
 
       {/*  ///////////////////////////  Profile Details ////////////////////////////////////////// */}
 
-     <GridItem width="70%" h='100%' bg='white'>
+     <GridItem width="80%" h='100%' bg='white' >
 
            <Heading  fontSize='lg' backgroundColor="grey">Profile</Heading> 
                  <Container marginBottom="40px" width="100%" >  
@@ -87,6 +88,8 @@ const Form = () => {
             <Flex gap={20} >   
                <Box marginTop="50px">
                    
+                   <Text color='black' fontSize='xl'  as='b' >Yogesh Nishad </Text>
+
                     
                 </Box>
                 <Spacer />
@@ -108,14 +111,13 @@ const Form = () => {
                  <Box marginTop="50px" >
                      <HStack marginBottom="20px">
                   
-                          <Text fontSize='sm'  as='b'>Email:</Text>
-                          <Text> yogiatoy27518@gmail.com</Text>
+                          <Text fontSize='md'  as='b' color='grey'>Email:</Text>
+                          <Text fontSize='sm'  as='b' color='black'>yogesh@gmail.com</Text>
                   </HStack>
 
                      <HStack>
-
-                          <Text fontSize='sm'  as='b'>Mobile No :
-                         </Text><Text> 7999959808</Text>
+                     <Text fontSize='md'  as='b' color='grey'>Mobile No:</Text>
+                          <Text fontSize='sm'  as='b' color='black'>7999959808</Text>
                     </HStack>  
 
                   </Box>
@@ -129,8 +131,7 @@ const Form = () => {
                  
                  <HStack>
                    <Text > 
-                    Your Mobile Number is VerifiedBy verifying your mobile number with us you can now Shop'n'Earn Club Cash at our FirstCry.com stores too! To earn Club Cash on store purchases,
-                   simply provide your verified mobile number at the time of billing.
+                   Your Mobile Number is VerifiedBy verifying your mobile number with us you can now Shop'n'Earn Club Cash at our FirstCry.com stores too! To earn Club Cash on store purchases, simply provide your verified mobile number at the time of billing.
                    </Text>
                    </HStack>
                 </Box>   
@@ -142,18 +143,20 @@ const Form = () => {
                      <br/>
                      <br/>
               
-             <form onSubmit={handleSubmit}>
-                          <FormControl as='fieldset'>
-                            <FormLabel htmlFor="name">Name</FormLabel>
-                            <Input  size='sm' maxW="250px" type="text" id="name" name="name" value={formData.name} onChange={handleChange} required/>
+                     <Heading alignItems="center"  height={8} fontSize="lg" bg="grey" color="blackAlpha"> Child Details</Heading>
+             <form  onSubmit={handleSubmit}> 
+                          <FormControl as='fieldset' mt={10}>
+                            
+                            <FormLabel htmlFor="name" fontSize="18px" color="grey">Name</FormLabel>
+                            <Input color="grey" fontSize="18px" variant='filled' placeholder='ENTER NAME' size='sm' maxW="250px" type="text" id="name" name="name" value={formData.name} onChange={handleChange} required/>
                           </FormControl>
                           <FormControl>
-                            <FormLabel htmlFor="dateOfBirth">Date of Birth</FormLabel>
-                            <Input  size='sm' maxW="250px" type="date" id="dateOfBirth" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required/>
+                            <FormLabel htmlFor="dateOfBirth" fontSize="18px" color="grey">Date of Birth</FormLabel>
+                            <Input color="grey" fontSize="18px" variant='filled' placeholder='DATE OF BIRTH' size='sm' maxW="250px" type="date" id="dateOfBirth" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required/>
                           </FormControl>
                           <FormControl>
-                            <FormLabel>Gender</FormLabel>
-                            <Radio value="Boy" id="Boy" name="gender" checked={formData.gender === "Boy"} onChange={handleChange} required>
+                            <FormLabel fontSize="18px" color="grey">Gender</FormLabel>
+                            <Radio  value="Boy" id="Boy" name="gender" checked={formData.gender === "Boy"} onChange={handleChange} required>
                               Boy
                             </Radio>
                             <Radio value="Girl" id="Girl" name="gender" checked={formData.gender === "Girl"} onChange={handleChange} required>
@@ -164,17 +167,21 @@ const Form = () => {
 
                           <Flex gap={1}>
                           <FormControl>
-                            <FormLabel htmlFor="age">Weight</FormLabel>
-                            <Input size='sm' maxW={20} type="number" id="weight" name="weight" value={formData.age} onChange={handleChange} required/>
+                            <HStack>
+                            <FormLabel htmlFor="age" fontSize="18px" color="grey">Weight</FormLabel>
+                            <Input color="grey" fontSize="18px" variant='filled' placeholder='KG' size='sm' maxW={20} type="text" id="weight" name="weight" value={formData.age} onChange={handleChange} required/>
+                            </HStack>
                           </FormControl>
 
                           <FormControl>
-                            <FormLabel htmlFor="height">Height</FormLabel>
-                            <Input size='sm' maxW={20} type="number" id="height" name="height" value={formData.height} onChange={handleChange} required/>
+                            <HStack>
+                            <FormLabel htmlFor="height" fontSize="18px" color="grey">Height</FormLabel>
+                            <Input color="grey" fontSize="18px" variant='filled' placeholder='CM'  size='sm' maxW={20} type="text" id="height" name="height" value={formData.height} onChange={handleChange} required/>
+                            </HStack>
                           </FormControl>
                           </Flex>
                           <Button colorScheme='orange' variantColor="orange" mr={3} mt={5} type="submit">Save</Button>
-                          <Button mt={5} variant="outline" onClick={handleCancel}>Cancel</Button>
+                          <Button mt={5} colorScheme="blackAlpha" onClick={handleCancel}>Cancel</Button>
                         </form>
 
                         <br />
@@ -186,24 +193,24 @@ const Form = () => {
                       
                     
           <Stack spacing={3} key={i}>
-                      <Heading my='4' size='lg'>
+                      <Heading my='4' size='lg' color="black">
                       {data.name}
                     </Heading>
 
                     <Flex gap={2}>
-                    <Text>Date of Birth:</Text><Text as="b"> {data.dateOfBirth}</Text>
+                    <Text as='b' color='grey'>Date of Birth:</Text><Text as="b" color="black"> {data.dateOfBirth}</Text>
                     </Flex>
 
                     <Flex gap={2}>
-                    <Text>Gender:</Text><Text as="b"> {data.gender}</Text>
+                    <Text as='b' color='grey'>Gender:</Text><Text as="b" color="black">  {data.gender}</Text>
                     </Flex>
                     
                     <Flex gap={2}>
-                    <Text>Weight:</Text><Text as="b"> {data.weight}</Text>
+                    <Text as='b' color='grey'>Weight:</Text><Text as="b" color="black"> {data.weight}</Text>
                     </Flex>
                       
                     <Flex gap={2}>
-                    <Text>Height:</Text><Text as="b"> {data.height}</Text>
+                    <Text as='b' color='grey'>Height:</Text><Text as="b" color="black"> {data.height}</Text>
                     </Flex>
 
                     
@@ -223,5 +230,6 @@ const Form = () => {
 }
 
 export default Form;
+
 
 

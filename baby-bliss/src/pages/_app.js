@@ -5,6 +5,7 @@ import Navbaar from '@/components/Navbaar'
 import Footer from "@/components/Footer"
 export default function App({ Component, pageProps }) {
 
+
   return <CartContextProvider>
   <ChakraProvider>
 <Navbaar/> 

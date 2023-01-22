@@ -20050,8 +20050,55 @@
       "title": "Zelena Half Sleeves Floral Print Maternity Nighty -..."
     }
   ],
+<<<<<<< HEAD
   "cart": [],
   "userDetails": [],
+=======
+  "cart": [
+    {
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11683450a.webp",
+      "title": "Babyhug Cotton Full Sleeves Tee Stripes & Car Print Pack of 5-...",
+      "desc": null,
+      "price": 1325.22,
+      "quantity": 2,
+      "id": 1291.24,
+      "discount": "(22% Off)"
+    },
+    {
+      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12068840a.webp",
+      "title": "Babyhug Full Sleeves Cotton Looper Knit Winter Wear Tee Tree Print-...",
+      "desc": null,
+      "price": 552.21,
+      "quantity": 2,
+      "id": 538.23,
+      "discount": "(21% Off)"
+    }
+  ],
+  "userDetails": [
+    {
+      "name": "Yogesh Nishad",
+      "street": "sds",
+      "houseNumber": "sdds",
+      "pincode": "495553",
+      "city": "Akaltara",
+      "state": "pune",
+      "country": "India",
+      "mobile": "7999959808",
+      "id": 1
+    },
+    {
+      "name": "Yogesh Nishad",
+      "street": "40",
+      "houseNumber": "djfsjfd",
+      "pincode": "495553",
+      "city": "Akaltara",
+      "state": "pune",
+      "country": "India",
+      "mobile": "7999959808",
+      "id": 2
+    }
+  ],
+>>>>>>> 8e52682b55f079f47a6930872f579fb8f0325bf9
   "all": [
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-100-cotton-half-sleeves-bio-washed-t-shirt-sailing-ship-print-white/12642726/product-detail",

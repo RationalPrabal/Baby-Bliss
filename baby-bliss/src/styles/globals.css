@@ -1,3 +1,4 @@
+
 /* //////////////////////  ADMIN PAGE DESIGN ////////////////////////////*/
 body {
   font-family: 'lato', sans-serif;
@@ -47,6 +48,8 @@ li{
   .table-row {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    color:black;
+    font-size: 22px;
   }
   /* .col-1 {
     flex-basis: 10%;
@@ -172,7 +175,7 @@ li{
 .form-admin{
 
   background: rgba(0, 0, 0, 0.8);
-  height: 400px;
+  height: 550px;
   margin-top: 60px;
    
 }
@@ -188,6 +191,13 @@ li{
  margin-top: 10px;
  font-size: 18px;
 }
+
+.form-admin>div>div>input{
+  color:black;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 18px;
+ }
 
 .form-admin>div{
    margin-left: 50px;
