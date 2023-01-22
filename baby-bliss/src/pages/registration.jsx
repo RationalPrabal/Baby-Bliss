@@ -60,24 +60,26 @@ const handleChange=(e)=>{
     router.push("/login")
      }
        catch (error) {
-          console.log('error', error)  }
+   console.log("error", error.response.data);
+ }
 
 
- try {
-    const res = await axios.post("https://baby-bliss-backend.vercel.app/user",registerdetails)
- } catch (error) {
-   console.log(error)
-}
+//  try {
+//     const res = await axios.post("https://baby-bliss-backend.vercel.app/user",registerdetails)
+//  }
+//  catch (error) {
+//    console.log(error.response.data);
+// }
 
     console.log(registerdetails)
 
    }
    
    useEffect(()=>{
-     let users=  fetch("http://localhost:8080/user")
-      .then((res)=>res.json())
-      .then((res)=>res)
-      .catch((err)=>console.log(err))
+     let users = fetch("https://baby-bliss-backend.vercel.app/user")
+       .then((res) => res.json())
+       .then((res) => res)
+       .catch((err) => console.log(err));
       users=users.then((res)=>res)
       console.log(users)
     //   let obj = {}
