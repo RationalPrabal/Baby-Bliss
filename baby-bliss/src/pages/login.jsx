@@ -8,16 +8,24 @@ import {
     Checkbox,
     Stack,
     Link,
+    Image,
     Button,
     Heading,
     Text,
     useColorModeValue,
+    useToast,
   } from '@chakra-ui/react';
+  import { useRouter } from 'next/router'
   
-  
+
+
+
+
   const Login = () => {
     const [email,setemail] =useState("")
     const [password,setpassword] =useState("")
+
+    const router = useRouter()
 
 const validate=()=>{
     let result = true;
@@ -33,6 +41,8 @@ const validate=()=>{
 
 
 const [data,setdata]= useState([])
+const toast=useToast()
+  
 
  const signin=(e)=>{
 e.preventDefault()
@@ -42,11 +52,22 @@ const LoginVal = data.filter((el)=>(
     el.email===email && el.password===password
     
 ))
+
+
 if(LoginVal.length>0){
-   alert("Logined")
+  toast({
+    title: `Successfully Logged In`,
+    status: "success",
+    isClosable: true,
+  });
+  router.push("/")
 }
 else{
-alert("Failed")
+  toast({
+    title: ` Please Fill Correct details`,
+    status: "error",
+    isClosable: true,
+  });
 }
 console.log(LoginVal)
  }
@@ -68,6 +89,7 @@ useEffect(()=>{
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
+          <Image src="https://i.postimg.cc/QxQdTXsg/Whats-App-Image-2023-01-17-at-10-32-51-PM.jpg" alt="..." width={150} height={100} />
             <Heading fontSize={'4xl'}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
               to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️

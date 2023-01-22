@@ -75,7 +75,7 @@ import { useRouter } from 'next/router'
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
            
-            <Input w="15%" type="text" onChange={(e)=>{setText(e.target.value)
+            <Input w="25%" type="text" onChange={(e)=>{setText(e.target.value)
               router.push("/all")
               }} placeholder="Search Product" />
               <DesktopNav />
@@ -88,7 +88,7 @@ import { useRouter } from 'next/router'
             direction={'row'}
             spacing={6}>
           <Box display="flex">
-      <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/><Text color="green">{cartCount}</Text>
+      <ShoppingCartIcon onClick={()=> router.push("/cart") } style={{color:"red",fontSize:"40px"}}/><Text color="green">{cartCount}</Text>
       </Box>
             <Button
               as={'a'}

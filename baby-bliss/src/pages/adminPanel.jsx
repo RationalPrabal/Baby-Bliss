@@ -101,16 +101,21 @@ function adminPanel({data}) {
             <ul class="responsive-table">
             <li class="table-header">
                 <div class="col col-1" id="bold">Customer Id</div>
-                <div class="col col-2" id="bold">Customer Name</div>
-                <div class="col col-3" id="bold">Customer Mobile No.</div>
+                <div class="col col-2" id="bold">Username</div>
+                <div class="col col-3" id="bold">Name</div>
+                <div class="col col-2" id="bold">Mobile No.</div>
+                <div class="col col-3" id="bold">Email ID</div>
                 
             </li>
 
                 {data.map(el => (
                 <li class="table-row">
-                <div class="col col-1" data-label="Job Id">{el.userId}</div>
-                <div class="col col-2" data-label="Customer Name">{el.userName}</div>
-                <div class="col col-3" data-label="Amount">{el.userMobile}</div>
+                <div class="col col-1" data-label="Job Id">{el.phn}</div>
+                <div class="col col-2" data-label="Customer Name">{el.user}</div>
+                <div class="col col-3" data-label="Amount">{el.name}</div>
+                <div class="col col-1" data-label="Job Id">{el.phn}</div>
+                <div class="col col-2" data-label="Customer Name">{el.email}</div>
+           
                 
                 </li>
                 ))}

@@ -29,6 +29,7 @@ const temp = {
 };
 
 function cart({ cartItems }) {
+  console.log(cartItems)
   return (
     <Tabs w={"80%"} m={"auto"} mt={4} size="md" variant="enclosed">
       <TabList>

@@ -15,38 +15,34 @@ import {
     Button,
     Heading,
     Text,
+    Image,
     useColorModeValue,
     Link,
+    useToast,
   } from '@chakra-ui/react';
- 
+
+import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import axios from 'axios';
-  
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
   
 
   const Registration = () => {
 
-    
+    const router = useRouter()
    const [registerdetails,setregisterdetails] =useState({})
-    // const [id,setid] =useState("")
-    // const [name,setname]=useState("")
-    // const [Lname,setLname]=useState("")
-    // const [phn,setphn] =useState("")
-    // const [email,setemail]=useState("")
+    const toast=useToast()
+  
      const [showPassword, setShowPassword] = useState(false);
-    // const [password,setpassword]=useState("")
+
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
 }
 
 
    const handleSubmit = async()=>{
-   
-  
-    
-   
-
  try { 
    let res=await fetch("https://baby-bliss-backend.vercel.app/user",
  { 
@@ -55,24 +51,44 @@ const handleChange=(e)=>{
   headers:{"Content-Type": "application/json"}
     }) 
      let datahai=await res.json() 
-      console.log(datahai) }
+       console.log(datahai)
+       toast({
+        title: `Registered sucessfully`,
+        status: "success",
+        isClosable: true,
+      });
+    router.push("/login")
+     }
        catch (error) {
           console.log('error', error)  }
 
-// try {
-//    const res = await axios.post("https://baby-bliss-backend.vercel.app/user",registerdetails)
-// } catch (error) {
-//   console.log(error)
-// }
+
+ try {
+    const res = await axios.post("https://baby-bliss-backend.vercel.app/user",registerdetails)
+ } catch (error) {
+   console.log(error)
+}
+
     console.log(registerdetails)
 
    }
-
    
+   useEffect(()=>{
+     let users=  fetch("https://baby-bliss-backend.vercel.app/user")
+      .then((res)=>res.json())
+      .then((res)=>res)
+      .catch((err)=>console.log(err))
+      users=users.then((res)=>res)
+      console.log(users)
+    //   let obj = {}
+    //  users.forEach((el)=>{
+    //   obj[el.email]=el.email
+    //  })
+    //  console.log(obj)
+   })
 
-  //  console.log(obj,"dfgh")
 
-   
+
     return (
       <Flex
       color="green"
@@ -82,6 +98,7 @@ const handleChange=(e)=>{
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
+            <Image src="https://i.postimg.cc/QxQdTXsg/Whats-App-Image-2023-01-17-at-10-32-51-PM.jpg" alt="..." width={150} height={100} />
             <Heading fontSize={'4xl'} textAlign={'center'} >
               Sign up
             </Heading>
