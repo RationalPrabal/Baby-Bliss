@@ -5,12 +5,11 @@ import Navbaar from '@/components/Navbaar'
 import NavbaarF from 'Component/Navbaar/NavbaarF'
 import Footer from './footer'
 export default function App({ Component, pageProps }) {
-  return  <CartContextProvider>
-  <ChakraProvider>
-{/* 
-    <Navbaar/> */}
-
-    <Component {...pageProps} />
+  return <CartContextProvider>
+    <ChakraProvider>
+    <Navbaar/>
+      <Component {...pageProps} />
     </ChakraProvider>
-    </CartContextProvider>
+  </CartContextProvider>
+}
 

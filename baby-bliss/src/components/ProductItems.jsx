@@ -10,7 +10,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   const [text,setText]= React.useState("Add To Cart")
   const [data,setData]= React.useState([])
   const AddToCart=async()=>{
-   await axios.post("http://localhost:8080/cart",{
+   await axios.post("https://baby-bliss-backend.vercel.app/cart",{
       id,img:image,price,mrp,discount,quantity:1,title
   }
   
@@ -21,7 +21,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   }
 
   const AddToWishlist=async()=>{
-    await axios.post("http://localhost:8080/wishlist",{
+    await axios.post("https://baby-bliss-backend.vercel.app/wishlist",{
        id,img:image,price,mrp,discount,lft,title
    }
    
@@ -30,7 +30,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   
    }
   const getCart=async()=>{
-  let res=  await axios.get("http://localhost:8080/cart")
+  let res=  await axios.get("https://baby-bliss-backend.vercel.app/cart")
 setData(res.data)
 setCartCount(res.data.length)
 

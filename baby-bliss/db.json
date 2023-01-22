@@ -1,7 +1,5 @@
 {
   "user": [
-
-    
     {
       "userName": "Yogesh",
       "userMobile": "7999959808",
@@ -20052,161 +20050,24 @@
       "title": "Zelena Half Sleeves Floral Print Maternity Nighty -..."
     }
   ],
-  
- 
   "cart": [
     {
-      "id": 384.23,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12642726a.webp",
-      "price": 394.21,
-      "mrp": 499,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Pine Kids 100% Cotton Half Sleeves Bio Washed T-Shirt Sailing Ship..."
-    },
-    {
-      "id": 345,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11610489a.webp",
-      "price": 354.71,
-      "mrp": 449,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyhug Cotton Half Sleeves T-Shirt Bear Patch - Brown"
-    },
-    {
-      "id": 706.04,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12223088a.webp",
-      "price": 724.62,
-      "mrp": 929,
-      "discount": "(22% Off)",
-      "quantity": 1,
-      "title": "Babyhug Cotton Jersey Knit Half Sleeves Striped T-Shirt Shark..."
-    },
-    {
-      "id": 1291.24,
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11683450a.webp",
+      "title": "Babyhug Cotton Full Sleeves Tee Stripes & Car Print Pack of 5-...",
+      "desc": null,
       "price": 1325.22,
-      "mrp": 1699,
-      "discount": "(22% Off)",
-      "quantity": 1,
-      "title": "Babyhug Cotton Full Sleeves Tee Stripes & Car Print Pack of 5-..."
+      "quantity": 2,
+      "id": 1291.24,
+      "discount": "(22% Off)"
     },
     {
-      "id": 1367.24,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11849793a.webp",
-      "price": 1403.22,
-      "mrp": 1799,
-      "discount": "(22% Off)",
-      "quantity": 1,
-      "title": "Babyhug Cotton Jersey Knit Full Sleeves T-Shirts Driving Cartoons..."
-    },
-    {
-      "id": 538.23,
       "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12068840a.webp",
+      "title": "Babyhug Full Sleeves Cotton Looper Knit Winter Wear Tee Tree Print-...",
+      "desc": null,
       "price": 552.21,
-      "mrp": 699,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyhug Full Sleeves Cotton Looper Knit Winter Wear Tee Tree Print-..."
-    },
-    {
-      "id": 692.23,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11616173a.webp",
-      "price": 710.21,
-      "mrp": 899,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyoye Full Sleeves Party shirt With Tie - Blue"
-    },
-    {
-      "id": 253.33,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11568687a.webp",
-      "price": 259.91,
-      "mrp": 329,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyhug Full Sleeves Cotton Tee Animal Print- Green"
-    },
-    {
-      "id": 769.23,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12627966a.webp",
-      "price": 789.21,
-      "mrp": 999,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyhug Cotton Half Sleeves T-Shirt Stripes & Shark Print Pack of 3 -..."
-    },
-    {
-      "id": 336.75,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11425491a.webp",
-      "price": 345.73,
-      "mrp": 449,
-      "discount": "(23% Off)",
-      "quantity": 1,
-      "title": "Babyhug Half Sleeves Polo T-Shirt Text Embroidery - Maroon"
-    },
-    {
-      "id": 1279.36,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/8690386a.webp",
-      "price": 1319.34,
-      "mrp": 1999,
-      "discount": "(34% Off)",
-      "quantity": 1,
-      "title": "Carter's 4-Piece S'mores 100% Snug Fit Cotton PJs - Multicolor"
-    },
-    {
-      "id": 1101.7,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/219x265/9356371a.webp",
-      "price": 1137.63,
-      "mrp": 2395,
-      "discount": "(52% Off)",
-      "quantity": 1,
-      "title": "Babyhug Advanced Pant Style Diapers Extra Large..."
-    },
-    {
-      "id": 615.23,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/11540549a.webp",
-      "price": 631.21,
-      "mrp": 799,
-      "discount": "(21% Off)",
-      "quantity": 1,
-      "title": "Babyhug Full Length Washed Denim Stretchable Jeans Floral..."
-    },
-    {
-      "id": 859.57,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12875125a.webp",
-      "price": 859.57,
-      "mrp": 1999,
-      "discount": "(57% Off)",
-      "quantity": 1,
-      "title": "Lilpicks Couture  Medium Washed Denim Cargo Jogger Jeans - Light..."
-    },
-    {
-      "id": 899.25,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/10881352a.webp",
-      "price": 923.23,
-      "mrp": 1199,
-      "discount": "(23% Off)",
-      "quantity": 1,
-      "title": "Babyoye Cotton Lycra Full Length Denim Jeans with Fabric Belt..."
-    },
-    {
-      "id": 647.28,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12254260a.webp",
-      "price": 665.26,
-      "mrp": 899,
-      "discount": "(26% Off)",
-      "quantity": 1,
-      "title": "Babyhug Full Length Jeans with Floral Embroidery - Blue"
-    },
-    {
-      "id": 683.24,
-      "img": "https://cdn.fcglcdn.com/brainbees/images/products/300x364/12254232a.webp",
-      "price": 701.22,
-      "mrp": 899,
-      "discount": "(22% Off)",
-      "quantity": 1,
-      "title": "Babyhug Full Length Washed & Rain Embroidery Jeans - Blue"
+      "quantity": 2,
+      "id": 538.23,
+      "discount": "(21% Off)"
     }
   ],
   "userDetails": [],
