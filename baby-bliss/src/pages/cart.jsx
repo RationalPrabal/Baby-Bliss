@@ -24,6 +24,7 @@ import {
   Stack,
   useColorModeValue,
   useToast,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { CheckCircleIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -37,6 +38,26 @@ function cart({ cartItems }) {
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const [step, setStep] = useState(1);
+  const [fname, setfname] = useState("");
+  const [add, setAdd] = useState("");
+  const [app, setApp] = useState("");
+  const [city, setCity] = useState("");
+  const [num, setNum] = useState("");
+
+  const nameError = fname === "";
+  const addError = add === "";
+  const appError = app === "";
+  const cityError = city === "";
+  const numError = num === "";
+
+  const handleForm = () => {
+    if (fname === "" || add === "" || app === "" || city === "") {
+      return;
+    }
+    if (step === 2) {
+      setStep(3);
+    }
+  };
 
   const confirmOrder = () => {
     setLoading(true);
@@ -53,6 +74,14 @@ function cart({ cartItems }) {
   const redirect = () => {
     location.href = "/";
   };
+
+  function validateField(value) {
+    let error;
+    if (!value) {
+      error = "This field is required";
+    }
+    return error;
+  }
 
   useEffect(() => {
     let sum = 0;
@@ -115,7 +144,12 @@ function cart({ cartItems }) {
               <Box w={"100%"}>
                 <FormControl id="email" isRequired>
                   <FormLabel>CARD NUMBER</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    onInput={(e) =>
+                      (e.target.value = e.target.value.slice(0, 16))
+                    }
+                    type="number"
+                  />
                 </FormControl>
               </Box>
               <Box>
@@ -206,9 +240,16 @@ function cart({ cartItems }) {
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
+                <FormControl id="firstName" isInvalid={nameError} isRequired>
                   <FormLabel>First name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    onChange={(e) => setfname(e.target.value)}
+                    aria-required={true}
+                    type="text"
+                  />
+                  {!nameError ? null : (
+                    <FormErrorMessage>This field is required.</FormErrorMessage>
+                  )}
                 </FormControl>
               </Box>
               <Box>
@@ -218,19 +259,31 @@ function cart({ cartItems }) {
                 </FormControl>
               </Box>
             </HStack>
-            <FormControl id="email" isRequired>
+            <FormControl id="email" isInvalid={addError} isRequired>
               <FormLabel>Address</FormLabel>
-              <Input type="text" />
+              <Input onChange={(e) => setAdd(e.target.value)} type="text" />
+              {!addError ? null : (
+                <FormErrorMessage>This field is requied.</FormErrorMessage>
+              )}
             </FormControl>
-            <FormControl id="email" isRequired>
+            <FormControl id="email" isInvalid={appError} isRequired>
               <FormLabel>Apartment, suite, etc</FormLabel>
-              <Input type="text" />
+              <Input onChange={(e) => setApp(e.target.value)} type="text" />
+              {!appError ? null : (
+                <FormErrorMessage>This field is requied.</FormErrorMessage>
+              )}
             </FormControl>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
+                <FormControl id="firstName" isInvalid={cityError} isRequired>
                   <FormLabel>City</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    onChange={(e) => setCity(e.target.value)}
+                    type="text"
+                  />
+                  {!cityError ? null : (
+                    <FormErrorMessage>This field is requied.</FormErrorMessage>
+                  )}
                 </FormControl>
               </Box>
               <Box>
@@ -246,10 +299,12 @@ function cart({ cartItems }) {
                 </FormControl>
               </Box>
             </HStack>
-            <FormControl id="password" isRequired>
+            <FormControl id="password">
               <FormLabel>Phone Number</FormLabel>
               <InputGroup>
                 <Input
+                  w={"100%"}
+                  onChange={(e) => setNum(e.target.value)}
                   type={"number"}
                   onInput={(e) =>
                     (e.target.value = e.target.value.slice(0, 10))
@@ -260,7 +315,7 @@ function cart({ cartItems }) {
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
-                onClick={() => setStep(3)}
+                onClick={() => handleForm()}
                 loadingText="Submitting"
                 size="lg"
                 bg={"blue.400"}
