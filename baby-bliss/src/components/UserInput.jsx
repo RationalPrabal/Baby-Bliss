@@ -60,56 +60,61 @@ const handleUpdate = (editId) => {
   }
 
   return (
-    <Box >
+
+    
+    <Box  >
+<Heading  height={8} fontSize="lg" bg="grey" color="blackAlpha"> Parent Address</Heading>
+ 
+
       {!isSubmitted ? (
-        <form onSubmit={handleAdd} >
-          <FormControl mb={5}>
+        <form ml={5}  onSubmit={handleAdd} >
+          <FormControl mt={10} mb={5}>
             <HStack spacing="25px">
-            <Text mr={10}>Name</Text>
-            <Input  variant='filled' placeholder='Enter Name' size='sm'  maxW={400} id="name" value={editId ? data[editId].name : formData.name}  onChange={e => setFormData({ ...formData, name: e.target.value })}  required/>
+            <Text mr={10} color="grey" fontSize="18px">Name</Text>
+            <Input color="grey"  variant='filled' placeholder='Enter Name' size='sm'  maxW={400} id="name" value={editId ? data[editId].name : formData.name}  onChange={e => setFormData({ ...formData, name: e.target.value })}  required/>
             </HStack>
           </FormControl>
           <FormControl mb={5}>
 
             <HStack spacing="20px">
-            <Text mr={5} >HouseNo</Text>
-            <Input variant='filled' placeholder='Enter House Number' size='sm' maxW={400} id="street" value={editId ? data[editId].street : formData.street}  onChange={e => setFormData({ ...formData, street: e.target.value })} required/>
+            <Text mr={5} color="grey" fontSize="18px">HouseNo</Text>
+            <Input color="grey" variant='filled' placeholder='Enter House Number' size='sm' maxW={400} id="street" value={editId ? data[editId].street : formData.street}  onChange={e => setFormData({ ...formData, street: e.target.value })} required/>
             </HStack>
           </FormControl>
 
           <FormControl mb={5}>
           <HStack spacing={16}>
-          <Text  >Street</Text>
-            <Input variant='filled' placeholder='Enter Street Number' size='sm' maxW={400} id="houseNumber" value={editId ? data[editId].houseNumber : formData.houseNumber} onChange={e => setFormData({ ...formData, houseNumber: e.target.value })} required />
+          <Text color="grey" fontSize="18px" >Street</Text>
+            <Input color="grey" variant='filled' placeholder='Enter Street Number' size='sm' maxW={400} id="houseNumber" value={editId ? data[editId].houseNumber : formData.houseNumber} onChange={e => setFormData({ ...formData, houseNumber: e.target.value })} required />
             </HStack>
           </FormControl>
 
           
           <FormControl mb={5}>
           <HStack spacing={12}>
-            <Text >Pincode </Text>
-            <Input  variant='filled' placeholder='Enter Pincode' size='sm' maxW={400} id="pincode" value={editId ? data[editId].pincode : formData.pincode} onChange={e => setFormData({ ...formData, pincode: e.target.value })} required/>
+            <Text color="grey" fontSize="18px" >Pincode </Text>
+            <Input color="grey"   variant='filled' placeholder='Enter Pincode' size='sm' maxW={400} id="pincode" value={editId ? data[editId].pincode : formData.pincode} onChange={e => setFormData({ ...formData, pincode: e.target.value })} required/>
             </HStack>
           </FormControl>
 
           <FormControl mb={5}>
           <HStack spacing={20}>
-            <Text>City </Text>
-            <Input variant='filled' placeholder='Enter City' size='sm' maxW={400} id="city" value={editId ? data[editId].city : formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}  required/>
+            <Text color="grey" fontSize="18px">City </Text>
+            <Input color="grey" variant='filled' placeholder='Enter City' size='sm' maxW={400} id="city" value={editId ? data[editId].city : formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}  required/>
             </HStack>
           </FormControl>
 
           <FormControl mb={5}>
           <HStack spacing={14}>
-            <Text marginRight="12px" >State </Text>
-            <Input  variant='filled' placeholder='Enter State' size='sm' maxW={400} id="state" value={editId ? data[editId].state : formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })} required/>
+            <Text color="grey" fontSize="18px" marginRight="12px" >State </Text>
+            <Input color="grey"  variant='filled' placeholder='Enter State' size='sm' maxW={400} id="state" value={editId ? data[editId].state : formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })} required/>
             </HStack>
           </FormControl>
 
           <FormControl mb={5}>
           <HStack spacing={10}>
-            <Text marginRight="5px">Country </Text>
-            <Input  variant='filled' placeholder='Enter Country' size='sm' maxW={400} id="country" value={editId ? data[editId].country : formData.country} onChange={e => setFormData({ ...formData, country: e.target.value })}  required
+            <Text color="grey" fontSize="18px" marginRight="5px">Country </Text>
+            <Input color="grey"  variant='filled' placeholder='Enter Country' size='sm' maxW={400} id="country" value={editId ? data[editId].country : formData.country} onChange={e => setFormData({ ...formData, country: e.target.value })}  required
             />
             </HStack>
           </FormControl>
@@ -117,10 +122,10 @@ const handleUpdate = (editId) => {
 
           <FormControl mb={5}>
           <HStack gap={10}>
-            <Text marginRight="-1px">Mobile </Text>
+            <Text color="grey" fontSize="18px" marginRight="-1px">Mobile </Text>
             <InputGroup>
-            <InputLeftAddon  size='sm' children='+91'  height="40px"/>
-            <Input variant='filled' placeholder='Enter Your Mobile Number' type='number' size='sm' height="40px" maxW={340} id="mobile" value={editId ? data[editId].mobile : formData.mobile} onChange={e => setFormData({ ...formData, mobile: e.target.value })} required
+            <InputLeftAddon color="grey"   size='sm' children='+91'  height="40px"/>
+            <Input color="grey"  variant='filled' placeholder='Enter Your Mobile Number' type='number' size='sm' height="40px" maxW={340} id="mobile" value={editId ? data[editId].mobile : formData.mobile} onChange={e => setFormData({ ...formData, mobile: e.target.value })} required
              />
             </InputGroup>
             </HStack>
@@ -128,7 +133,7 @@ const handleUpdate = (editId) => {
 
           {/* <Button type='submit'>Submit</Button> */}
           <Button colorScheme='orange' variantColor="orange" mr={3} mt={5} type="submit">Save</Button>
-        <Button mt={5} variant="outline" onClick={handleCancel}>Cancel</Button>
+        <Button mt={5} colorScheme="blackAlpha" onClick={handleCancel}>Cancel</Button>
           </form>
       )
       :(
@@ -139,65 +144,96 @@ const handleUpdate = (editId) => {
         { editId === entry.id ? (
           <>
 
-          
+
             <FormControl>
-                
-              <FormLabel htmlFor="name">Name</FormLabel>
-              <Input size='sm' variant='filled' maxW={400} id="name" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
+          
+              <FormLabel htmlFor="name" fontSize="18px" color="grey">Name</FormLabel>
+              <Input color="grey"  size='sm' variant='filled' maxW={400} id="name" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
             
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="houseNumber">HouseNo</FormLabel>
-              <Input  size='sm' maxW={400} id="houseNumber" value={formData.houseNumber} onChange={e => setFormData({ ...formData, houseNumber: e.target.value })}  />
+              <FormLabel htmlFor="houseNumber" fontSize="18px" color="grey">HouseNo</FormLabel>
+              <Input  color="grey" variant="filled" size='sm' maxW={400} id="houseNumber" value={formData.houseNumber} onChange={e => setFormData({ ...formData, houseNumber: e.target.value })}  />
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="street">Street</FormLabel>
-              <Input size='sm' maxW={400} id="street" value={formData.street} onChange={e => setFormData({ ...formData, street: e.target.value })} />
+              <FormLabel htmlFor="street" fontSize="18px" color="grey">Street</FormLabel>
+              <Input color="grey" variant="filled" size='sm' maxW={400} id="street" value={formData.street} onChange={e => setFormData({ ...formData, street: e.target.value })} />
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="pincode">Pincode</FormLabel>
-              <Input  size='sm' maxW={400} id="pincode" value={formData.pincode} onChange={e => setFormData({ ...formData, pincode: e.target.value })}  />
+              <FormLabel htmlFor="pincode" fontSize="18px" color="grey">Pincode</FormLabel>
+              <Input color="grey" variant="filled"  size='sm' maxW={400} id="pincode" value={formData.pincode} onChange={e => setFormData({ ...formData, pincode: e.target.value })}  />
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="city">City</FormLabel>
-              <Input  size='sm' maxW={400} id="city" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}  />
+              <FormLabel htmlFor="city" fontSize="18px" color="grey">City</FormLabel>
+              <Input color="grey" variant="filled" size='sm' maxW={400} id="city" value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })}  />
             </FormControl>
               
             <FormControl>
-              <FormLabel htmlFor="state">State</FormLabel>
-              <Input  size='sm' maxW={400} id="state" value={formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })}  />
+              <FormLabel htmlFor="state" fontSize="18px" color="grey">State</FormLabel>
+              <Input color="grey" variant="filled" size='sm' maxW={400} id="state" value={formData.state} onChange={e => setFormData({ ...formData, state: e.target.value })}  />
             </FormControl>
 
                 
             <FormControl>
-              <FormLabel htmlFor="country">Country</FormLabel>
-              <Input  size='sm' maxW={400} id="country" value={formData.country} onChange={e => setFormData({ ...formData, country: e.target.value })}  />
+              <FormLabel htmlFor="country" fontSize="18px" color="grey">Country</FormLabel>
+              <Input color="grey" variant="filled" size='sm' maxW={400} id="country" value={formData.country} onChange={e => setFormData({ ...formData, country: e.target.value })}  />
             </FormControl>
             
             <FormControl>
-              <FormLabel htmlFor="mobile">Mobile No</FormLabel>
-              <Input  size='sm' maxW={400} id="mobile" type="number" value={formData.mobile} onChange={e => setFormData({ ...formData, mobile: e.target.value })}  />
+              <FormLabel htmlFor="mobile" fontSize="18px" color="grey">Mobile No</FormLabel>
+              <Input color="grey" variant="filled"  size='sm' maxW={400} id="mobile" type="number" value={formData.mobile} onChange={e => setFormData({ ...formData, mobile: e.target.value })}  />
             </FormControl>
           
 
-            <Button onClick={() => handleUpdate(entry.id)}>Save</Button>
+            <Button colorScheme='orange' variantColor="orange" onClick={() => handleUpdate(entry.id)}>Save</Button>
           </>
         ) : (
 
             
           <>
-             <Text  fontSize='lg'  as='b'>{entry.name}</Text>
-            <p>Street: {entry.street}</p>
-            <p>House Number: {entry.houseNumber}</p>
-            <p>Street: {entry.street}</p>
-            <p>Pincode: {entry.pincode}</p>
-            <p>State: {entry.state}</p>
-            <p>Country: {entry.country}</p>
-            <p>Mobile: {entry.mobile}</p>
+             <Text  fontSize='lg'  as='b' color="grey">{entry.name}</Text>
+
+             <HStack>
+             <Text  as='b' color="grey" >Street:</Text> 
+             <Text  as='b' color="black" >{entry.street}</Text>
+             </HStack>
+
+             <HStack>
+             <Text  as='b' color="grey" >House Number:</Text> 
+             <Text  as='b' color="black" >{entry.houseNumber}</Text>
+             </HStack>
+            
+             <HStack>
+             <Text  as='b' color="grey" >Street:</Text> 
+             <Text  as='b' color="black" > {entry.street}</Text>
+             </HStack>
+             
+             <HStack>
+             <Text  as='b' color="grey" >Pincode:</Text> 
+             <Text  as='b' color="black" > {entry.pincode}</Text>
+             </HStack>
+
+             <HStack>
+                <Text  as='b' color="grey" >State:</Text> 
+                <Text  as='b' color="black" > {entry.state}</Text>
+             </HStack>
+
+             <HStack>
+                <Text  as='b' color="grey" >Country: </Text> 
+                <Text  as='b' color="black" > {entry.country}</Text>
+             </HStack>
+              
+             <HStack>
+                <Text  as='b' color="grey" >Mobile: </Text> 
+                <Text  as='b' color="black" > {entry.mobile}</Text>
+             </HStack>
+          
+          
+          
             <Box mt={5}>
 
          <HStack spacing={5}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from "./logo.png";
-
- import { FiShoppingCart} from 'react-icons/fa';
+//import {Link as RouterLink} from 'next/link'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartContext } from '@/Context/CartContext';
 import { useContext } from 'react';
 import {
@@ -71,7 +71,7 @@ import { useRouter } from 'next/router'
           </Flex>
           <Flex flex={{ base: 1 }} bgColor={"yellow"} justify={{ base: 'center', md: 'start' }}>
            
-          <Image src={logo} alt="..." width={50} height={10}/>
+          <Image src={logo} alt="..." borderRadius="100" width={50} height={50}/>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
            
@@ -87,8 +87,9 @@ import { useRouter } from 'next/router'
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-          
-      <FiShoppingCart/>
+          <Box display="flex">
+      <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/><Text color="green">{cartCount}</Text>
+      </Box>
             <Button
               as={'a'}
               fontSize={'sm'}
@@ -107,7 +108,7 @@ import { useRouter } from 'next/router'
               _hover={{
                 bg: 'pink.300',
               }}>
-             Sign Up ${cartCount}
+             Sign Up 
             </Button>
           </Stack>
         </Flex>
@@ -125,14 +126,14 @@ import { useRouter } from 'next/router'
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   
     return (
-      <Stack direction={'row'} spacing={4}>
+      <Stack direction={'row'} spacing={4} mt="2">
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
                 <Link
                   p={2}
-                  href={navItem.href ?? '#'}
+                  href={navItem.link}
                   fontSize={'sm'}
                   fontWeight={500}
                   color={linkColor}
@@ -140,7 +141,8 @@ import { useRouter } from 'next/router'
                     textDecoration: 'none',
                     color: linkHoverColor,
                   }}>
-                  {navItem.label}
+               {navItem.label}
+             {/* //     <RouterLink href={navItem.link} > {navItem.label}</RouterLink> */}
                 </Link>
               </PopoverTrigger>
   
@@ -273,37 +275,39 @@ import { useRouter } from 'next/router'
   const NAV_ITEMS= [
     {
       label: 'All Category',
+      link:"/all"
     },
     {
       label: 'Boy Fashion',
+      link:"/boys"
       
     },
     {
       label: 'Girl fashion',
-    
+    link:"girls"
     },
     {
       label: 'Footwear',
-      href: '#',
+      link:"/footwears"
     },
     {
       label: 'Toys',
-      href: '#',
+      link:"/toys"
     },
   
     
    
       {
         label: 'Mom',
-        href: '#',
+        link:"/moms"
       },
       {
         label: 'Health',
-        href: '#',
+        link:"/health"
       },
       {
         label: 'Diapering',
-        href: '#',
+        link:"/diapering"
       }
   ];
 

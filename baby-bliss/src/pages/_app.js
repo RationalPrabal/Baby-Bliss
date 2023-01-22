@@ -7,8 +7,8 @@ import Footer from './footer'
 export default function App({ Component, pageProps }) {
   return  <CartContextProvider>
   <ChakraProvider>
-{/* 
-    <Navbaar/> */}
+
+    <Navbaar/> 
 
     <Component {...pageProps} />
     </ChakraProvider>

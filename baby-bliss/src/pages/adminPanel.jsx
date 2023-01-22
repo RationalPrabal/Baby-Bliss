@@ -8,6 +8,7 @@ function adminPanel({data}) {
         img: "",
         title: "",
         price: "",
+        mrp:"",
         discount:"",
         size:"",
       });
@@ -30,7 +31,7 @@ function adminPanel({data}) {
     
 
     const handleCancel = () => {
-      setFormData({ img:"", title:"", price:"" , discount:"",size:""});
+      setFormData({ img:"", title:"", price:"" , mrp:"", discount:"",size:""});
       setAdd(false)
       setRemove(false)
     };
@@ -138,6 +139,11 @@ function adminPanel({data}) {
             <div>
               <h3>Price</h3>
               <input className="input-admin"   placeholder="PRODUCTS PRICE " type="text" id="price" name="price" value={formData.price} onChange={handleChange} required />
+            </div>
+
+            <div>
+              <h3>Price</h3>
+              <input className="input-admin"   placeholder="PRODUCTS MRP " type="text" id="mrp" name="mrp" value={formData.mrp} onChange={handleChange} required />
             </div>
 
             <div>
