@@ -28,12 +28,16 @@ import {
 } from "@chakra-ui/react";
 import { CheckCircleIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import { CartContext } from '@/Context/CartContext';
+import { useContext } from 'react';
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import CartItem from "@/components/CartItem";
 import { red } from "@mui/material/colors";
 
 function cart({ cartItems }) {
+ const {cartCount,setCartCount}= useContext(CartContext);
+  setCartCount(cartItems.length)
   const [order, setOrder] = useState(false);
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
@@ -67,7 +71,7 @@ function cart({ cartItems }) {
   const completeOrder = () => {
     setLoading(false);
     setOrder(true);
-    axios.delete(`https://baby-bliss-backend.vercel.app/cart`);
+    axios.delete(`https://troubled-organized-denim.glitch.me/cart`);
     setTimeout(redirect, 3000);
   };
 

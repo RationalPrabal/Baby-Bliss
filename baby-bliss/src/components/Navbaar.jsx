@@ -4,6 +4,7 @@ import logo from "./logo.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartContext } from '@/Context/CartContext';
 import { useContext } from 'react';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
     Box,
     Flex,
@@ -90,6 +91,7 @@ import { useRouter } from 'next/router'
           <Box display="flex">
    <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartCount}</Text>
       </Box>
+    <Link href="/UserDetails">  <AccountCircleIcon style={{fontSize:"35px"}}/></Link>
             <Button
               as={'a'}
               fontSize={'sm'}
