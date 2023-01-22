@@ -75,7 +75,7 @@ console.log(LoginVal)
  
  
 useEffect(()=>{
-    fetch('https://baby-bliss-backend.vercel.app/user')
+    fetch('https://troubled-organized-denim.glitch.me/user')
 .then((response) => response.json())
 .then((data) => setdata(data));
 

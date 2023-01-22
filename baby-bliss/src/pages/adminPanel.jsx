@@ -41,7 +41,7 @@ function adminPanel({data}) {
   
     const handleAdd = (e) => {
       e.preventDefault();
-      axios.post('https://baby-bliss-backend.vercel.app/all', formData)
+      axios.post('https://troubled-organized-denim.glitch.me/all', formData)
         .then(res => {
           console.log(res)
         //   setData([...userdata, res.data])
@@ -55,7 +55,7 @@ function adminPanel({data}) {
 
   
     const handleDelete = (id) => {
-      axios.delete(`https://baby-bliss-backend.vercel.app/all/${id}`)
+      axios.delete(`https://troubled-organized-denim.glitch.me/all/${id}`)
         .then(res => {
           console.log(res)
         
@@ -179,7 +179,7 @@ export default adminPanel;
 
 export const getServerSideProps= async()=>{
 
-    let res =await fetch("https://baby-bliss-backend.vercel.app/user")
+    let res =await fetch("https://troubled-organized-denim.glitch.me/user")
     let data = await res.json();
  
      return{

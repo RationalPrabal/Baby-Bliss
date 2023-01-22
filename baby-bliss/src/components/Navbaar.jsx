@@ -71,7 +71,7 @@ import { useRouter } from 'next/router'
           </Flex>
           <Flex flex={{ base: 1 }} bgColor={"yellow"} justify={{ base: 'center', md: 'start' }}>
            
-          <Image src={logo} alt="..." borderRadius="100" width={50} height={50}/>
+       <Link href="/">   <Image src={logo} alt="..." borderRadius="100" width={50} height={50}/></Link>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
            
@@ -88,26 +88,31 @@ import { useRouter } from 'next/router'
             direction={'row'}
             spacing={6}>
           <Box display="flex">
-      <ShoppingCartIcon onClick={()=> router.push("/cart") } style={{color:"red",fontSize:"40px"}}/><Text color="green">{cartCount}</Text>
+   <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartCount}</Text>
       </Box>
             <Button
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
               variant={'link'}
-              href={'#'}>
+              href={"/login"}>
               Sign In
             </Button>
+
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
               bg={'pink.400'}
-              href={'#'}
+          
               _hover={{
                 bg: 'pink.300',
-              }}>
+              }}
+              onClick={
+                ()=>router.push("/registration")
+              }
+              >
              Sign Up 
             </Button>
           </Stack>

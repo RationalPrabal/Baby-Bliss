@@ -10,7 +10,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   const [text,setText]= React.useState("Add To Cart")
   const [data,setData]= React.useState([])
   const AddToCart=async()=>{
-   await axios.post("https://baby-bliss-backend.vercel.app/cart",{
+   await axios.post("https://troubled-organized-denim.glitch.me/cart",{
       id,img:image,price,mrp,discount,quantity:1,title
   }
   
@@ -21,7 +21,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   }
 
   const AddToWishlist=async()=>{
-    await axios.post("https://baby-bliss-backend.vercel.app/wishlist",{
+    await axios.post("https://troubled-organized-denim.glitch.me/wishlist",{
        id,img:image,price,mrp,discount,lft,title
    }
    
@@ -30,7 +30,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   
    }
   const getCart=async()=>{
-  let res=  await axios.get("https://baby-bliss-backend.vercel.app/cart")
+  let res=  await axios.get("https://troubled-organized-denim.glitch.me/cart")
 setData(res.data)
 setCartCount(res.data.length)
 
@@ -57,8 +57,8 @@ for(var i=0;i<data.length;i++){
   
  
   return (
-    <Box>
-        <GridItem border={"2px solid red"} textAlign={"left"}>
+    <Box mt="20">
+        <GridItem textAlign={"left"}>
      
 <Image src={image} width="300"  height="250" margin="auto" alt="img" />
 
