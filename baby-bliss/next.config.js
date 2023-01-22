@@ -8,9 +8,17 @@ const nextConfig = {
         hostname:"cdn.fcglcdn.com",
         port:"",
         pathname:"**"
+      },
+      {
+        protocol:"https",
+        hostname:"upload.wikimedia.org",
+        port:"",
+        pathname:"**"
       }
     ]
   }
 }
 
 module.exports = nextConfig
+
+//(https://upload.wikimedia.or

@@ -20070,7 +20070,30 @@
       "discount": "(21% Off)"
     }
   ],
-  "userDetails": [],
+  "userDetails": [
+    {
+      "name": "Yogesh Nishad",
+      "street": "sds",
+      "houseNumber": "sdds",
+      "pincode": "495553",
+      "city": "Akaltara",
+      "state": "pune",
+      "country": "India",
+      "mobile": "7999959808",
+      "id": 1
+    },
+    {
+      "name": "Yogesh Nishad",
+      "street": "40",
+      "houseNumber": "djfsjfd",
+      "pincode": "495553",
+      "city": "Akaltara",
+      "state": "pune",
+      "country": "India",
+      "mobile": "7999959808",
+      "id": 2
+    }
+  ],
   "all": [
     {
       "list_img href": "https://www.firstcry.com/pine-kids/pine-kids-100-cotton-half-sleeves-bio-washed-t-shirt-sailing-ship-print-white/12642726/product-detail",

@@ -8,6 +8,7 @@ function adminPanel({data}) {
         img: "",
         title: "",
         price: "",
+        mrp:"",
         discount:"",
         size:"",
       });
@@ -30,8 +31,9 @@ function adminPanel({data}) {
     
 
     const handleCancel = () => {
-      setFormData({ img:"", title:"", price:"" , discount:"",size:""});
+      setFormData({ img:"", title:"", price:"" , mrp:"", discount:"",size:""});
       setAdd(false)
+      setRemove(false)
     };
 
 
@@ -127,6 +129,7 @@ function adminPanel({data}) {
               <h3>Image</h3>
               <input className="input-admin" placeholder="PRODUCTS IMAGE " type="text" id="img" name="img" value={formData.img} onChange={handleChange} required/>
             </div>
+
             <div>
               <h3>Title</h3>
               <input className="input-admin"  placeholder="PRODUCTS TITLE" type="text" id="title" name="title" value={formData.title} onChange={handleChange} required />
@@ -136,6 +139,11 @@ function adminPanel({data}) {
             <div>
               <h3>Price</h3>
               <input className="input-admin"   placeholder="PRODUCTS PRICE " type="text" id="price" name="price" value={formData.price} onChange={handleChange} required />
+            </div>
+
+            <div>
+              <h3>Price</h3>
+              <input className="input-admin"   placeholder="PRODUCTS MRP " type="text" id="mrp" name="mrp" value={formData.mrp} onChange={handleChange} required />
             </div>
 
             <div>
@@ -150,13 +158,12 @@ function adminPanel({data}) {
             </div>
   
           <div className="btn-group">
-
           <button className="add-admin" type="submit">SAVE</button>
             <button className="delete-admin" onClick={handleCancel}>CANCEL</button>
          </div>
            
             </div>
-          </form>
+        </form>
        )
     }
            
