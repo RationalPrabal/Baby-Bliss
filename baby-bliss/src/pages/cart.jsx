@@ -98,7 +98,7 @@ function cart({ cartItems }) {
 export default cart;
 
 export async function getStaticProps() {
-  let response = await axios.get("http://localhost:8080/cart");
+  let response = await axios.get("https://baby-bliss-backend.vercel.app/cart");
   return {
     props: {
       cartItems: response.data,

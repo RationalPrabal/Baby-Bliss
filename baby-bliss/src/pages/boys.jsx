@@ -8,14 +8,14 @@ const boys = ({T_shirts}) => {
   
 // function for sort by price
  const OrderPrice=async(order)=>{
-let res =  await axios.get(`http://localhost:8080/boys?_sort=price&_order=${order}`)
+let res =  await axios.get(`https://baby-bliss-backend.vercel.app/boys?_sort=price&_order=${order}`)
 console.log(res.data)
 set_shirts(res.data)
  }
 
  // function for sort by discount
  const OrderDiscount=async(order)=>{
-  let res =  await axios.get(`http://localhost:8080/boys?_sort=discount&_order=${order}`)
+  let res =  await axios.get(`https://baby-bliss-backend.vercel.app/boys?_sort=discount&_order=${order}`)
   console.log(res.data)
   set_shirts(res.data)
    }
@@ -24,7 +24,7 @@ set_shirts(res.data)
 
   // function for filtering by price
   const FilterPrice=async(lowerRange,higherRange)=>{
-    let res =  await axios.get(`http://localhost:8080/boys?price_gte=${lowerRange}&price_lte=${higherRange}`)
+    let res =  await axios.get(`https://baby-bliss-backend.vercel.app/boys?price_gte=${lowerRange}&price_lte=${higherRange}`)
     console.log(res.data)
     set_shirts(res.data)
      }
@@ -32,7 +32,7 @@ set_shirts(res.data)
      // function for filtering by category
 
      const FilterCategory=async(query)=>{
-      let res =  await axios.get(`http://localhost:8080/boys?q=${query}`)
+      let res =  await axios.get(`https://baby-bliss-backend.vercel.app/boys?q=${query}`)
       console.log(res.data)
       set_shirts(res.data)
        }
@@ -55,7 +55,7 @@ set_shirts(res.data)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get("http://localhost:8080/boys")
+    let response = await axios.get("https://baby-bliss-backend.vercel.app/boys")
     return {
         props:{
         T_shirts: response.data
