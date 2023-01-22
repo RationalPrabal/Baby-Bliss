@@ -75,6 +75,7 @@ const handleChange=(e)=>{
    
     return (
       <Flex
+      color="green"
         minH={'100vh'}
         align={'center'}
         justify={'center'}

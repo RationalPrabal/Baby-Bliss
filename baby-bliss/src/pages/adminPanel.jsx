@@ -174,7 +174,7 @@ export default adminPanel;
 
 export const getServerSideProps= async()=>{
 
-    let res =await fetch("http://localhost:4040/user")
+    let res =await fetch("https://baby-bliss-backend.vercel.app/user")
     let data = await res.json();
  
      return{
