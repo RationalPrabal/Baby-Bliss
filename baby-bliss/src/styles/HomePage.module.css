@@ -23,6 +23,12 @@
     gap: 30px;
     margin-bottom: 50px;
 }
+.card{
+    border-radius: 7px;
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 
 .card:hover .b{
     display: block;
@@ -42,7 +48,33 @@
 .a{
     position: relative;
 }
+.c{
+    opacity: 0.5;
+    font-size: 13px;
+}
 
 .Ti{
-    border: 2px solid red;
+    padding: 20px;
+}
+
+.part{
+    display: flex;
+}
+
+.colors{
+    display: flex;
+    
+}
+.deal{
+    display: flex;
+}
+.style_Parade{
+    display: flex;
+}
+.brands{
+    display:grid;
+    grid-template-columns: repeat(8,1fr);
+}
+.b51{
+    display: flex;
 }

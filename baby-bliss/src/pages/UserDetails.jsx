@@ -86,7 +86,7 @@ const Form = () => {
                
             <Flex gap={20} >   
                <Box marginTop="50px">
-                    <Text  fontSize='lg'  as='b'>Yogesh Nishad</Text>
+                   
                     
                 </Box>
                 <Spacer />
