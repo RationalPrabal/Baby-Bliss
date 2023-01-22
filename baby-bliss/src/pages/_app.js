@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return <ChakraProvider>
     {/* <NavbaarF/> */}
     <Navbaar/>
-
+     <Component {...pageProps}/>
 
     </ChakraProvider>
   

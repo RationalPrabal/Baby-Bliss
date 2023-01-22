@@ -1,6 +1,46 @@
 {
-  "user":[
-
+  "user": [
+    {
+      "user": "Deepak1",
+      "name": "Deepak",
+      "Lname": "Prajapati",
+      "email": "dkp041297@gmail.com",
+      "password": "123456",
+      "phn": "8368373471",
+      "id": 1
+    },
+    {
+      "user": "Prabal1",
+      "name": "Prabal",
+      "phn": "1234567890",
+      "email": "Prabal@gmail.com",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "user": "Prabal1",
+      "name": "Prabal",
+      "phn": "1234567890",
+      "email": "Prabal@gmail.com",
+      "password": "123456789",
+      "id": 3
+    },
+    {
+      "user": "kanad1",
+      "name": "kanad",
+      "phn": "7894561238",
+      "email": "kanad@gmail.com",
+      "password": "123456789",
+      "id": 4
+    },
+    {
+      "user": "yogesh1",
+      "name": "yogesh",
+      "phn": "124567893",
+      "email": "yogesh@gmail.com",
+      "password": "123456",
+      "id": 5
+    }
   ],
   "boys": [
     {
