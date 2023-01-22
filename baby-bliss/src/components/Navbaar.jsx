@@ -1,6 +1,9 @@
 import React from 'react'
-import logo from "../Image/logo.png"
-
+import logo from "./logo.png";
+//import {Link as RouterLink} from 'next/link'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from '@/Context/CartContext';
+import { useContext } from 'react';
 import {
     Box,
     Flex,
@@ -27,12 +30,20 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
 import Image from 'next/image';
-  
+import { useRouter } from 'next/router'
   const Navbaar = () => {
+    const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-  
+    const {cartCount, setText}= useContext(CartContext);
+
+ 
     return (
-      <Box>
+      <Box position="fixed" 
+      left="0"
+      right="0"
+      top="0"
+      zIndex="111"
+      >
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -59,14 +70,14 @@ import Image from 'next/image';
             />
           </Flex>
           <Flex flex={{ base: 1 }} bgColor={"yellow"} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-            {/* <Image src={logo} alt="..." width={50} height={10}/> */}
-            </Text>
+           
+          <Image src={logo} alt="..." borderRadius="100" width={50} height={50}/>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+           
+            <Input w="15%" type="text" onChange={(e)=>{setText(e.target.value)
+              router.push("/all")
+              }} placeholder="Search Product" />
               <DesktopNav />
             </Flex>
           </Flex>
@@ -76,6 +87,9 @@ import Image from 'next/image';
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
+          <Box display="flex">
+      <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/><Text color="green">{cartCount}</Text>
+      </Box>
             <Button
               as={'a'}
               fontSize={'sm'}
@@ -94,7 +108,7 @@ import Image from 'next/image';
               _hover={{
                 bg: 'pink.300',
               }}>
-              Sign Up
+             Sign Up 
             </Button>
           </Stack>
         </Flex>
@@ -112,14 +126,14 @@ import Image from 'next/image';
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   
     return (
-      <Stack direction={'row'} spacing={4}>
+      <Stack direction={'row'} spacing={4} mt="2">
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
                 <Link
                   p={2}
-                  href={navItem.href ?? '#'}
+                  href={navItem.link}
                   fontSize={'sm'}
                   fontWeight={500}
                   color={linkColor}
@@ -127,7 +141,8 @@ import Image from 'next/image';
                     textDecoration: 'none',
                     color: linkHoverColor,
                   }}>
-                  {navItem.label}
+               {navItem.label}
+             {/* //     <RouterLink href={navItem.link} > {navItem.label}</RouterLink> */}
                 </Link>
               </PopoverTrigger>
   
@@ -260,72 +275,40 @@ import Image from 'next/image';
   const NAV_ITEMS= [
     {
       label: 'All Category',
+      link:"/all"
     },
     {
       label: 'Boy Fashion',
-      children: [
-        {
-          label: 'Explore Design Work',
-          subLabel: 'Trending Design to inspire you',
-          href: '#',
-        },
-        {
-          label: 'New & Noteworthy',
-          subLabel: 'Up-and-coming Designers',
-          href: '#',
-        },
-      ],
+      link:"/boys"
+      
     },
     {
       label: 'Girl fashion',
-      children: [
-        {
-          label: 'Job Board',
-          subLabel: 'Find your dream design job',
-          href: '#',
-        },
-        {
-          label: 'Freelance Projects',
-          subLabel: 'An exclusive list for contract work',
-          href: '#',
-        },
-      ],
+    link:"girls"
     },
     {
       label: 'Footwear',
-      href: '#',
+      link:"/footwears"
     },
     {
       label: 'Toys',
-      href: '#',
+      link:"/toys"
     },
-    {
-        label: 'Gear',
-        href: '#',
-      },
-      {
-        label: 'Feeding',
-        href: '#',
-      },
-      {
-        label: 'Bath',
-        href: '#',
-      },
+  
+    
+   
       {
         label: 'Mom',
-        href: '#',
+        link:"/moms"
       },
       {
         label: 'Health',
-        href: '#',
+        link:"/health"
       },
       {
         label: 'Diapering',
-        href: '#',
-      },{
-        label: <Input type="text" />,
+        link:"/diapering"
       }
-      
   ];
 
  

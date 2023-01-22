@@ -44,7 +44,7 @@ const handleChange=(e)=>{
 
    const handleSubmit = async()=>{
  try { 
-   let res=await fetch("http://localhost:8080/user",
+   let res=await fetch("https://baby-bliss-backend.vercel.app/user",
  { 
   method:"POST", 
    body:JSON.stringify(registerdetails), 
@@ -62,6 +62,12 @@ const handleChange=(e)=>{
        catch (error) {
           console.log('error', error)  }
 
+
+ try {
+    const res = await axios.post("https://baby-bliss-backend.vercel.app/user",registerdetails)
+ } catch (error) {
+   console.log(error)
+}
 
     console.log(registerdetails)
 

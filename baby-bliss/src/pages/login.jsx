@@ -75,7 +75,7 @@ console.log(LoginVal)
  
  
 useEffect(()=>{
-    fetch('http://localhost:8080/user')
+    fetch('https://baby-bliss-backend.vercel.app/user')
 .then((response) => response.json())
 .then((data) => setdata(data));
 
