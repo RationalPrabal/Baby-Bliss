@@ -1,5 +1,5 @@
 
-# Baby Bliss (clone of [mailchimp](https://www.firstcry.com/))
+# Baby Bliss (clone of [firstcry](https://www.firstcry.com/))
 ​
 ⁦Choose From 5K+ Brands, 2 Lakh+ Products with 7.5M+ Happy Customers. Shop Now!⁩. Shop For Latest Baby Frocks From Firstcry Fashion.
 ​
