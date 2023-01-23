@@ -1,18 +1,20 @@
 
-# Baby Bliss (clone of [firstcry](https://www.firstcry.com/))
+# Baby Bliss
 ​
-⁦Choose From 5K+ Brands, 2 Lakh+ Products with 7.5M+ Happy Customers. Shop Now!⁩. Shop For Latest Baby Frocks From Firstcry Fashion.
+"Baby Bliss" is a Kid's clothing website from where you can ⁦choose From 5K+ Brands, 2 Lakh+ Products with 7.5M+ Happy Customers.
+Shop Now!⁩. Shop For Latest Baby Frocks From Baby-Bliss Fashion.
+
+This project is a collaberative project made by a team of 5 developers within 5 days.
 ​
 ## Features
 - Login / Signup
+- Various project pages by category
 - Admin panel
 - Fully responsive
 - CRUD operations using JSON server
 ​
-## Tech Stack
-​
-​
-**Client:** React, Chakra UI, Material Ui, JavaScript
+## Tech Stack ==> Next JS,Chakra UI,Material Ui
 ​
 
-**Server:** Glitch
+Front End of the website is hosted on "Vercel" and Backend is hosted on "Glitch".
+
