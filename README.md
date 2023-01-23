@@ -12,6 +12,6 @@
 ## Tech Stack
 ​
 ​
-**Client:** React, chakraUi, Redux, TypeScript, JavaScript
+**Client:** React, Chakra UI, Material Ui, JavaScript
 ​
 **Server:** JSON
