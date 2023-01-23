@@ -15,4 +15,4 @@
 **Client:** React, Chakra UI, Material Ui, JavaScript
 ​
 
-**Server:** JSON
+**Server:** Glitch
