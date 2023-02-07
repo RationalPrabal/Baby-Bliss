@@ -10,7 +10,7 @@ import ProductItems from '@/components/ProductItems'
 const boys = ({initialData}) => {
   const [loader,setLoader]= React.useState(false)
   const [data,set_data]= React.useState(initialData)
-
+console.log(initialData)
   const {text}= useContext(CartContext);
 // function for sort by price
  const OrderPrice=async(order)=>{

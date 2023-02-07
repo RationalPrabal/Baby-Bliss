@@ -62,12 +62,13 @@ function CartItem({ img, title, desc, price, qty, id, discount}) {
   return (
     <Box>
       <Card
+     
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         variant="outline">
         <Image
           objectFit="cover"
-          maxW={{ base: "100%", sm: "200px" }}
+          maxW={{ base: "100%", sm: "100%" }}
           src={img}
           alt="Caffe Latte"
         />

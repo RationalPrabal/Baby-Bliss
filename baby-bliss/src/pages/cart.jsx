@@ -420,7 +420,7 @@ function cart({ cartItems }) {
       </Tabs>
 
       {cartItems.length > 0 ? (
-        <Card h={"max-content"}>
+        <Card h={"max-content"} display={{base:"none",sm:"none",md:"flex"}}>
           <CardHeader>
             <Heading size="md">Order summary</Heading>
           </CardHeader>

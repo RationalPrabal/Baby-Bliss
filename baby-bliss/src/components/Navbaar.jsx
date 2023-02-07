@@ -222,15 +222,15 @@ import { useRouter } from 'next/router'
     );
   };
   
-  const MobileNavItem = ({ label, children, href }) => {
+  const MobileNavItem = ({ label, children, link }) => {
     const { isOpen, onToggle } = useDisclosure();
-  
+  console.log(label,link)
     return (
       <Stack spacing={4} onClick={children && onToggle}>
         <Flex
           py={2}
           as={Link}
-          href={href ?? '#'}
+          href={link}
           justify={'space-between'}
           align={'center'}
           _hover={{

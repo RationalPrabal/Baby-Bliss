@@ -60,7 +60,8 @@ for(var i=0;i<data.length;i++){
     <Box mt="20">
         <GridItem textAlign={"left"}>
      
-<Image src={image} width="300"  height="250" margin="auto" alt="img" />
+<Image src={image} width="300"  height="250" margin="auto" alt="img" placeholder="blur"
+  blurDataURL="/assets/image-placeholder.png" />
 
 <Text mt="2" w="90%" fontFamily={"RobotoLR"} noOfLines={3}
 fontSize={"15px"}

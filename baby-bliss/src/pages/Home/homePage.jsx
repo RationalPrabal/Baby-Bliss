@@ -23,8 +23,8 @@ const HomePage = () => {
   <>
     <div className={home.wholePage}>
       <div className={home.slide_banner}>
-        <SimpleImageSlider
-          width={1300}
+        <SimpleImageSlider 
+        width={1300}
           height={504}
           images={banner}
           showBullets={true}
@@ -182,8 +182,8 @@ const HomePage = () => {
           </div>
         </div>
 
-      </div>
-      <div>
+      </div >
+      <div className={home.sale}>
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/1920_447_desktop_SOI_2023_01.jpg" alt="1" width={1250} height={300}></Image>
       </div>
       <div className={`${home.part}`}>
@@ -203,7 +203,7 @@ const HomePage = () => {
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/fashion_desktop_SOI_060123_08.jpg" alt="9" width={300} height={480}></Image>
       </div>
 
-      <div>
+      <div className={`${home.deals}`}>
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/1920_188_desktop_SOI_2023_10.jpg" alt="10" width={1250} height={150}></Image>
       </div>
 
@@ -218,7 +218,7 @@ const HomePage = () => {
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/fashion_desktop_SOI_060123_17_12plus.jpg" alt="18" width={156} height={150}></Image>
       </div>
 
-      <div>
+      <div className={home.parade}>
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/1920_220_desktop_SOI_2023_17.jpg" alt="19" width={1250} height={150}></Image>
       </div>
 
@@ -231,7 +231,7 @@ const HomePage = () => {
         <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/fashion_desktop_SOI_060123_23.jpg" alt="25" width={208} height={200}></Image>
       </div>
 
-      <div>
+      <div className={home.beloved}>
         <Image src='https://cdn.fcglcdn.com/brainbees/images/cattemplate/1920_228_desktop_SOI_2023_18.jpg' alt="26" width={1250} height={150}></Image>
       </div>
 
@@ -273,7 +273,7 @@ const HomePage = () => {
           <Image src="https://cdn.fcglcdn.com/brainbees/images/cattemplate/fashion_desktop_spring_12052022_50.jpg" alt='59' width={150} height={150}></Image>
       </div>
 
-      <div>
+      <div  className={home.beloved}>
         <Image src='https://cdn.fcglcdn.com/brainbees/images/cattemplate/1920_213_desktop_SOI_2023_24.jpg' alt='60' width={1250} height={150}></Image>
       </div>
 

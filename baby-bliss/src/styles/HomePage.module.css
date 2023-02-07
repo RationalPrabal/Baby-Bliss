@@ -58,23 +58,101 @@
 }
 
 .part{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
 
 .colors{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     
 }
 .deal{
     display: flex;
 }
 .style_Parade{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
 }
 .brands{
     display:grid;
     grid-template-columns: repeat(8,1fr);
 }
 .b51{
-    display: flex;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.slide_banner{
+   
+  
+}
+@media all and (max-width: 601px) and (min-width:200px) {
+    .b51{
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .beloved{
+        display: none;
+    }
+    .style_Parade{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .parade{
+        display: none;
+    }
+    .deal{
+        display: none;
+    }
+    .deals{
+        display: none;
+    }
+    .colors{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+    .part{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .grid_banner{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    .slide_banner{
+        display: none;
+    }
+    .sale{
+        display: none;
+    }
+}
+@media all and (max-width: 200px) and (min-width:0px) {
+    .beloved{
+        display: none;
+    }
+    .style_Parade{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .parade{
+        display: none;
+    }
+    .slide_banner{
+        display: none;
+    }
+    .deals{
+        display: none;
+    }
+    .deal{
+        display: none;
+    }
+        .sale{
+            display: none;
+        }
+    
+}
+@media all and (max-width: 1100px) and (min-width:601px) {
+
 }

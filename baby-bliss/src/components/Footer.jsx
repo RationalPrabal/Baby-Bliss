@@ -54,10 +54,13 @@ const Footer = () => {
     <Box
       bg={useColorModeValue("rgb(217,243,244)", "rgb(217,243,244)")}
       color={useColorModeValue("black", "black")}
+      w="100%"
+      m="auto"
+     
     >
-      <Container as={Stack} maxW={"6xl"} py={10}>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 5 }} spacing={8}>
-          <Stack align={"flex-start"}>
+      <Container as={Stack} maxW={"6xl"} py={10} >
+        <SimpleGrid columns={{ base: 2, sm: 2, md: 5 }} spacing={8}>
+          <Stack>
             <Heading as="h5" size="sm" mb="20px">
             CATEGORIES
             </Heading>
