@@ -28,7 +28,7 @@ This project is a collaberative project made by a team of 5 developers within 5 
 
 #### 3. Git & GitHub
 
-#### 4. Vercel
+
 
 ## Images Of Different pages
 
