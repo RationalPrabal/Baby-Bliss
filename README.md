@@ -16,9 +16,9 @@ This project is a collaberative project made by a team of 5 developers within 5 
 
 ## Tech Stack
 
-#### 1. HTMl
-#### 2. CSS
-#### 3. JavaScript
+#### 1. Next JS
+#### 2. Chakra UI
+#### 3. CSS
 
 ## Tools used
 
