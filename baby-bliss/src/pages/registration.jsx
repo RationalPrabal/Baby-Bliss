@@ -1,5 +1,10 @@
 import React from 'react'
-
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
 
 
 import {
@@ -39,6 +44,7 @@ import { useRouter } from 'next/router'
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
+  console.log(registerdetails.user)
 }
 
 
@@ -51,16 +57,26 @@ const handleChange=(e)=>{
   headers:{"Content-Type": "application/json"}
     }) 
      let datahai=await res.json() 
-       console.log(datahai)
+      
+       
        toast({
-        title: `Registered sucessfully`,
-        status: "success",
-        isClosable: true,
-      });
+          title: 'Account created.',
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 3000,
+          variant: "solid",
+          isClosable: true,
+       
+          position: "bottom-right",
+        })
+  
+
+   
+    
     router.push("/login")
      }
        catch (error) {
-   console.log("error", error.response.data);
+   console.log("can not create the account");
  }
 
 
@@ -115,8 +131,7 @@ const handleChange=(e)=>{
             p={8}>
             <Stack spacing={4}>
             <FormControl id="user" isRequired>
-                <FormLabel>UserName</FormLabel>
-                <Input type="user" name="user" onChange={handleChange}/>
+             
               </FormControl>
               <HStack>
                 <Box>
@@ -142,6 +157,7 @@ const handleChange=(e)=>{
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
+                <Text fontSize={10} color={"red"}>Password must be of atleast 8 characters and must contain atleast one alphabet, one number and one symbol</Text>
                 <InputGroup>
                   <Input type={showPassword ? 'text' : 'password'}  name="password" onChange={handleChange} />
                   <InputRightElement h={'full'}>
@@ -158,12 +174,13 @@ const handleChange=(e)=>{
               
               <Stack spacing={10} pt={2}>
                 <Button
+                isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
                   loadingText="Submitting"
                   size="lg"
-                  bg={'blue.200'}
+                  bg={'yellow.300'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: 'yellow.500',
                   }}
                   onClick={handleSubmit}
                   >
@@ -171,7 +188,9 @@ const handleChange=(e)=>{
                 </Button>
               </Stack>
               <Stack pt={6}>
-                <Text align={'center'}>
+                <Text align={'center'}
+                onClick={()=>router.push("/login")}
+                >
                   Already a user? <Link color={'blue.400'}>Login</Link>
                 </Text>
               </Stack>

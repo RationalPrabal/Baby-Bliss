@@ -18,13 +18,14 @@ import {
   import { useRouter } from 'next/router'
   
 
-
-
+import { AuthContext } from '@/Context/AuthContext';
+import { useContext } from 'react';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
   const Login = () => {
     const [email,setemail] =useState("")
     const [password,setpassword] =useState("")
-
+const {auth,setAuth,setName}= useContext(AuthContext)
     const router = useRouter()
 
 const validate=()=>{
@@ -55,12 +56,16 @@ const LoginVal = data.filter((el)=>(
 
 
 if(LoginVal.length>0){
+ 
+  setAuth(true)
+  
+  setName(LoginVal[0].user)
   toast({
     title: `Successfully Logged In`,
     status: "success",
     isClosable: true,
   });
-  router.push("/")
+  router.push("/boys")
 }
 else{
   toast({

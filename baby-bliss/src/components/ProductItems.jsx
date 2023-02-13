@@ -1,15 +1,28 @@
 import React from 'react'
 import Image from 'next/image'
-import { Button, GridItem,Text,Box ,Badge} from '@chakra-ui/react';
+import { Button, GridItem,Text,Box ,Badge,useToast} from '@chakra-ui/react';
 import axios from 'axios';
 import { CartContext } from '@/Context/CartContext';
 import { useContext } from 'react';
+import { AuthContext } from '@/Context/AuthContext';
+
 const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   const {cartCount,setCartCount}= useContext(CartContext);
-
+  const {auth}= useContext(AuthContext)
   const [text,setText]= React.useState("Add To Cart")
   const [data,setData]= React.useState([])
+  const toast=useToast()
   const AddToCart=async()=>{
+    if(!auth){
+toast({
+  title: 'Please Login first',
+      
+          status: 'error',
+          duration: 4000,
+          isClosable: true,
+})
+    }
+    else{
    await axios.post("https://troubled-organized-denim.glitch.me/cart",{
       id,img:image,price,mrp,discount,quantity:1,title
   }
@@ -18,6 +31,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
  //setText("Added")
   getCart()
   setCartCount(data.length)
+}
   }
 
   const AddToWishlist=async()=>{

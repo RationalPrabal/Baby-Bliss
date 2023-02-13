@@ -3,7 +3,7 @@ import logo from "./logo.png";
 //import {Link as RouterLink} from 'next/link'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartContext } from '@/Context/CartContext';
-import { useContext } from 'react';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
     Box,
@@ -32,12 +32,14 @@ import {
   } from '@chakra-ui/icons';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
+import { AuthContext } from '@/Context/AuthContext';
+import { useContext } from 'react';
   const Navbaar = () => {
     const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
     const {cartCount, setText}= useContext(CartContext);
-
- 
+   const{name}= useContext(AuthContext)
+ console.log(name)
     return (
       <Box position="fixed" 
       left="0"
@@ -92,16 +94,9 @@ import { useRouter } from 'next/router'
    <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartCount}</Text>
       </Box>
     <Link href="/UserDetails">  <AccountCircleIcon style={{fontSize:"35px"}}/></Link>
-            <Button
-              as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
-              variant={'link'}
-              href={"/login"}>
-              Sign In
-            </Button>
+         
 
-            <Button
+          {name?.length==0 ? <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -115,8 +110,8 @@ import { useRouter } from 'next/router'
                 ()=>router.push("/registration")
               }
               >
-             Sign Up 
-            </Button>
+             Sign In
+            </Button> : <Text  style={{fontWeight:"770",marginTop:"5px"}}>{name}</Text>}
           </Stack>
         </Flex>
   
