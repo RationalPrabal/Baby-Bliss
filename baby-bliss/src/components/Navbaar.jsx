@@ -3,7 +3,7 @@ import logo from "./logo.png";
 //import {Link as RouterLink} from 'next/link'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { CartContext } from '@/Context/CartContext';
-
+import Link from "next/link"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {
     Box,
@@ -15,7 +15,7 @@ import {
     Input,
     Collapse,
     Icon,
-    Link,
+
     Popover,
     PopoverTrigger,
     PopoverContent,
@@ -92,11 +92,12 @@ import { useContext } from 'react';
             spacing={6}>
           <Box display="flex">
    <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartCount}</Text>
+ 
       </Box>
+      
+     
     <Link href="/UserDetails">  <AccountCircleIcon style={{fontSize:"35px"}}/></Link>
-         
-
-          {name?.length==0 ? <Button
+    {name?.length==0 ? <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -112,6 +113,7 @@ import { useContext } from 'react';
               >
              Sign In
             </Button> : <Text  style={{fontWeight:"770",marginTop:"5px"}}>{name}</Text>}
+
           </Stack>
         </Flex>
   
@@ -129,7 +131,7 @@ import { useContext } from 'react';
   
     return (
       <Stack direction={'row'} spacing={4} mt="2">
-        {NAV_ITEMS.map((navItem) => (
+        {Desktop_NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
@@ -210,7 +212,7 @@ import { useContext } from 'react';
         bg={useColorModeValue('white', 'gray.800')}
         p={4}
         display={{ md: 'none' }}>
-        {NAV_ITEMS.map((navItem) => (
+        {Mobile_NAV_ITEMS.map((navItem) => (
           <MobileNavItem key={navItem.label} {...navItem} />
         ))}
       </Stack>
@@ -274,7 +276,48 @@ import { useContext } from 'react';
 //     href?: string;
 //   }
   
-  const NAV_ITEMS= [
+  const Mobile_NAV_ITEMS= [
+    {
+      label: 'All Category',
+      link:"/all"
+    },
+    {
+      label: 'Boy Fashion',
+      link:"/boys"
+      
+    },
+    {
+      label: 'Girl fashion',
+    link:"girls"
+    },
+    {
+      label: 'Footwear',
+      link:"/footwears"
+    },
+    {
+      label: 'Toys',
+      link:"/toys"
+    },
+  
+    
+   
+      {
+        label: 'Mom',
+        link:"/moms"
+      },
+      {
+        label: 'Health',
+        link:"/health"
+      },
+      {
+        label: 'Diapering',
+        link:"/diapering"
+      },{
+label:"Sign In",
+link:"/registration"
+      }
+  ];
+  const Desktop_NAV_ITEMS= [
     {
       label: 'All Category',
       link:"/all"

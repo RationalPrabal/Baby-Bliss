@@ -58,7 +58,7 @@ const LoginVal = data.filter((el)=>(
 if(LoginVal.length>0){
  
   setAuth(true)
-  
+  console.log(LoginVal)
   setName(LoginVal[0].user)
   toast({
     title: `Successfully Logged In`,
