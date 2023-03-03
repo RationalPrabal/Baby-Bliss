@@ -25,16 +25,37 @@ import {
     Link,
     useToast,
   } from '@chakra-ui/react';
-
+import {signInWithGoogle} from "../components/firebase"
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-  
+import firebase from '../components/firebase';
+
+
+
+
+
+
+
 
   const Registration = () => {
+
+
+    const handleLogin = async () => {
+      try {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const response = await firebase.auth().signInWithPopup(provider);
+        console.log(response.user);
+      } catch (error) {
+        console.error(error);
+      }
+    }    
+
+
+
 
     const router = useRouter()
    const [registerdetails,setregisterdetails] =useState({})
@@ -55,8 +76,10 @@ const handleChange=(e)=>{
   method:"POST", 
    body:JSON.stringify(registerdetails), 
   headers:{"Content-Type": "application/json"}
-    }) 
-     let datahai=await res.json() 
+} 
+
+) 
+let datahai=await res.json() 
       
        
        toast({
@@ -171,7 +194,10 @@ const handleChange=(e)=>{
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              
+              <FormControl id="email" isRequired>
+                <FormLabel>Email address</FormLabel>
+                <Button type="email" onClick={handleLogin}>Sign with Google</Button>
+              </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                 isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}

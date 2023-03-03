@@ -83,7 +83,7 @@ const Footer = () => {
 
           <Stack align={"flex-start"}>
             <Heading as="h5" size="sm" mb="20px">
-            FIRSTCRY PARENTING
+            Baby-Bliss PARENTING
             </Heading>
             <Link href={"#"} fontSize="13px">
             Getting Pregnant
@@ -135,10 +135,10 @@ const Footer = () => {
               Our Apps
             </Heading>
             <Link href={"#"} fontSize="13px">
-            FirstCry India: Shopping & Parenting
+            Baby-Bliss India: Shopping & Parenting
             </Link>
             <Link href={"#"} fontSize="13px">
-            FirstCry India: Shopping & Parenting iOS
+            Baby-Bliss India: Shopping & Parenting iOS
             </Link>
             <Heading as="h5" size="sm">
             Learning & Education
@@ -153,10 +153,10 @@ const Footer = () => {
             SHOP INTERNATIONAL
             </Heading>
             <Link href={"#"} fontSize="13px">
-            FirstCry UAE
+            Baby-Bliss UAE
             </Link>
             <Link href={"#"} fontSize="13px">
-            FirstCry KSA (English)
+             Baby-Bliss KSA (English)
             </Link>
           </Stack>
 
@@ -183,9 +183,11 @@ const Footer = () => {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>
-            Copyright © 2022 Sparta Fitness Club. All rights reserved.
+          <Text  border={"10px solid red"}>
+            Copyright © 2023  Baby-Bliss. All rights reserved.
+
           </Text>
+       
           <Stack direction={"row"} spacing={6}>
             <SocialButton label={"Twitter"} href={"#"}>
               {/* <FaTwitter /> */}
