@@ -1,8 +1,11 @@
 import React from 'react'
-import { Box,Select,option,Text,Checkbox } from '@chakra-ui/react'
+import { Box,Select,option,Text,Checkbox ,Button} from '@chakra-ui/react'
+import MobileFilterMoms from './MobileFilterMoms'
 const MomSidebar = ({OrderPrice,OrderDiscount,FilterPrice,FilterCategory}) => {
+  const [show,setShow]= React.useState(false)
   return (
-    <Box >
+    <>
+    <Box display={{base:"none",sm:"grid"}} position={"fixed"} top="20" w="20%" pl="10" py="5" overflow={"auto"} left="0"  h="90%" bg="white">
 
         {/* sort by price */}
       <Text as="b">Sort By Price</Text>
@@ -334,7 +337,13 @@ FilterCategory("")
 
 
     </Box>
-  
+    <Box display={{base:"grid",sm:"none"}} w="100%" border={"2px solid red"} position={"fixed"}  top="16"  zIndex="111">
+    <Button  onClick={()=>setShow(!show)}>Use Filter and Sorting</Button>
+    {
+      show ? <MobileFilterMoms OrderPrice={OrderPrice} OrderDiscount={OrderDiscount} FilterPrice={FilterPrice}FilterCategory= {FilterCategory}/> : ""
+    }
+    </Box>
+  </>
   )
 }
 

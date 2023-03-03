@@ -71,8 +71,8 @@ for(var i=0;i<data.length;i++){
   
  
   return (
-    <Box mt="20">
-        <GridItem textAlign={"left"}>
+    <Box mt="20" w="100%" m="auto">
+        <GridItem textAlign={"left"} w="80%" m="auto" >
      
 <Image src={image} width="300"  height="250" margin="auto" alt="img" placeholder="blur"
   blurDataURL="/assets/image-placeholder.png" />
@@ -89,11 +89,11 @@ fontWeight={"400"}
 <Text color={"red"}>{discount}</Text>
 </Box>
 <Text fontSize={12}>{lft}</Text>
-<Box display={"flex"} mt="2">
+<Box display={"flex"} mt="2" w="100%"  justifyContent={"space-between"}  zIndex="0">
 
 
 {
- text==="Added" ?  <Button isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added To Cart</Button>: 
+ text==="Added" ?  <Button zIndex="0" isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added To Cart</Button>: 
  <Button bg="#ff7043" _hover="" onClick={()=>AddToCart()}>{text}</Button>
 }
 

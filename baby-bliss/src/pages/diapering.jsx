@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import DiaperSidebar from '@/components/DiaperSidebar'
-import { Grid,Box,Img } from '@chakra-ui/react'
+import { Grid,Box,Img,Text } from '@chakra-ui/react'
 import ProductItems from '@/components/ProductItems'
 const boys = ({initialData}) => {
   const [data,set_data]= React.useState(initialData)
@@ -46,15 +46,18 @@ setLoader(false)
        }
  
   return (
-    <Box display="flex" w={{base:"100%",sm:"100%", md:"80%"}} m="auto">
+    <Box display={{base:"grid",sm:"flex"}} w={{base:"100%",sm:"100%", md:"80%"}} m="auto">
     <Box w={{base:"30%", sm:"30%",md:"20%"}}>
       <DiaperSidebar OrderPrice={OrderPrice} OrderDiscount={OrderDiscount} FilterPrice={FilterPrice} FilterCategory={FilterCategory}/>
     </Box>
-    { loader ?<Box w="30%" m="auto">
+    { loader ?<Box w={{base:"100%",sm:"30%"}} m="auto" mt="50">
         <Img src="./loader.gif" w="100%"/>
        </Box> :
-    <Box w={{base:"70%", sm:"70%",md:"80%"}}>
-    <Grid templateColumns={{base:'repeat(1, 1fr)',sm:'repeat(2, 1fr)',md:'repeat(3, 1fr)'}} gap={{base:0,sm:2,md:6}} w={{base:"100%",sm:"100%",md:"100%"}}>
+       data?.length==0 ? <Box w={{base:"100%",sm:"30%" }}m="auto" >
+       <Img src="./noItemsFound.png" w="100%" mt="105"/>
+      </Box>:
+    <Box w={{base:"100%", sm:"70%",md:"80%"}} mt={{base:"40",sm:"20",md:"20"}}>
+    <Grid templateColumns={{base:'repeat(1, 1fr)',sm:'repeat(2, 1fr)',md:'repeat(3, 1fr)'}} gap={{base:0,sm:2}} w={{base:"100%",sm:"100%",md:"100%"}}>
     {data.map((el,id)=> <ProductItems key={id} title={el.title} price={el.price} image={el.img} mrp={el.mrp} id={el.id} discount={el.discount} lft={el.lft} />)
 }
         </Grid>
