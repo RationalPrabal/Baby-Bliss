@@ -25,16 +25,47 @@ import {
     Link,
     useToast,
   } from '@chakra-ui/react';
-
+import {auth,provider} from "../components/firebase"
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-  
+import {signInWithPopup} from "firebase/auth" 
+
+
+
+
+
+
+
 
   const Registration = () => {
+
+// const [user,setuser]=useState({})
+
+    const handleLogin = async () => {
+     
+
+      try {
+        let data =  await signInWithPopup(auth,provider)
+     let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
+       await  axios.post("https://troubled-organized-denim.glitch.me/user",userdata).then((res)=>console.log(res)).catch(e => console.log(e))   
+      
+      } catch (error) {
+        console.log(error)
+      }
+
+   
+      // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
+
+    
+
+    }    
+
+
+
 
     const router = useRouter()
    const [registerdetails,setregisterdetails] =useState({})
@@ -55,8 +86,10 @@ const handleChange=(e)=>{
   method:"POST", 
    body:JSON.stringify(registerdetails), 
   headers:{"Content-Type": "application/json"}
-    }) 
-     let datahai=await res.json() 
+} 
+
+) 
+let datahai=await res.json() 
       
        
        toast({
@@ -97,7 +130,7 @@ const handleChange=(e)=>{
        .then((res) => res)
        .catch((err) => console.log(err));
       users=users.then((res)=>res)
-      console.log(users)
+      // console.log(users)
     //   let obj = {}
     //  users.forEach((el)=>{
     //   obj[el.email]=el.email
@@ -171,7 +204,10 @@ const handleChange=(e)=>{
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              
+              <FormControl id="email" isRequired>
+                <FormLabel>Email address</FormLabel>
+                <Button type="email" onClick={handleLogin}>Sign with Google</Button>
+              </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                 isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
