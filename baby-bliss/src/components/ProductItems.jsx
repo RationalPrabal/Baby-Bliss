@@ -23,7 +23,7 @@ toast({
 })
     }
     else{
-   await axios.post("https://troubled-organized-denim.glitch.me/cart",{
+   await axios.patch("https://troubled-organized-denim.glitch.me/user",{
       id,img:image,price,mrp,discount,quantity:1,title
   }
   

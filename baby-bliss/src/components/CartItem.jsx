@@ -63,7 +63,7 @@ function CartItem({ img, title, desc, price, qty, id, discount}) {
     <Box>
       <Card
      
-        direction={{ base: "column", sm: "row" }}
+        direction={{ base: "column", sm: "column",md:"row"}}
         overflow="hidden"
         variant="outline">
         <Image
