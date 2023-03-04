@@ -25,14 +25,14 @@ import {
     Link,
     useToast,
   } from '@chakra-ui/react';
-import {signInWithGoogle} from "../components/firebase"
+import {auth,provider} from "../components/firebase"
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-import firebase from '../components/firebase';
+import {signInWithPopup} from "firebase/auth" 
 
 
 
@@ -43,15 +43,25 @@ import firebase from '../components/firebase';
 
   const Registration = () => {
 
+// const [user,setuser]=useState({})
 
     const handleLogin = async () => {
+     
+
       try {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        const response = await firebase.auth().signInWithPopup(provider);
-        console.log(response.user);
+        let data =  await signInWithPopup(auth,provider)
+     let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
+       await  axios.post("https://troubled-organized-denim.glitch.me/user",userdata).then((res)=>console.log(res)).catch(e => console.log(e))   
+      
       } catch (error) {
-        console.error(error);
+        console.log(error)
       }
+
+   
+      // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
+
+    
+
     }    
 
 
@@ -120,7 +130,7 @@ let datahai=await res.json()
        .then((res) => res)
        .catch((err) => console.log(err));
       users=users.then((res)=>res)
-      console.log(users)
+      // console.log(users)
     //   let obj = {}
     //  users.forEach((el)=>{
     //   obj[el.email]=el.email
