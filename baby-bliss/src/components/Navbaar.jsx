@@ -39,7 +39,7 @@ import { useContext } from 'react';
     const { isOpen, onToggle } = useDisclosure();
     const {cartCount, setText}= useContext(CartContext);
    const{name}= useContext(AuthContext)
- console.log(name)
+
     return (
       <Box position="fixed" 
       left="0"

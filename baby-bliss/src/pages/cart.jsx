@@ -114,7 +114,8 @@ function cart({ cartItems }) {
   if (step === 3) {
     return (
       <Grid
-        gridTemplateColumns={"3fr 1fr"}
+      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
+      border={"2px solid red"}
         gap={6}
         w={"80%"}
         m={"auto"}
@@ -231,7 +232,8 @@ function cart({ cartItems }) {
   if (step === 2) {
     return (
       <Grid
-        gridTemplateColumns={"3fr 1fr"}
+      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
+      border={"2px solid red"}
         gap={6}
         w={"80%"}
         m={"auto"}
@@ -367,7 +369,7 @@ function cart({ cartItems }) {
 
   return (
     <Grid
-      gridTemplateColumns={"3fr 1fr"}
+      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
       gap={6}
       w={"80%"}
       m={"auto"}
@@ -420,7 +422,7 @@ function cart({ cartItems }) {
       </Tabs>
 
       {cartItems.length > 0 ? (
-        <Card h={"max-content"} display={{base:"none",sm:"none",md:"flex"}}>
+        <Card h={"max-content"} >
           <CardHeader>
             <Heading size="md">Order summary</Heading>
           </CardHeader>
