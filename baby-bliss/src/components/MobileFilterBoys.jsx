@@ -1,13 +1,9 @@
 import React from 'react'
-import { Box,Select,option,Text,Checkbox ,Button} from '@chakra-ui/react'
-import MobileFilterHealth from './MobileFilterHealth'
-const HealthSidebar = ({OrderPrice,OrderDiscount,FilterPrice,FilterCategory}) => {
-  const [show,setShow]= React.useState(false)
+import { Box,Select,option,Text,Checkbox } from '@chakra-ui/react'
+const MobileFilterBoys = ({OrderPrice,OrderDiscount,FilterPrice,FilterCategory}) => {
   return (
-    <>
-    <Box display={{base:"none",sm:"grid"}} position={"fixed"} top="20" w="20%" pl="10" py="5" overflow={"auto"} left="0"  h="90%" bg="white">
-
-        {/* sort by price */}
+    <Box  bg="#ffff00"  zIndex="111">
+      {/* sort by price */}
       <Text as="b">Sort By Price</Text>
 <Select onChange={(e)=>{
     if(e.target.value=="option1"){
@@ -21,6 +17,7 @@ const HealthSidebar = ({OrderPrice,OrderDiscount,FilterPrice,FilterCategory}) =>
 </Select>
 
 {/* sort by discount */}
+
 <Text as="b">Sort By Discount</Text>
 <Select onChange={(e)=>{
     if(e.target.value=="option1"){
@@ -78,31 +75,84 @@ const HealthSidebar = ({OrderPrice,OrderDiscount,FilterPrice,FilterCategory}) =>
   </Checkbox>
 
 </Box>
-{/* filter by pack type */}
+{/* filter by category */}
 <Box display={"grid"}>
-  <Text as="b" >Filter by Pack Type</Text>
+  <Text as="b" >Filter by Category</Text>
   
   <Checkbox  onChange={(e)=>{if(e.target.checked){
   
-  FilterCategory("spray")
+  FilterCategory("Jeans")
 }
 }
 } colorScheme='red' >
-    Spray
+    Pants/Jeans
   </Checkbox>
   
   <Checkbox  onChange={(e)=>{if(e.target.checked){
   
-  FilterCategory("dispenser")
+  FilterCategory("Sweatshirt")
 }
 }
 } colorScheme='red' >
-    Dispenser
+    Sweatshirts
   </Checkbox>
+  <Checkbox onChange={(e)=>{if(e.target.checked){
   
+  FilterCategory("T-Shirt")
+}
+}
+} colorScheme='red' >
+T-Shirts
+</Checkbox>
+<Checkbox  onChange={(e)=>{if(e.target.checked){
 
+FilterCategory("shirt")
+}
+}
+} colorScheme='red' >
+Shirts
+</Checkbox>
+<Checkbox  onChange={(e)=>{if(e.target.checked){
+
+FilterCategory("")
+}
+}
+} colorScheme='red' >
+All
+</Checkbox>
 </Box>
 
+{/* filter by brand */}
+
+
+<Box display={"grid"}>
+  <Text as="b" >Filter by Brand</Text>
+  
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("babyhug")
+}
+}
+} colorScheme='red' >
+   Babyhug
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("pine")
+}
+}
+} colorScheme='red' >
+Pine Kids
+  </Checkbox>
+<Checkbox  onChange={(e)=>{if(e.target.checked){
+
+FilterCategory("")
+}
+}
+} colorScheme='red' >
+All
+</Checkbox>
+</Box>
 
 {/* filter by color */}
 
@@ -193,42 +243,141 @@ FilterCategory("")
 </Checkbox>
 </Box>
 
-{/* filter by brand */}
-
+{/* filter by sleeve */}
 
 <Box display={"grid"}>
-  <Text as="b" >Filter by Brand</Text>
+  <Text as="b" >Filter by Sleeve Length</Text>
   
   <Checkbox  onChange={(e)=>{if(e.target.checked){
   
-  FilterCategory("babyhug")
+  FilterCategory("half")
 }
 }
 } colorScheme='red' >
-Babyhug
+   Half Length
   </Checkbox>
   <Checkbox  onChange={(e)=>{if(e.target.checked){
   
-  FilterCategory("chicco")
+  FilterCategory("Full")
 }
 }
 } colorScheme='red' >
-Chicco
+Full Sleeve
   </Checkbox>
-  
-  
+<Checkbox  onChange={(e)=>{if(e.target.checked){
+
+FilterCategory("")
+}
+}
+} colorScheme='red' >
+All
+</Checkbox>
 </Box>
 
+{/* filter by style */}
 
+<Box display={"grid"}>
+  <Text as="b" >Filter by Style</Text>
+  
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("polo")
+}
+}
+} colorScheme='red' >
+   Polo
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("hooded")
+}
+}
+} colorScheme='red' >
+Hooded
+  </Checkbox>
+<Checkbox  onChange={(e)=>{if(e.target.checked){
+
+FilterCategory("")
+}
+}
+} colorScheme='red' >
+All
+</Checkbox>
+</Box>
+
+{/* filter by pattern */}
+
+<Box display={"grid"}>
+  <Text as="b" >Filter by Pattern</Text>
+  
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("striped")
+}
+}
+} colorScheme='red' >
+   Striped
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("pattern")
+}
+}
+} colorScheme='red' >
+Pattern
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("washed")
+}
+}
+} colorScheme='red' >
+   Washed
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("printed")
+}
+}
+} colorScheme='red' >
+Printed
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("solid")
+}
+}
+} colorScheme='red' >
+   Solid
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("patch")
+}
+}
+} colorScheme='red' >
+Patched
+  </Checkbox>
+  <Checkbox  onChange={(e)=>{if(e.target.checked){
+  
+  FilterCategory("checked")
+}
+}
+} colorScheme='red' >
+   Checked
+  </Checkbox>
+  
+<Checkbox  onChange={(e)=>{if(e.target.checked){
+
+FilterCategory("")
+}
+}
+} colorScheme='red' >
+All
+</Checkbox>
+</Box>
     </Box>
-    <Box display={{base:"grid",sm:"none"}} w="100%"  position={"fixed"}  top="16"  zIndex="111">
-    <Button  onClick={()=>setShow(!show)}>Use Filter and Sorting</Button>
-    {
-      show ? <MobileFilterHealth OrderPrice={OrderPrice} OrderDiscount={OrderDiscount} FilterPrice={FilterPrice}FilterCategory= {FilterCategory}/> : ""
-    }
-    </Box>
-  </>
   )
 }
 
-export default HealthSidebar
+export default MobileFilterBoys

@@ -2,20 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    remotePatterns:[
-      {
-        protocol:"https",
-        hostname:"cdn.fcglcdn.com",
-        port:"",
-        pathname:"**"
-      },
-      {
-        protocol:"https",
-        hostname:"upload.wikimedia.org",
-        port:"",
-        pathname:"**"
-      }
-    ]
+    domains:["i.ibb.co","lh3.googleusercontent.com","i.imgur.com","imgur.com","cdn.fcglcdn.com","upload.wikimedia.org"]
+   
   }
 }
 

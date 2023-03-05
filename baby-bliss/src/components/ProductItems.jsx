@@ -2,36 +2,63 @@ import React from 'react'
 import Image from 'next/image'
 import { Button, GridItem,Text,Box ,Badge,useToast} from '@chakra-ui/react';
 import axios from 'axios';
+import {auth} from "./firebase"
+import 'firebase/auth';
 import { CartContext } from '@/Context/CartContext';
-import { useContext } from 'react';
 import { AuthContext } from '@/Context/AuthContext';
-
+import { useContext } from 'react';
 const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
-  const {cartCount,setCartCount}= useContext(CartContext);
-  const {auth}= useContext(AuthContext)
+  const {user,getUserData}= useContext(CartContext);
+  const {isAuth}=useContext(AuthContext)
   const [text,setText]= React.useState("Add To Cart")
-  const [data,setData]= React.useState([])
+
   const toast=useToast()
-  const AddToCart=async()=>{
-    if(!auth){
-toast({
-  title: 'Please Login first',
-      
-          status: 'error',
-          duration: 4000,
-          isClosable: true,
-})
-    }
-    else{
-   await axios.post("https://troubled-organized-denim.glitch.me/cart",{
-      id,img:image,price,mrp,discount,quantity:1,title
-  }
+
   
-  )
- //setText("Added")
-  getCart()
-  setCartCount(data.length)
-}
+
+  const AddToCart=async(id,image,price,title,mrp,discount)=>{
+    
+      if (isAuth) {
+        
+        user?.cart?.push({
+          id,img:image,price,mrp,discount,quantity:1,title })
+         
+          try{
+       let data=    await axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`,{cart:user.cart})
+       console.log(data)
+           toast({
+            title: 'Item added to cart',
+                
+                    status: 'success',
+                    duration: 4000,
+                    isClosable: true,
+          })
+          getUserData(user.id)
+          }
+          catch{
+            toast({
+              title: 'can not add item to cart',
+                  
+                      status: 'error',
+                      duration: 4000,
+                      isClosable: true,
+            })
+
+          }
+
+      }
+      else {
+     
+        toast({
+          title: 'Please Login first',
+              
+                  status: 'error',
+                  duration: 4000,
+                  isClosable: true,
+        })
+      
+    };
+    
   }
 
   const AddToWishlist=async()=>{
@@ -40,39 +67,26 @@ toast({
    }
    
    )
-  //setText("Added")
+  
   
    }
-  const getCart=async()=>{
-  let res=  await axios.get("https://troubled-organized-denim.glitch.me/cart")
-setData(res.data)
-setCartCount(res.data.length)
 
-  }
-  //console.log(data)
 
   React.useEffect(()=>{
-getCart()
-setCartCount(data.length)
-
-
-  },[])
-
-  React.useEffect(()=>{
-for(var i=0;i<data.length;i++){
-  if(data[i].id==id){
+for(var i=0;i<user?.cart.length;i++){
+  if(user?.cart[i].id==id){
     setText("Added")
   }
 }
-  },[getCart])
+  },[])
   
 
    
   
  
   return (
-    <Box mt="20">
-        <GridItem textAlign={"left"}>
+    <Box mt="20" w="100%" m="auto">
+        <GridItem textAlign={"left"} w="80%" m="auto" >
      
 <Image src={image} width="300"  height="250" margin="auto" alt="img" placeholder="blur"
   blurDataURL="/assets/image-placeholder.png" />
@@ -89,12 +103,12 @@ fontWeight={"400"}
 <Text color={"red"}>{discount}</Text>
 </Box>
 <Text fontSize={12}>{lft}</Text>
-<Box display={"flex"} mt="2">
+<Box display={"flex"} mt="2" w="100%"  justifyContent={"space-between"}  zIndex="0">
 
 
 {
- text==="Added" ?  <Button isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added To Cart</Button>: 
- <Button bg="#ff7043" _hover="" onClick={()=>AddToCart()}>{text}</Button>
+ text==="Added" ?  <Button zIndex="0" isDisabled={true} bg="green" onClick={()=>AddToCart()} >Added To Cart</Button>: 
+ <Button bg="#ff7043" _hover="" onClick={()=>AddToCart(id,image,price,title,mrp,discount)}>{text}</Button>
 }
 
     <Button mx="3" disabled={true} border={"1px solid tomato"} onClick={()=>AddToWishlist()}>WISHLIST</Button>
