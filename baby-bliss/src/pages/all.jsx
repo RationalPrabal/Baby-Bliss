@@ -85,7 +85,7 @@ console.log(data)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get("https://troubled-organized-denim.glitch.me/all")
+    let response = await axios.get(`${process.env.baseURL}/all`)
     return {
         props:{
         initialData: response.data
