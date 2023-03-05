@@ -70,7 +70,7 @@ setLoader(false)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get("https://troubled-organized-denim.glitch.me/diapers")
+    let response = await axios.get(`${process.env.baseURL}/diapers`)
     return {
         props:{
         initialData: response.data

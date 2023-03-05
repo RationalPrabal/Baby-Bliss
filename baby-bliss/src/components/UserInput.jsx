@@ -20,7 +20,7 @@ function UserInput() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    axios.post('https://troubled-organized-denim.glitch.me/userDetails', formData)
+    axios.post(`${process.env.baseURL}/userDetails`, formData)
       .then(res => {
         console.log(res)
         setData([...data, res.data])
