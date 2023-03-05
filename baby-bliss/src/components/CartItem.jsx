@@ -32,9 +32,9 @@ function CartItem({ img, title, desc, price, qty, id, discount}) {
    else return el
  })
  
- console.log(newUserCart)
+
 try{
- await axios.patch(`${process.env.baseURL}/user/${user.id}`,{
+ await axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`,{
   cart:newUserCart
  }
  )
@@ -52,7 +52,7 @@ catch{
         return el.id!==id
      })
      try{
-     await   axios.patch(`${process.env.baseURL}/user/${user.id}`, {
+     await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
   cart:newUserCart
      });
     getUserData(user.id)
@@ -76,9 +76,9 @@ catch{
  })
    user.cart=newUserCart
    user?.wishlist?.push(newUserWishlist[0])
-console.log(newUserCart,user)
+
    try{
-    await   axios.patch(`${process.env.baseURL}/user/${user.id}`, {
+    await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
  cart:user.cart,
  wishlist:user.wishlist
     });

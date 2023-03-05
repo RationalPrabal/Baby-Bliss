@@ -45,7 +45,7 @@ function adminPanel({data}) {
       e.preventDefault();
       axios.post(`${process.env.baseURL}/all`, formData)
         .then(res => {
-          console.log(res)
+       
         //   setData([...userdata, res.data])
         
         })
@@ -59,7 +59,7 @@ function adminPanel({data}) {
     const handleDelete = (id) => {
       axios.delete(`${process.env.baseURL}/all/${id}`)
         .then(res => {
-          console.log(res)
+        
         
         })
         .catch(err => console.log(err))

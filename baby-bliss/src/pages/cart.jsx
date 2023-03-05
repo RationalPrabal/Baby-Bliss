@@ -73,7 +73,7 @@ const [show,setShow]= React.useState(false)
     setLoading(false);
     setOrder(true);
     try{
-   await  axios.patch(`${process.env.baseURL}/user/${user.id}`,{
+   await  axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`,{
     cart:[]
    });
   }
