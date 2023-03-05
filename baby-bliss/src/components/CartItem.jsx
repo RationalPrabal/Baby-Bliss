@@ -14,50 +14,57 @@ import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
-import { WindowSharp } from "@mui/icons-material";
 
+import { CartContext } from '@/Context/CartContext';
+import { useContext } from 'react';
 function CartItem({ img, title, desc, price, qty, id, discount}) {
-    const [quantity, setQuantity] = useState(qty)
+  const {user,getUserData}= useContext(CartContext)
+  const [quantity, setQuantity] = useState(qty)
     
-    const incQuantity =async (id) => {
-      await  axios.put(`https://troubled-organized-denim.glitch.me/cart/${id}`, {
-          img: img,
-          title: title,
-          desc: desc,
-          price: price,
-          quantity: quantity + 1,
-          id: id ? id : null,
-          discount: discount,
-        });
-        setQuantity(quantity + 1)
-        setTimeout(refreshData, 1000)
-    //  setReset(reset+1)
+ const changeQuantity=async(id,change)=>{
+  const newUserCart=user?.cart.map((el)=>{
+   if(el.id==id){
+ 
+    return {
+      ...el,quantity:el.quantity+change
     }
-    
-    const decQuantity =async (id) => {
-   await   axios.put(`https://troubled-organized-denim.glitch.me/cart/${id}`, {
-        img: img,
-        title: title,
-        desc: desc,
-        price: price,
-        quantity: quantity - 1,
-        id: id ? id : null,
-        discount: discount,
-      });
-        setQuantity(quantity - 1);
-        setTimeout(refreshData, 1000);
-     // setReset(reset+1)
-    };
+   }
+   else return el
+ })
+ 
+ console.log(newUserCart)
+try{
+ await axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`,{
+  cart:newUserCart
+ }
+ )
+ setQuantity(quantity+change)
+ getUserData(user.id)
+}
+catch{
+
+}
+ }
 
     const deleteItem =async (id) => {
-     await   axios.delete(`https://troubled-organized-denim.glitch.me/cart/${id}`);
-        setTimeout(refreshData, 1000);
-    //  setReset(reset+1)
+
+      const  newUserCart = user?.cart.filter((el)=>{
+        return el.id!==id
+     })
+     try{
+     await   axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`, {
+  cart:newUserCart
+     });
+    getUserData(user.id)
+    }
+    catch{
+
+    }
+     
+  
     }
 
-    const refreshData = () => {
-        location.reload();
-    }
+   
 
   return (
     <Box>
@@ -81,12 +88,12 @@ function CartItem({ img, title, desc, price, qty, id, discount}) {
             </Text>
             <Flex mt={4} alignItems={"center"}>
               <Button
-                onClick={() => decQuantity(id)}
+                onClick={() =>changeQuantity(id,-1)}
                 isDisabled={quantity === 1}>
                 -
               </Button>
               <Text mx={2}>{quantity}</Text>
-              <Button onClick={() => incQuantity(id)}>+</Button>
+              <Button onClick={() => changeQuantity(id,1)}>+</Button>
             </Flex>
           </CardBody>
           <CardFooter>
