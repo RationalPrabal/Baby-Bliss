@@ -15,13 +15,17 @@ import {
     Input,
     Collapse,
     Icon,
-
+Toast,
     Popover,
     PopoverTrigger,
+    PopoverArrow,
+    PopoverBody, PopoverCloseButton,
     PopoverContent,
+    PopoverHeader,
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    useToast,
   } from '@chakra-ui/react';
   
   import {
@@ -34,12 +38,36 @@ import Image from 'next/image';
 import { useRouter } from 'next/router'
 import { AuthContext } from '@/Context/AuthContext';
 import { useContext } from 'react';
+import { signOut } from 'firebase/auth';
+import {auth} from "../components/firebase"
+
   const Navbaar = () => {
     const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-    const {cartCount, setText}= useContext(CartContext);
-   const{name}= useContext(AuthContext)
+    const {getUserData,user}= useContext(CartContext);
+   const{userId,getUserId,LogoutUser}= useContext(AuthContext)
+    const [cartlength,setCartLength]= React.useState(0)
+const toast= useToast()
+   React.useEffect(()=>{
+getUserId()
+   },[])
 
+
+
+ React.useEffect(()=>{
+  if(userId){
+getUserData(userId)
+  }
+
+ },[userId])
+
+React.useEffect(()=>{
+  if(user){
+setCartLength(user?.cart?.length)
+  }
+  
+},[user])
+console.log(cartlength)
     return (
       <Box position="fixed" 
       left="0"
@@ -91,13 +119,13 @@ import { useContext } from 'react';
             direction={'row'}
             spacing={6}>
           <Box display="flex">
-   <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartCount}</Text>
+   <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartlength}</Text>
  
       </Box>
       
      
-    <Link href="/UserDetails">  <AccountCircleIcon style={{fontSize:"35px"}}/></Link>
-    {name?.length==0 ? <Button
+    
+    {!user ? <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -112,7 +140,40 @@ import { useContext } from 'react';
               }
               >
              Sign In
-            </Button> : <Text  style={{fontWeight:"770",marginTop:"5px"}}>{name}</Text>}
+            </Button> : 
+            
+            user?.img.length!==0?
+            <Popover>
+  <PopoverTrigger>
+  <Image  src={user.img} width={"40"} height={"20"} style={{borderRadius:"100%"}} alt="profile"/> 
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverArrow />
+    <PopoverCloseButton />
+    <PopoverHeader>Hi,{user.name}</PopoverHeader>
+    <PopoverBody>
+      <Box display={"grid"}>
+<Button color={"green.300"}     onClick={
+                ()=>router.push("/UserDetails")
+              } >Go to Profile</Button>
+<Button color={"red.300"} onClick={()=>{
+LogoutUser()
+  toast({
+    title: 'Logged out Successfully',
+        
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+  })
+}}>LogOut</Button>
+</Box>
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
+ 
+            :
+            <AccountCircleIcon/>
+            }
 
           </Stack>
         </Flex>
@@ -221,7 +282,7 @@ import { useContext } from 'react';
   
   const MobileNavItem = ({ label, children, link }) => {
     const { isOpen, onToggle } = useDisclosure();
-  console.log(label,link)
+  
     return (
       <Stack spacing={4} onClick={children && onToggle}>
         <Flex
@@ -269,12 +330,7 @@ import { useContext } from 'react';
     );
   };
   
-//   interface NavItem {
-//     label: string;
-//     subLabel?: string;
-//     children?: Array<NavItem>;
-//     href?: string;
-//   }
+
   
   const Mobile_NAV_ITEMS= [
     {

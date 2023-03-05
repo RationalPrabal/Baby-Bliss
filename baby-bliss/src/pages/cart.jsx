@@ -33,11 +33,10 @@ import { useContext } from 'react';
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import CartItem from "@/components/CartItem";
-import { red } from "@mui/material/colors";
 
-function cart({ cartItems }) {
- const {cartCount,setCartCount}= useContext(CartContext);
-  setCartCount(cartItems.length)
+
+function cart() {
+const {user}= useContext(CartContext)
   const [order, setOrder] = useState(false);
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
@@ -47,7 +46,7 @@ function cart({ cartItems }) {
   const [app, setApp] = useState("");
   const [city, setCity] = useState("");
   const [num, setNum] = useState("");
-
+const [cartItems,setCartItems]= React.useState(user?.cart)
   const nameError = fname === "";
   const addError = add === "";
   const appError = app === "";
@@ -63,6 +62,7 @@ function cart({ cartItems }) {
     }
   };
 
+ 
   const confirmOrder = () => {
     setLoading(true);
     setTimeout(completeOrder, 5000);
@@ -75,10 +75,16 @@ function cart({ cartItems }) {
     setTimeout(redirect, 3000);
   };
 
+  
+
+
+React.useEffect(()=>{
+setCartItems(user?.cart)
+},[user])
   const redirect = () => {
     location.href = "/";
   };
-
+console.log(cartItems)
   function validateField(value) {
     let error;
     if (!value) {
@@ -89,12 +95,12 @@ function cart({ cartItems }) {
 
   useEffect(() => {
     let sum = 0;
-    cartItems.map((item) => {
+    cartItems?.map((item) => {
       sum += item.price * item.quantity;
     });
     setTotal(sum.toFixed(2));
     console.log(typeof total);
-  }, []);
+  }, [cartItems]);
 
   if (order) {
     return (
@@ -114,7 +120,7 @@ function cart({ cartItems }) {
   if (step === 3) {
     return (
       <Grid
-      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
+      gridTemplateColumns={{base:"1 1fr",sm:"1 1fr",md:"3 1fr"}}
       border={"2px solid red"}
         gap={6}
         w={"80%"}
@@ -232,7 +238,7 @@ function cart({ cartItems }) {
   if (step === 2) {
     return (
       <Grid
-      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
+      gridTemplateColumns={{base:"1 1fr",sm:"1 1fr",md:"3fr 1fr"}}
       border={"2px solid red"}
         gap={6}
         w={"80%"}
@@ -369,7 +375,9 @@ function cart({ cartItems }) {
 
   return (
     <Grid
-      gridTemplateColumns={{base:"1fr 1fr",sm:"3fr 1fr"}}
+    gridTemplateColumns={{base:"1 1fr",sm:"1 1fr",md:"3 1fr"}}
+    
+
       gap={6}
       w={"80%"}
       m={"auto"}
@@ -381,7 +389,7 @@ function cart({ cartItems }) {
         </TabList>
         <TabPanels>
           <TabPanel>
-            {cartItems.length === 0 ? (
+            {cartItems?.length === 0 ? (
               <Flex
                 flexDirection={"column"}
                 m={"auto"}
@@ -399,7 +407,7 @@ function cart({ cartItems }) {
                 <Link href="/">Continue browsing</Link>
               </Flex>
             ) : (
-              cartItems.map((item) => {
+              cartItems?.map((item) => {
                 return (
                   <CartItem
                     mpr={item.mrp}
@@ -410,6 +418,7 @@ function cart({ cartItems }) {
                     img={item.img}
                     id={item.id}
                     discount={item.discount}
+                 
                   />
                 );
               })
@@ -421,7 +430,7 @@ function cart({ cartItems }) {
         </TabPanels>
       </Tabs>
 
-      {cartItems.length > 0 ? (
+      {cartItems?.length > 0 ? (
         <Card h={"max-content"} >
           <CardHeader>
             <Heading size="md">Order summary</Heading>
@@ -455,11 +464,3 @@ function cart({ cartItems }) {
 
 export default cart;
 
-export async function getStaticProps() {
-  let response = await axios.get("https://troubled-organized-denim.glitch.me/cart");
-  return {
-    props: {
-      cartItems: response.data,
-    },
-  };
-}
