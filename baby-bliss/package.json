@@ -17,6 +17,7 @@
     "@mui/material": "^5.11.5",
     "@next/font": "13.1.2",
     "axios": "^1.2.2",
+    "dotenv": "^16.0.3",
     "firebase": "^9.17.2",
     "framer-motion": "^8.4.7",
     "next": "13.1.2",

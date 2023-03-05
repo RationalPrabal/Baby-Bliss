@@ -42,19 +42,25 @@ import {signInWithPopup} from "firebase/auth"
 
 
   const Registration = () => {
-
+const router=useRouter()
 // const [user,setuser]=useState({})
 
     const handleLogin = async () => {
-     
+
 
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
-       await  axios.post("https://troubled-organized-denim.glitch.me/user",userdata).then((res)=>console.log(res)).catch(e => console.log(e))   
-      
+       await  axios.post(`${process.env.baseURL}/user`,userdata).then(()=>
+        router.push("/")
+       ).catch(e =>{
+        console.log(e.message)
+     
+       })   
+       router.push("/")
       } catch (error) {
         console.log(error)
+      
       }
 
    
@@ -67,7 +73,7 @@ import {signInWithPopup} from "firebase/auth"
 
 
 
-    const router = useRouter()
+
    const [registerdetails,setregisterdetails] =useState({})
     const toast=useToast()
   
@@ -81,7 +87,7 @@ const handleChange=(e)=>{
 
    const handleSubmit = async()=>{
  try { 
-   let res=await fetch("https://troubled-organized-denim.glitch.me/user",
+   let res=await fetch(`${process.env.baseURL}/user`,
  { 
   method:"POST", 
    body:JSON.stringify(registerdetails), 
@@ -114,7 +120,7 @@ let datahai=await res.json()
 
 
 //  try {
-//     const res = await axios.post("https://troubled-organized-denim.glitch.me/user",registerdetails)
+//     const res = await axios.post(`${process.env.baseURL}/user",registerdetails)
 //  }
 //  catch (error) {
 //    console.log(error.response.data);
@@ -125,7 +131,7 @@ let datahai=await res.json()
    }
    
    useEffect(()=>{
-     let users = fetch("https://troubled-organized-denim.glitch.me/user")
+     let users = fetch(`${process.env.baseURL}/user`)
        .then((res) => res.json())
        .then((res) => res)
        .catch((err) => console.log(err));
