@@ -80,7 +80,7 @@ console.log(LoginVal)
  
  
 useEffect(()=>{
-    fetch('https://troubled-organized-denim.glitch.me/user')
+    fetch(`${process.env.baseURL}/user`)
 .then((response) => response.json())
 .then((data) => setdata(data));
 

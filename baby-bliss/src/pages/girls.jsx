@@ -9,7 +9,7 @@ const boys = ({suits}) => {
 // function for sort by price
  const OrderPrice=async(order)=>{
   setLoader(true)
-let res =  await axios.get(`https://troubled-organized-denim.glitch.me/girls?_sort=price&_order=${order}`)
+let res =  await axios.get(`${process.env.baseURL}/girls?_sort=price&_order=${order}`)
 console.log(res.data)
 set_data(res.data)
 setLoader(false)
@@ -19,7 +19,7 @@ setLoader(false)
  // function for sort by discount
  const OrderDiscount=async(order)=>{
   setLoader(true)
-  let res =  await axios.get(`https://troubled-organized-denim.glitch.me/girls?_sort=discount&_order=${order}`)
+  let res =  await axios.get(`${process.env.baseURL}/girls?_sort=discount&_order=${order}`)
   console.log(res.data)
   set_data(res.data)
   setLoader(false)
@@ -30,7 +30,7 @@ setLoader(false)
   // function for filtering by price
   const FilterPrice=async(lowerRange,higherRange)=>{
     setLoader(true)
-    let res =  await axios.get(`https://troubled-organized-denim.glitch.me/girls?price_gte=${lowerRange}&price_lte=${higherRange}`)
+    let res =  await axios.get(`${process.env.baseURL}/girls?price_gte=${lowerRange}&price_lte=${higherRange}`)
     console.log(res.data)
     set_data(res.data)
     setLoader(false)
@@ -40,7 +40,7 @@ setLoader(false)
 
      const FilterCategory=async(query)=>{
       setLoader(true)
-      let res =  await axios.get(`https://troubled-organized-denim.glitch.me/girls?q=${query}`)
+      let res =  await axios.get(`${process.env.baseURL}/girls?q=${query}`)
       console.log(res.data)
       set_data(res.data)
       setLoader(false)

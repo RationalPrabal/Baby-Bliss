@@ -9,7 +9,7 @@ const boys = ({T_shirts}) => {
 // function for sort by price
  const OrderPrice=async(order)=>{
   setLoader(true)
-let res =  await axios.get(`https://troubled-organized-denim.glitch.me/boys?_sort=price&_order=${order}`)
+let res =  await axios.get(`${process.env.baseURL}/boys?_sort=price&_order=${order}`)
 console.log(res.data)
 set_shirts(res.data)
 setLoader(false)
@@ -18,7 +18,7 @@ setLoader(false)
  // function for sort by discount
  const OrderDiscount=async(order)=>{
   setLoader(true)
-  let res =  await axios.get(`https://troubled-organized-denim.glitch.me/boys?_sort=discount&_order=${order}`)
+  let res =  await axios.get(`${process.env.baseURL}/boys?_sort=discount&_order=${order}`)
   console.log(res.data)
   set_shirts(res.data)
   setLoader(false)
@@ -29,7 +29,7 @@ setLoader(false)
   // function for filtering by price
   const FilterPrice=async(lowerRange,higherRange)=>{
     setLoader(true)
-    let res =  await axios.get(`https://troubled-organized-denim.glitch.me/boys?price_gte=${lowerRange}&price_lte=${higherRange}`)
+    let res =  await axios.get(`${process.env.baseURL}/boys?price_gte=${lowerRange}&price_lte=${higherRange}`)
     console.log(res.data)
     set_shirts(res.data)
     setLoader(false)
@@ -39,7 +39,7 @@ setLoader(false)
 
      const FilterCategory=async(query)=>{
       setLoader(true)
-      let res =  await axios.get(`https://troubled-organized-denim.glitch.me/boys?q=${query}`)
+      let res =  await axios.get(`${process.env.baseURL}/boys?q=${query}`)
       console.log(res.data)
       set_shirts(res.data)
       setLoader(false)
@@ -69,7 +69,7 @@ setLoader(false)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get("https://troubled-organized-denim.glitch.me/boys")
+    let response = await axios.get(`${process.env.baseURL}/boys`)
     return {
         props:{
         T_shirts: response.data

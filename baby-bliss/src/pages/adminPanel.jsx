@@ -57,7 +57,7 @@ function adminPanel({data}) {
 
   
     const handleDelete = (id) => {
-      axios.delete(`https://troubled-organized-denim.glitch.me/all/${id}`)
+      axios.delete(`${process.env.baseURL}/all/${id}`)
         .then(res => {
           console.log(res)
         

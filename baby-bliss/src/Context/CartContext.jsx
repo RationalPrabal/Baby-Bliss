@@ -10,7 +10,7 @@ function CartContextProvider({children}) {
     const getUserData=async(id)=>{
    
         try{
-    let data= await axios.get(`https://troubled-organized-denim.glitch.me/user/${id}`)
+    let data= await axios.get(`${process.env.baseURL}/user/${id}`)
     setUser(data.data)
    
         }
