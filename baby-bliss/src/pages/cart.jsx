@@ -47,6 +47,7 @@ const {user}= useContext(CartContext)
   const [city, setCity] = useState("");
   const [num, setNum] = useState("");
 const [cartItems,setCartItems]= React.useState(user?.cart)
+
   const nameError = fname === "";
   const addError = add === "";
   const appError = app === "";
