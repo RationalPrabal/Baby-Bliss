@@ -51,7 +51,7 @@ const router=useRouter()
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
-       await  axios.post(`${process.env.baseURL}/user`,userdata).then(()=>
+       await  axios.post(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,userdata).then(()=>
         router.push("/")
        ).catch(e =>{
         console.log(e.message)
@@ -64,7 +64,7 @@ const router=useRouter()
       }
 
    
-      // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
+     
 
     
 
@@ -81,13 +81,13 @@ const router=useRouter()
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
-  console.log(registerdetails.user)
+
 }
 
 
    const handleSubmit = async()=>{
  try { 
-   let res=await fetch(`${process.env.baseURL}/user`,
+   let res=await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
  { 
   method:"POST", 
    body:JSON.stringify(registerdetails), 
@@ -119,29 +119,18 @@ let datahai=await res.json()
  }
 
 
-//  try {
-//     const res = await axios.post(`${process.env.baseURL}/user",registerdetails)
-//  }
-//  catch (error) {
-//    console.log(error.response.data);
-// }
 
-    console.log(registerdetails)
+
 
    }
    
    useEffect(()=>{
-     let users = fetch(`${process.env.baseURL}/user`)
+     let users = fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`)
        .then((res) => res.json())
        .then((res) => res)
        .catch((err) => console.log(err));
       users=users.then((res)=>res)
-      // console.log(users)
-    //   let obj = {}
-    //  users.forEach((el)=>{
-    //   obj[el.email]=el.email
-    //  })
-    //  console.log(obj)
+     
    })
 
 

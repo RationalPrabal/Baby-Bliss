@@ -43,7 +43,7 @@ import { useContext } from 'react';
   const Navbaar = () => {
     const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-    const {getUserData,user}= useContext(CartContext);
+    const {getUserData,user,text,setText}= useContext(CartContext);
    const{userId,getUserId,LogoutUser,setAuth,isAuth}= useContext(AuthContext)
     const [cartlength,setCartLength]= React.useState(0)
 const toast= useToast()

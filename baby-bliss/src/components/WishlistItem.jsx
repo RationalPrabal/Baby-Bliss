@@ -29,7 +29,7 @@ import {
           return el.id!==id
        })
        try{
-       await   axios.patch(`${process.env.baseURL}/user/${user.id}`, {
+       await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
     wishlist:newUserWishlist
        });
        toast({
@@ -66,7 +66,7 @@ import {
        user?.cart?.push(newUserCart[0])
   
        try{
-        await   axios.patch(`${process.env.baseURL}/user/${user.id}`, {
+        await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
      cart:user.cart,
      wishlist:user.wishlist
         });

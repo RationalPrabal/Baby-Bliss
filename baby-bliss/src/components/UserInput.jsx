@@ -22,7 +22,7 @@ function UserInput() {
     e.preventDefault();
     axios.post(`${process.env.baseURL}/userDetails`, formData)
       .then(res => {
-        console.log(res)
+  
         setData([...data, res.data])
         setIsSubmitted(true)
       })
@@ -34,7 +34,7 @@ function UserInput() {
   const handleDelete = (id) => {
     axios.delete(`http://localhost:4040/userDetails/${id}`)
       .then(res => {
-        console.log(res)
+      
         setData(data.filter(entry => entry.id !== id))
         setIsSubmitted(false)
         setFormData({name: "", street: "", houseNumber: "" })
@@ -52,7 +52,7 @@ function UserInput() {
 const handleUpdate = (editId) => {
     axios.put(`http://localhost:4040/userDetails/${editId}`, formData)
       .then(res => {
-        console.log(res)
+      
         setEditId(null)
         setData(data.map(entry => (entry.id === editId ? res.data : entry)))
       })

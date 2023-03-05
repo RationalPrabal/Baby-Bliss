@@ -25,7 +25,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
          
           try{
        let data=    await axios.patch(`${process.env.baseURL}/user/${user.id}`,{cart:user.cart})
-       console.log(data)
+    
            toast({
             title: 'Item added to cart',
                 
@@ -69,7 +69,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
        
         try{
      let data=    await axios.patch(`${process.env.baseURL}/user/${user.id}`,{wishlist:user.wishlist})
-     console.log(data)
+    
          toast({
                    title: 'Item added to the wishlist',
                   status: 'success',

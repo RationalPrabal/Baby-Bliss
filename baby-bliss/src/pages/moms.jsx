@@ -9,8 +9,8 @@ const boys = ({initialData}) => {
 // function for sort by price
  const OrderPrice=async(order)=>{
   setLoader(true)
-let res =  await axios.get(`${process.env.baseURL}/moms?_sort=price&_order=${order}`)
-console.log(res.data)
+let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/moms?_sort=price&_order=${order}`)
+
 set_data(res.data)
 setLoader(false)
  }
@@ -18,8 +18,8 @@ setLoader(false)
  // function for sort by discount
  const OrderDiscount=async(order)=>{
   setLoader(true)
-  let res =  await axios.get(`${process.env.baseURL}/moms?_sort=discount&_order=${order}`)
-  console.log(res.data)
+  let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/moms?_sort=discount&_order=${order}`)
+  
   set_data(res.data)
   setLoader(false)
    }
@@ -29,8 +29,8 @@ setLoader(false)
   // function for filtering by price
   const FilterPrice=async(lowerRange,higherRange)=>{
     setLoader(true)
-    let res =  await axios.get(`${process.env.baseURL}/moms?price_gte=${lowerRange}&price_lte=${higherRange}`)
-    console.log(res.data)
+    let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/moms?price_gte=${lowerRange}&price_lte=${higherRange}`)
+    
     set_data(res.data)
     setLoader(false)
      }
@@ -39,8 +39,8 @@ setLoader(false)
 
      const FilterCategory=async(query)=>{
       setLoader(true)
-      let res =  await axios.get(`${process.env.baseURL}/moms?q=${query}`)
-      console.log(res.data)
+      let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/moms?q=${query}`)
+      
       set_data(res.data)
       setLoader(false)
        }
@@ -69,7 +69,7 @@ setLoader(false)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get(`${process.env.baseURL}/moms`)
+    let response = await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/moms`)
     return {
         props:{
         initialData: response.data
