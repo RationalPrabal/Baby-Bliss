@@ -44,23 +44,29 @@ import yellow from '@mui/material/colors/yellow';
 
 
   const Registration = () => {
-
+const router=useRouter()
 // const [user,setuser]=useState({})
 
     const handleLogin = async () => {
-     
+
 
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
-       await  axios.post("https://troubled-organized-denim.glitch.me/user",userdata).then((res)=>console.log(res)).catch(e => console.log(e))   
-      
+       await  axios.post(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,userdata).then(()=>
+        router.push("/")
+       ).catch(e =>{
+        console.log(e.message)
+     
+       })   
+       router.push("/")
       } catch (error) {
         console.log(error)
+      
       }
 
    
-      // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
+     
 
     
 
@@ -69,7 +75,7 @@ import yellow from '@mui/material/colors/yellow';
 
 
 
-    const router = useRouter()
+
    const [registerdetails,setregisterdetails] =useState({})
     const toast=useToast()
   
@@ -77,13 +83,13 @@ import yellow from '@mui/material/colors/yellow';
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
-  console.log(registerdetails.user)
+
 }
 
 
    const handleSubmit = async()=>{
  try { 
-   let res=await fetch("https://troubled-organized-denim.glitch.me/user",
+   let res=await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
  { 
   method:"POST", 
    body:JSON.stringify(registerdetails), 
@@ -115,29 +121,18 @@ let datahai=await res.json()
  }
 
 
-//  try {
-//     const res = await axios.post("https://troubled-organized-denim.glitch.me/user",registerdetails)
-//  }
-//  catch (error) {
-//    console.log(error.response.data);
-// }
 
-    console.log(registerdetails)
+
 
    }
    
    useEffect(()=>{
-     let users = fetch("https://troubled-organized-denim.glitch.me/user")
+     let users = fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`)
        .then((res) => res.json())
        .then((res) => res)
        .catch((err) => console.log(err));
       users=users.then((res)=>res)
-      // console.log(users)
-    //   let obj = {}
-    //  users.forEach((el)=>{
-    //   obj[el.email]=el.email
-    //  })
-    //  console.log(obj)
+     
    })
 
 

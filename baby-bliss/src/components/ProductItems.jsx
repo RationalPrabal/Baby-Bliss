@@ -24,8 +24,8 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
           id,img:image,price,mrp,discount,quantity:1,title })
          
           try{
-       let data=    await axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`,{cart:user.cart})
-       console.log(data)
+       let data=    await axios.patch(`${process.env.baseURL}/user/${user.id}`,{cart:user.cart})
+    
            toast({
             title: 'Item added to cart',
                 
@@ -62,11 +62,45 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
   }
 
   const AddToWishlist=async()=>{
-    await axios.post("https://troubled-organized-denim.glitch.me/wishlist",{
-       id,img:image,price,mrp,discount,lft,title
-   }
+    if (isAuth) {
+        
+      user?.wishlist?.push({
+        id,img:image,price,mrp,discount,title })
+       
+        try{
+     let data=    await axios.patch(`${process.env.baseURL}/user/${user.id}`,{wishlist:user.wishlist})
+    
+         toast({
+                   title: 'Item added to the wishlist',
+                  status: 'success',
+                  duration: 4000,
+                  isClosable: true,
+        })
+        getUserData(user.id)
+        }
+        catch{
+          toast({
+            title: 'can not add item to the wishlist',
+                
+                    status: 'error',
+                    duration: 4000,
+                    isClosable: true,
+          })
+
+        }
+
+    }
+    else {
    
-   )
+      toast({
+        title: 'Please Login first',
+            
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+      })
+    
+  };
   
   
    }
@@ -111,7 +145,7 @@ fontWeight={"400"}
  <Button bg="#ff7043" _hover="" onClick={()=>AddToCart(id,image,price,title,mrp,discount)}>{text}</Button>
 }
 
-    <Button mx="3" disabled={true} border={"1px solid tomato"} onClick={()=>AddToWishlist()}>WISHLIST</Button>
+    <Button mx="3" disabled={true} border={"1px solid tomato"} onClick={()=>AddToWishlist(id,image,price,title,mrp,discount)}>WISHLIST</Button>
  
 </Box>
 
