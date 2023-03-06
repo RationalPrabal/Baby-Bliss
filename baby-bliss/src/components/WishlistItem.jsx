@@ -35,8 +35,8 @@ import {
        toast({
         title: 'Item deleted from wishlist',
         status: 'success',
-        duration: 50000,
-        isClosable: false,
+        duration: 3000,
+        isClosable: true,
       })
       getUserData(user.id)
       }
