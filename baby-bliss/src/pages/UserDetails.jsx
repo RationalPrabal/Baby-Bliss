@@ -7,7 +7,7 @@ import ChildDetails from "../components/ChildDetails";
 
 const Form = () => {
 const [show,setShow]=useState(false)
-  const {user}= useContext(CartContext);
+  const {getUserData,user}= useContext(CartContext);
   // console.log("userid",user)
   const [childData, setChildData] = useState({
     name: '',
@@ -32,7 +32,8 @@ const [show,setShow]=useState(false)
       .then((res) => {
         console.log(res);
         alert("succesfully patch")
-        setShow(true)
+        getUserData(user.id)
+        
       })
       .catch((err) => {
         console.log(err);
@@ -199,11 +200,9 @@ const [show,setShow]=useState(false)
                                   
                        <h1 className={styles.Contact}> Child Details </h1>
 
-                       {show===true?(
-                        <div>
-                        <ChildDetails setShow={setShow}/>
-                    </div>  
-                       ):(
+                       <div>
+                        <ChildDetails />
+                      </div>  
 
                         <div className={styles.mainBox}>
                         <form onSubmit={handleSubmit}> 
@@ -279,14 +278,8 @@ const [show,setShow]=useState(false)
                             </div>
              
                         </form>          
-           </div>
-                       )
-
-                       }
-
-                            
-
-                                    
+                     </div>
+                                
 
                       </div>
 

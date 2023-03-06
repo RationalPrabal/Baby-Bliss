@@ -5,10 +5,10 @@ import { useContext } from 'react';
 import { CartContext } from "../Context/CartContext";
 import styles from '../styles/Details.module.css'
 
-const childDetails = ({setShow}) => {
+const childDetails = () => {
   
   const {user}= useContext(CartContext);
-  // console.log("data",user)
+  console.log("data",user)
 
   return (
    
@@ -43,7 +43,7 @@ const childDetails = ({setShow}) => {
   <p className={styles.Child}>HEIGHT:</p>
   <p className={styles.ChildValue}>{user.child.height}</p>
 </div>
-   <button  className={styles.AddBtn} onClick={()=>setShow(false)}>ADD</button>
+   
 </div>
   )
 }
