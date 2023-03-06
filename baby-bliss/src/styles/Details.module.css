@@ -1,0 +1,381 @@
+
+.mainContainer{
+ 
+    width: 1000px;
+    margin: auto;
+    margin-top: 10%;
+    /* border: 1px solid red; */
+    display: flex;
+    gap:30%
+}
+
+.barContainer{
+
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.Htag{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.HeadingsCaontainer{
+    margin-top: 20px;
+}
+
+.Headings{
+
+    background-color: rgb(217, 214, 214);
+    text-align: center;
+    width: 200px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.pTags{
+
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.ProfileHeadings{
+      
+    background-color: rgb(217, 214, 214);
+    text-align: center;
+    width: 200px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+/*----------------My PROFILE------ details */
+
+.DetailsContainer{
+
+    margin-left: -150px;
+    margin-top: 20px;
+    width: 80%;
+    /* border: 1px solid blue; */
+}
+
+/* .ProfileHead{
+    font-weight: 600;
+    font-size: 18px;
+
+} */
+
+.MyProfile{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.parentNameContainer{
+
+      display: flex;
+      width: 100%;
+      /* border: 1px solid green; */
+      justify-content: space-around;
+      margin-top: 30px;
+}
+
+.nameContainer{
+
+    margin-top: 20px;
+}
+
+.nameContainer>h3{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nameContainer>h3+p{
+    font-size: 12px;
+}
+
+
+
+/* -------------CONTACT -------------------*/
+
+.ContactMain{
+
+    display: flex;
+    gap: 30px;
+}
+.Contact{
+    background-color: rgb(217, 214, 214);
+    width: 100%;
+    height: 40px;
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 16px;
+    padding: 5px;
+
+}
+
+.ContactContainer{
+
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 20px;
+}
+
+.Email{
+    font-size: 14px;
+}
+.EmailValue{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.msgHead{
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.msg{
+    font-size: 14px;
+    margin-top: 10px;
+    width: 90%;
+    
+}
+
+
+    /* ------------CHILD details -----------*/
+
+    .mainBox{
+        margin-top: 20px;
+    }
+    .Input{
+        display: flex;
+        gap: 30px;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .InputBirth{
+        display: flex;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .boxInput{
+        margin-left: 38px;
+        margin-top: 10px;
+        border: 2px solid black;
+    }
+    .boxInput1{
+        border: 2px solid black;
+    }
+
+    .KG{
+         width: 60px;
+         border: 2px solid black;
+    }
+
+   .labels{
+
+     background-color: rgb(206, 201, 201);
+     margin-left: 15px;
+   }
+
+   .Btn{
+
+       color: white;
+       background-color: orange;
+       width: 70px;
+       height: 30px;
+       border-radius: 5px;
+    
+   }
+
+   .btnDiv{
+       margin-top: 30px;
+       margin-left: 150px;
+   }
+
+   
+
+   .childList{
+      margin-top: 40px;
+    text-align: center;
+   }
+
+
+   .Child{
+    font-size: 14px;
+}
+.ChildValue{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.OddContainer{
+
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 20px;
+    background-color: rgb(216, 212, 212);
+}
+
+
+
+.MainContainer{
+    margin-top: 40px;
+}
+
+
+.ChildHeader{
+    text-align: center;
+}
+
+
+.AddBtn{
+    color: white;
+    background-color: orange;
+    margin-top: 20px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 20px;
+
+}
+
+   /* =--------RESPONSIVE MOBILE------------- */
+
+@media(max-width:400px){
+
+    .mainContainer{
+ 
+        width: 100%;
+        margin: auto;
+        margin-top: 20%;
+        /* border: 1px solid green; */
+        display: flex;
+        flex-direction: column;
+        gap:30%;
+        align-items: center;
+    }
+
+    .Htag{
+        font-weight: 600;
+        font-size: 18px;
+        margin-left:50px ;
+    }
+
+          /* Details */
+
+    .DetailsContainer{
+        margin-top: 40px;
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    /* .ProfileHead{
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+    
+    } */
+
+     .MyProfile{
+
+        background-color: rgb(217, 214, 214);
+        width: 100%;
+        height: 40px;
+        font-weight: 600;
+        margin-top: 20px;
+        font-size: 18px;
+        padding: 5px;
+     }
+   
+    .parentNameContainer{
+
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-left: 20px;
+        align-items: center;
+
+   
+  }
+
+
+         /* --------CONTACT------ */
+         .ContactMain{
+
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+        }
+
+        .msgContainer{
+            margin-left: 20px;
+        }
+
+
+        /* -------- CHILD DETAILS  -----------*/
+
+
+
+         .Input{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            
+        }
+
+        .boxInput1{
+            margin-top: -20px;
+        }
+
+        .boxInput{
+            margin-top: 5px;
+            margin-left: 0px;
+        }
+        
+
+        .InputBirth{
+            display: flex;
+            flex-direction: column;
+           width: 90%;
+            
+        } 
+
+        .radioLabel{
+            display: flex;
+            gap: 50px;
+            margin-top: -15px;
+        }
+
+      .weightLabel{
+             display: flex;
+             gap: 40px;
+             margin-top: -10px;
+      }
+      
+      .btnDiv{
+        margin-top: 30px;
+        margin-left: 110px;
+    }
+
+
+    .childList{
+      
+        margin-top: 20px;
+        text-align: center;
+       }
+
+       .MainContainer{
+        margin-top: 40px;
+    }
+
+    .ChildHeader{
+        text-align: center;
+    }
+}
