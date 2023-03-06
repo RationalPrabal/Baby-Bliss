@@ -26,6 +26,7 @@ import {
     useToast,
   } from '@chakra-ui/react';
 import {auth,provider} from "../components/firebase"
+import { AiFillGoogleCircle } from 'react-icons/ai';
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -33,6 +34,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import {signInWithPopup} from "firebase/auth" 
+import yellow from '@mui/material/colors/yellow';
 
 
 
@@ -137,11 +139,11 @@ let datahai=await res.json()
 
     return (
       <Flex
-      color="green"
+      color={"rgb(243,171,24)"} 
         minH={'100vh'}
         align={'center'}
         justify={'center'}
-        bg={useColorModeValue('gray.50', 'gray.800')}>
+        bg={useColorModeValue('gray.60', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
             <Image src="https://i.postimg.cc/QxQdTXsg/Whats-App-Image-2023-01-17-at-10-32-51-PM.jpg" alt="..." width={150} height={100} />
@@ -165,29 +167,29 @@ let datahai=await res.json()
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text"  name="name" onChange={handleChange}/>
+                    <Input type="text"  name="name" borderColor={"gray.600"} onChange={handleChange}/>
                   </FormControl>
                 </Box>
                 <Box>
                   <FormControl id="lastName">
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text"  name="Lname" onChange={handleChange}/>
+                    <Input type="text"  name="Lname" borderColor={"gray.600"} onChange={handleChange}/>
                   </FormControl>
                 </Box>
               </HStack>
               <FormControl id="phn" isRequired>
                 <FormLabel>Phone No</FormLabel>
-                <Input type="Phone"  name="phn" onChange={handleChange}/>
+                <Input type="Phone"  borderColor={"gray.600"} name="phn" onChange={handleChange}/>
               </FormControl>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email"  name="email" onChange={handleChange}/>
+                <Input type="email"  borderColor={"gray.600"} name="email" onChange={handleChange}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <Text fontSize={10} color={"red"}>Password must be of atleast 8 characters and must contain atleast one alphabet, one number and one symbol</Text>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'}  name="password" onChange={handleChange} />
+                  <Input borderColor={"gray.600"} type={showPassword ? 'text' : 'password'}  name="password" onChange={handleChange} />
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -199,10 +201,7 @@ let datahai=await res.json()
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Button type="email" onClick={handleLogin}>Sign with Google</Button>
-              </FormControl>
+              
               <Stack spacing={10} pt={2}>
                 <Button
                 isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
@@ -224,6 +223,14 @@ let datahai=await res.json()
                 >
                   Already a user? <Link color={'blue.400'}>Login</Link>
                 </Text>
+              <Flex   justifyContent={"center"} >
+              <Text  w={"20%"} color={"rgb(255,255,0)"}  >
+               <AiFillGoogleCircle size={"60%"}/>
+               </Text>
+               <Text  onClick={handleLogin} w={"50%"} color={"blue.300"} >
+               Sign with Google
+               </Text>
+              </Flex>
               </Stack>
             </Stack>
           </Box>
