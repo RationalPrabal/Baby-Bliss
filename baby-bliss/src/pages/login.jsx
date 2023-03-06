@@ -16,8 +16,8 @@ import {
     useToast,
   } from '@chakra-ui/react';
   import { useRouter } from 'next/router'
-  
-
+  import {signInWithEmailAndPassword}  from "firebase/auth"
+  import {auth} from "../components/firebase"
 import { AuthContext } from '@/Context/AuthContext';
 import { useContext } from 'react';
 import { AiOutlineConsoleSql } from 'react-icons/ai';
@@ -25,7 +25,7 @@ import { AiOutlineConsoleSql } from 'react-icons/ai';
   const Login = () => {
     const [email,setemail] =useState("")
     const [password,setpassword] =useState("")
-const {auth,setAuth,setName}= useContext(AuthContext)
+
     const router = useRouter()
 
 const validate=()=>{
@@ -45,46 +45,42 @@ const [data,setdata]= useState([])
 const toast=useToast()
   
 
- const signin=(e)=>{
-e.preventDefault()
+ const signin= async(e)=>{
+ e.preventDefault()
+  
+  try {
+    let res =  await signInWithEmailAndPassword(auth,email,password)
+    console.log(res)
+  } catch (error) {
+    console.log(error)
+  }
 
-const LoginVal = data.filter((el)=>(
 
-    el.email===email && el.password===password
-    
-))
+  // toast({
+  //   title: `Successfully Logged In`,
+  //   status: "success",
+  //   isClosable: true,
+  // });
+  // router.push("/boys")
 
 
-if(LoginVal.length>0){
- 
-  setAuth(true)
-  console.log(LoginVal)
-  setName(LoginVal[0].user)
-  toast({
-    title: `Successfully Logged In`,
-    status: "success",
-    isClosable: true,
-  });
-  router.push("/boys")
+  // toast({
+  //   title: ` Please Fill Correct details`,
+  //   status: "error",
+  //   isClosable: true,
+  // });
 }
-else{
-  toast({
-    title: ` Please Fill Correct details`,
-    status: "error",
-    isClosable: true,
-  });
-}
-console.log(LoginVal)
- }
+
+ 
 
  
  
-useEffect(()=>{
-    fetch('https://troubled-organized-denim.glitch.me/user')
-.then((response) => response.json())
-.then((data) => setdata(data));
+// useEffect(()=>{
+//     fetch('https://troubled-organized-denim.glitch.me/user')
+// .then((response) => response.json())
+// .then((data) => setdata(data));
 
-},[])
+// },[])
 
     return (
       <Flex

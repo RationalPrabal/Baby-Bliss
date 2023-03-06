@@ -33,8 +33,7 @@ import logo from "./Image/logo.png"
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-import {signInWithPopup} from "firebase/auth" 
-import yellow from '@mui/material/colors/yellow';
+import {signInWithPopup, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth" 
 
 
 
@@ -43,13 +42,17 @@ import yellow from '@mui/material/colors/yellow';
 
 
 
-  const Registration = () => {
 
-// const [user,setuser]=useState({})
-
+const Registration = () => {
+  
+  // const [user,setuser]=useState({})
+  const router = useRouter()
+  const [registerdetails,setregisterdetails] =useState({})
+  const toast=useToast()
+  
+   const [showPassword, setShowPassword] = useState(false);
+//////////////////////// login with google ///////////////////
     const handleLogin = async () => {
-     
-
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
@@ -61,53 +64,47 @@ import yellow from '@mui/material/colors/yellow';
 
    
       // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
-
-    
-
     }    
-
-
-
-
-    const router = useRouter()
-   const [registerdetails,setregisterdetails] =useState({})
-    const toast=useToast()
-  
-     const [showPassword, setShowPassword] = useState(false);
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
   console.log(registerdetails.user)
 }
 
-
    const handleSubmit = async()=>{
+    let res= await createUserWithEmailAndPassword(auth,registerdetails.email , registerdetails.password)
+    console.log(res,"ressss")
+
+     let userobj={
+      id:res.user.uid,
+      img:"",
+      name:registerdetails.name,
+      email:registerdetails.email,
+      phone:registerdetails.phone,
+      cart:[],
+      wishlist:[],
+      order:0
+     }
  try { 
    let res=await fetch("https://troubled-organized-denim.glitch.me/user",
  { 
   method:"POST", 
-   body:JSON.stringify(registerdetails), 
+   body:JSON.stringify(userobj), 
   headers:{"Content-Type": "application/json"}
 } 
 
 ) 
-let datahai=await res.json() 
-      
-       
+
        toast({
           title: 'Account created.',
           description: "We've created your account for you.",
           status: "success",
-          duration: 3000,
+          duration: 2000,
           variant: "solid",
           isClosable: true,
        
           position: "bottom-right",
         })
-  
-
-   
-    
     router.push("/login")
      }
        catch (error) {
@@ -115,14 +112,8 @@ let datahai=await res.json()
  }
 
 
-//  try {
-//     const res = await axios.post("https://troubled-organized-denim.glitch.me/user",registerdetails)
-//  }
-//  catch (error) {
-//    console.log(error.response.data);
-// }
 
-    console.log(registerdetails)
+    
 
    }
    
@@ -182,9 +173,9 @@ let datahai=await res.json()
                   </FormControl>
                 </Box>
               </HStack>
-              <FormControl id="phn" isRequired>
+              <FormControl id="phone" isRequired>
                 <FormLabel>Phone No</FormLabel>
-                <Input type="Phone"  borderColor={"gray.600"} name="phn" onChange={handleChange}/>
+                <Input type="Phone"  borderColor={"gray.600"} name="phone" onChange={handleChange}/>
               </FormControl>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
@@ -209,7 +200,7 @@ let datahai=await res.json()
               
               <Stack spacing={10} pt={2}>
                 <Button
-                isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
+                isDisabled={registerdetails.password?.length<8||registerdetails.phone?.length<10||/[a-zA-Z]/.test(registerdetails.phone)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
                   loadingText="Submitting"
                   size="lg"
                   bg={'yellow.300'}
