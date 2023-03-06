@@ -199,7 +199,52 @@
 
    
 
+   .childList{
+      margin-top: 40px;
+    text-align: center;
+   }
 
+
+   .Child{
+    font-size: 14px;
+}
+.ChildValue{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.OddContainer{
+
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap: 20px;
+    background-color: rgb(216, 212, 212);
+}
+
+
+
+.MainContainer{
+    margin-top: 40px;
+}
+
+
+.ChildHeader{
+    text-align: center;
+}
+
+
+.AddBtn{
+    color: white;
+    background-color: orange;
+    margin-top: 20px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 20px;
+
+}
 
    /* =--------RESPONSIVE MOBILE------------- */
 
@@ -282,6 +327,7 @@
             display: flex;
             flex-direction: column;
             width: 90%;
+            
         }
 
         .boxInput1{
@@ -316,5 +362,20 @@
       .btnDiv{
         margin-top: 30px;
         margin-left: 110px;
+    }
+
+
+    .childList{
+      
+        margin-top: 20px;
+        text-align: center;
+       }
+
+       .MainContainer{
+        margin-top: 40px;
+    }
+
+    .ChildHeader{
+        text-align: center;
     }
 }
