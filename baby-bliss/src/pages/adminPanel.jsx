@@ -43,9 +43,9 @@ function adminPanel({data}) {
   
     const handleAdd = (e) => {
       e.preventDefault();
-      axios.post('https://troubled-organized-denim.glitch.me/all', formData)
+      axios.post(`${process.env.baseURL}/all`, formData)
         .then(res => {
-          console.log(res)
+       
         //   setData([...userdata, res.data])
         
         })
@@ -57,9 +57,9 @@ function adminPanel({data}) {
 
   
     const handleDelete = (id) => {
-      axios.delete(`https://troubled-organized-denim.glitch.me/all/${id}`)
+      axios.delete(`${process.env.baseURL}/all/${id}`)
         .then(res => {
-          console.log(res)
+        
         
         })
         .catch(err => console.log(err))
@@ -186,7 +186,7 @@ export default adminPanel;
 
 export const getServerSideProps= async()=>{
 
-    let res =await fetch("https://troubled-organized-denim.glitch.me/user")
+    let res =await fetch(`${process.env.baseURL}/user`)
     let data = await res.json();
  
      return{
