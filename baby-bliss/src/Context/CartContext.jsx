@@ -5,12 +5,12 @@ export const CartContext= createContext();
 
 function CartContextProvider({children}) {
     
-  
+  const [text,setText]= React.useState("")
     const [user,setUser]= React.useState(null)
     const getUserData=async(id)=>{
    
         try{
-    let data= await axios.get(`https://troubled-organized-denim.glitch.me/user/${id}`)
+    let data= await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/user/${id}`)
     setUser(data.data)
    
         }
@@ -23,7 +23,7 @@ function CartContextProvider({children}) {
  
 return(
     <div>
- <CartContext.Provider value={{getUserData,user}}>
+ <CartContext.Provider value={{getUserData,user,text,setText}}>
 {children}
     </CartContext.Provider>
     </div>

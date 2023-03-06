@@ -26,6 +26,7 @@ import {
     useToast,
   } from '@chakra-ui/react';
 import {auth,provider} from "../components/firebase"
+import { AiFillGoogleCircle } from 'react-icons/ai';
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -33,6 +34,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import {signInWithPopup} from "firebase/auth" 
+import yellow from '@mui/material/colors/yellow';
 
 
 
@@ -42,23 +44,29 @@ import {signInWithPopup} from "firebase/auth"
 
 
   const Registration = () => {
-
+const router=useRouter()
 // const [user,setuser]=useState({})
 
     const handleLogin = async () => {
-     
+
 
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
-       await  axios.post("https://troubled-organized-denim.glitch.me/user",userdata).then((res)=>console.log(res)).catch(e => console.log(e))   
-      
+       await  axios.post(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,userdata).then(()=>
+        router.push("/")
+       ).catch(e =>{
+        console.log(e.message)
+     
+       })   
+       router.push("/")
       } catch (error) {
         console.log(error)
+      
       }
 
    
-      // setuser({email:data.user.email,name:data.user.displayName ,phone:data.user.phoneNumber ,photoURL:data.user.photoURL})
+     
 
     
 
@@ -67,7 +75,7 @@ import {signInWithPopup} from "firebase/auth"
 
 
 
-    const router = useRouter()
+
    const [registerdetails,setregisterdetails] =useState({})
     const toast=useToast()
   
@@ -75,13 +83,13 @@ import {signInWithPopup} from "firebase/auth"
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
-  console.log(registerdetails.user)
+
 }
 
 
    const handleSubmit = async()=>{
  try { 
-   let res=await fetch("https://troubled-organized-denim.glitch.me/user",
+   let res=await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
  { 
   method:"POST", 
    body:JSON.stringify(registerdetails), 
@@ -113,40 +121,29 @@ let datahai=await res.json()
  }
 
 
-//  try {
-//     const res = await axios.post("https://troubled-organized-denim.glitch.me/user",registerdetails)
-//  }
-//  catch (error) {
-//    console.log(error.response.data);
-// }
 
-    console.log(registerdetails)
+
 
    }
    
    useEffect(()=>{
-     let users = fetch("https://troubled-organized-denim.glitch.me/user")
+     let users = fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`)
        .then((res) => res.json())
        .then((res) => res)
        .catch((err) => console.log(err));
       users=users.then((res)=>res)
-      // console.log(users)
-    //   let obj = {}
-    //  users.forEach((el)=>{
-    //   obj[el.email]=el.email
-    //  })
-    //  console.log(obj)
+     
    })
 
 
 
     return (
       <Flex
-      color="green"
+      color={"rgb(243,171,24)"} 
         minH={'100vh'}
         align={'center'}
         justify={'center'}
-        bg={useColorModeValue('gray.50', 'gray.800')}>
+        bg={useColorModeValue('gray.60', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
             <Image src="https://i.postimg.cc/QxQdTXsg/Whats-App-Image-2023-01-17-at-10-32-51-PM.jpg" alt="..." width={150} height={100} />
@@ -170,29 +167,29 @@ let datahai=await res.json()
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text"  name="name" onChange={handleChange}/>
+                    <Input type="text"  name="name" borderColor={"gray.600"} onChange={handleChange}/>
                   </FormControl>
                 </Box>
                 <Box>
                   <FormControl id="lastName">
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text"  name="Lname" onChange={handleChange}/>
+                    <Input type="text"  name="Lname" borderColor={"gray.600"} onChange={handleChange}/>
                   </FormControl>
                 </Box>
               </HStack>
               <FormControl id="phn" isRequired>
                 <FormLabel>Phone No</FormLabel>
-                <Input type="Phone"  name="phn" onChange={handleChange}/>
+                <Input type="Phone"  borderColor={"gray.600"} name="phn" onChange={handleChange}/>
               </FormControl>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email"  name="email" onChange={handleChange}/>
+                <Input type="email"  borderColor={"gray.600"} name="email" onChange={handleChange}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <Text fontSize={10} color={"red"}>Password must be of atleast 8 characters and must contain atleast one alphabet, one number and one symbol</Text>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'}  name="password" onChange={handleChange} />
+                  <Input borderColor={"gray.600"} type={showPassword ? 'text' : 'password'}  name="password" onChange={handleChange} />
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -204,10 +201,7 @@ let datahai=await res.json()
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Button type="email" onClick={handleLogin}>Sign with Google</Button>
-              </FormControl>
+              
               <Stack spacing={10} pt={2}>
                 <Button
                 isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
@@ -229,6 +223,14 @@ let datahai=await res.json()
                 >
                   Already a user? <Link color={'blue.400'}>Login</Link>
                 </Text>
+              <Flex   justifyContent={"center"} >
+              <Text  w={"20%"} color={"rgb(255,255,0)"}  >
+               <AiFillGoogleCircle size={"60%"}/>
+               </Text>
+               <Text  onClick={handleLogin} w={"50%"} color={"blue.300"} >
+               Sign with Google
+               </Text>
+              </Flex>
               </Stack>
             </Stack>
           </Box>
