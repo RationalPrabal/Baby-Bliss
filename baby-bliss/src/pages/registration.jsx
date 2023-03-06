@@ -53,7 +53,7 @@ const router=useRouter()
       try {
         let data =  await signInWithPopup(auth,provider)
      let userdata = {name:data.user.displayName ,email:data.user.email,phone:data.user.phoneNumber,img:data.user.photoURL,id:data.user.uid,cart:[],wishlist:[],orders:0}
-       await  axios.post(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,userdata).then(()=>
+       await  axios.post(`${process.env.NEXT_PUBLIC_baseURL}/user`,userdata).then(()=>
         router.push("/")
        ).catch(e =>{
         console.log(e.message)
