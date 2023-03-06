@@ -65,7 +65,7 @@ const ProductItems = ({id,image,price,title,mrp,discount,lft}) => {
     if (isAuth) {
         
       user?.wishlist?.push({
-        id,img:image,price,mrp,discount,title })
+        id,img:image,price,mrp,discount,title , quantity:1})
        
         try{
      let data=    await axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`,{wishlist:user.wishlist})
