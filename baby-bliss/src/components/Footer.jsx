@@ -56,7 +56,7 @@ const Footer = () => {
       color={useColorModeValue("black", "black")}
       w="100%"
       m="auto"
-     border={"2px solid red"}
+ 
     >
       <Container as={Stack} maxW={"6xl"}  >
         <SimpleGrid columns={{ base: 2, sm: 2, md: 5 }} spacing={8}>

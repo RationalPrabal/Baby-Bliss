@@ -20,7 +20,7 @@ function UserInput() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.baseURL}/userDetails`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_baseURL}/userDetails`, formData)
       .then(res => {
   
         setData([...data, res.data])
