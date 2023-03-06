@@ -26,7 +26,7 @@ import {
     useToast,
   } from '@chakra-ui/react';
 import {auth,provider} from "../components/firebase"
-import { AiFillGoogleCircle } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 import logo from "./Image/logo.png"
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -34,7 +34,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import {signInWithPopup} from "firebase/auth" 
-import yellow from '@mui/material/colors/yellow';
+
 
 
 
@@ -223,11 +223,15 @@ let datahai=await res.json()
                 >
                   Already a user? <Link color={'blue.400'}>Login</Link>
                 </Text>
-              <Flex   justifyContent={"center"} >
-              <Text  w={"20%"} color={"rgb(255,255,0)"}  >
-               <AiFillGoogleCircle size={"60%"}/>
+             <Flex justifyContent={"center"} color={"black"}>
+              <Text borderTop={"5px solid black"}>Or Sign in one Click with Google</Text>
+             </Flex>
+              <Flex   justifyContent={"center"} border={"2px solid red"} bg="#ffe69e" >
+            
+              <Text  w={"10%"} color={"rgb(255,255,0)"}  >
+         <FcGoogle fontSize={"160%"}/>
                </Text>
-               <Text  onClick={handleLogin} w={"50%"} color={"blue.300"} >
+               <Text cursor={"pointer"} as="b" color="#ff3d00"  onClick={handleLogin} w={"50%"}  >
                Sign with Google
                </Text>
               </Flex>
