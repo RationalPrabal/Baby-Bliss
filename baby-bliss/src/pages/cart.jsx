@@ -33,7 +33,7 @@ import { useContext } from 'react';
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import CartItem from "@/components/CartItem";
-
+import WishlistItem from "@/components/WishlistItem";
 
 function cart() {
 const {user}= useContext(CartContext)
@@ -47,12 +47,13 @@ const {user}= useContext(CartContext)
   const [city, setCity] = useState("");
   const [num, setNum] = useState("");
 const [cartItems,setCartItems]= React.useState(user?.cart)
+const [wishItems,setWishItems]= React.useState(user?.wishlist)
   const nameError = fname === "";
   const addError = add === "";
   const appError = app === "";
   const cityError = city === "";
   const numError = num === "";
-
+const [show,setShow]= React.useState(false)
   const handleForm = () => {
     if (fname === "" || add === "" || app === "" || city === "") {
       return;
@@ -68,10 +69,17 @@ const [cartItems,setCartItems]= React.useState(user?.cart)
     setTimeout(completeOrder, 5000);
   };
 
-  const completeOrder = () => {
+  const completeOrder = async () => {
     setLoading(false);
     setOrder(true);
-    axios.delete(`https://troubled-organized-denim.glitch.me/cart`);
+    try{
+   await  axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`,{
+    cart:[]
+   });
+  }
+  catch(err){
+console.log(err)
+  }
     setTimeout(redirect, 3000);
   };
 
@@ -80,6 +88,9 @@ const [cartItems,setCartItems]= React.useState(user?.cart)
 
 React.useEffect(()=>{
 setCartItems(user?.cart)
+},[user])
+React.useEffect(()=>{
+setWishItems(user?.wishlist)
 },[user])
   const redirect = () => {
     location.href = "/";
@@ -384,8 +395,8 @@ console.log(cartItems)
       mt={"100px"}>
       <Tabs size="md" variant="enclosed">
         <TabList>
-          <Tab>Shopping Cart</Tab>
-          <Tab>Wishlist</Tab>
+          <Tab onClick={()=>setShow(false)} >Shopping Cart</Tab>
+          <Tab onClick={()=>setShow(true)}>Wishlist</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -425,12 +436,24 @@ console.log(cartItems)
             )}
           </TabPanel>
           <TabPanel>
-            <p>Wishlist</p>
+         {
+          wishItems?.length==0? <Text> Nothing to show here, please add items in the wishlist</Text>
+          : wishItems?.map(item=><WishlistItem 
+          mpr={item.mrp}
+          title={item.title}
+          price={item.price}
+          desc={item.desc ? item.desc : null}
+        
+          img={item.img}
+          id={item.id}
+          discount={item.discount}
+          />)
+         }
           </TabPanel>
         </TabPanels>
       </Tabs>
 
-      {cartItems?.length > 0 ? (
+      {cartItems?.length > 0 && !show  ? (
         <Card h={"max-content"} >
           <CardHeader>
             <Heading size="md">Order summary</Heading>

@@ -8,36 +8,39 @@ import { Grid,Box,Text, Img } from '@chakra-ui/react'
 
 import ProductItems from '@/components/ProductItems'
 const boys = ({initialData}) => {
-  const [loader,setLoader]= React.useState(true)
+  const [loader,setLoader]= React.useState(false)
   const [data,set_data]= React.useState(initialData)
 
   const {text}= useContext(CartContext);
 // function for sort by price
  const OrderPrice=async(order)=>{
   setLoader(true)
-let res =  await axios.get(`https://troubled-organized-denim.glitch.me/all?_sort=price&_order=${order}`)
-console.log(res.data)
+let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all?_sort=price&_order=${order}`)
+
 set_data(res.data)
 setLoader(false)
  }
  const Search=async()=>{
-  setLoader(true)
-    let res =  await axios.get(`https://troubled-organized-denim.glitch.me/all?q=${text}`)
- 
-    console.log("prabal")
+
+  try{
+    let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all?q=${text}`)
     set_data(res.data)
-    setLoader(false)
+    
+  }
+  catch(err){
+    console.log(err)
+  }
  }
- console.log(text)
+
  React.useEffect(()=>{
    Search()
  },[text])
-console.log(data)
+
  // function for sort by discount
  const OrderDiscount=async(order)=>{
   setLoader(true)
-  let res =  await axios.get(`https://troubled-organized-denim.glitch.me/all?_sort=discount&_order=${order}`)
-  console.log(res.data)
+  let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all?_sort=discount&_order=${order}`)
+
   set_data(res.data)
   setLoader(false)
    }
@@ -47,8 +50,8 @@ console.log(data)
   // function for filtering by price
   const FilterPrice=async(lowerRange,higherRange)=>{
     setLoader(true)
-    let res =  await axios.get(`https://troubled-organized-denim.glitch.me/all?price_gte=${lowerRange}&price_lte=${higherRange}`)
-    console.log(res.data)
+    let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all?price_gte=${lowerRange}&price_lte=${higherRange}`)
+  
     set_data(res.data)
     setLoader(false)
      }
@@ -57,8 +60,8 @@ console.log(data)
 
      const FilterCategory=async(query)=>{
       setLoader(true)
-      let res =  await axios.get(`https://troubled-organized-denim.glitch.me/all?q=${query}`)
-      console.log(res.data)
+      let res =  await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all?q=${query}`)
+
       set_data(res.data)
       setLoader(false)
        }
@@ -85,7 +88,7 @@ console.log(data)
 export default boys
 
 export async function getStaticProps(){
-    let response = await axios.get("https://troubled-organized-denim.glitch.me/all")
+    let response = await axios.get(`${process.env.NEXT_PUBLIC_baseURL}/all`)
     return {
         props:{
         initialData: response.data

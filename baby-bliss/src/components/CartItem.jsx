@@ -32,9 +32,9 @@ function CartItem({ img, title, desc, price, qty, id, discount}) {
    else return el
  })
  
- console.log(newUserCart)
+
 try{
- await axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`,{
+ await axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`,{
   cart:newUserCart
  }
  )
@@ -52,7 +52,7 @@ catch{
         return el.id!==id
      })
      try{
-     await   axios.patch(`https://troubled-organized-denim.glitch.me/user/${user.id}`, {
+     await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
   cart:newUserCart
      });
     getUserData(user.id)
@@ -64,7 +64,30 @@ catch{
   
     }
 
-   
+   const AddToWishlist=async(id)=>{
+
+    //only the item
+    const  newUserWishlist = user?.cart.filter((el)=>{
+      return el.id==id
+   })
+   //without that item
+   const  newUserCart = user?.cart.filter((el)=>{
+    return el.id!==id
+ })
+   user.cart=newUserCart
+   user?.wishlist?.push(newUserWishlist[0])
+
+   try{
+    await   axios.patch(`${process.env.NEXT_PUBLIC_baseURL}/user/${user.id}`, {
+ cart:user.cart,
+ wishlist:user.wishlist
+    });
+   getUserData(user.id)
+   }
+   catch{
+
+   }
+   }
 
   return (
     <Box>
@@ -106,6 +129,7 @@ catch{
               REMOVE
             </Button>
             <Button
+            onClick={()=>AddToWishlist(id)}
               leftIcon={<AiOutlineHeart />}
               variant="solid"
               colorScheme="blue">

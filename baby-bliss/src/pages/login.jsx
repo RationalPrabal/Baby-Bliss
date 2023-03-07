@@ -75,10 +75,17 @@ const toast=useToast()
 
  
  
+<<<<<<< HEAD
 // useEffect(()=>{
 //     fetch('https://troubled-organized-denim.glitch.me/user')
 // .then((response) => response.json())
 // .then((data) => setdata(data));
+=======
+useEffect(()=>{
+    fetch(`${process.env.NEXT_PUBLIC_baseURL}/user`)
+.then((response) => response.json())
+.then((data) => setdata(data));
+>>>>>>> 03d21c8c6ad32c5d4cc4fadbef1e106c152eb64d
 
 // },[])
 

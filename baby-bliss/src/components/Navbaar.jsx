@@ -38,14 +38,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router'
 import { AuthContext } from '@/Context/AuthContext';
 import { useContext } from 'react';
-import { signOut } from 'firebase/auth';
-import {auth} from "../components/firebase"
+
 
   const Navbaar = () => {
     const router= useRouter()
     const { isOpen, onToggle } = useDisclosure();
-    const {getUserData,user}= useContext(CartContext);
-   const{userId,getUserId,LogoutUser}= useContext(AuthContext)
+    const {getUserData,user,text,setText}= useContext(CartContext);
+   const{userId,getUserId,LogoutUser,setAuth,isAuth}= useContext(AuthContext)
     const [cartlength,setCartLength]= React.useState(0)
 const toast= useToast()
    React.useEffect(()=>{
@@ -65,9 +64,11 @@ React.useEffect(()=>{
   if(user){
 setCartLength(user?.cart?.length)
   }
-  
-},[user])
-console.log(cartlength)
+  else {
+    setCartLength(0)
+  }
+},[user,isAuth])
+
     return (
       <Box position="fixed" 
       left="0"
@@ -125,7 +126,7 @@ console.log(cartlength)
       
      
     
-    {!user ? <Button
+    {!isAuth  ? <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -145,12 +146,12 @@ console.log(cartlength)
             user?.img.length!==0?
             <Popover>
   <PopoverTrigger>
-  <Image  src={user.img} width={"40"} height={"20"} style={{borderRadius:"100%"}} alt="profile"/> 
+  <Image  src={user?.img} width={"40"} height={"20"} style={{borderRadius:"100%"}} alt="profile"/> 
   </PopoverTrigger>
   <PopoverContent>
     <PopoverArrow />
     <PopoverCloseButton />
-    <PopoverHeader>Hi,{user.name}</PopoverHeader>
+    <PopoverHeader>Hi,{user?.name}</PopoverHeader>
     <PopoverBody>
       <Box display={"grid"}>
 <Button color={"green.300"}     onClick={
@@ -158,6 +159,8 @@ console.log(cartlength)
               } >Go to Profile</Button>
 <Button color={"red.300"} onClick={()=>{
 LogoutUser()
+getUserData(user?.id)
+setAuth(false)
   toast({
     title: 'Logged out Successfully',
         
