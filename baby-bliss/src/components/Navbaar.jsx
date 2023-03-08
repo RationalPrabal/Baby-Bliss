@@ -120,7 +120,7 @@ setCartLength(user?.cart?.length)
             direction={'row'}
             spacing={6}>
           <Box display="flex">
-   <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}}/></Link><Text color="green">{cartlength}</Text>
+   <Link href="/cart">   <ShoppingCartIcon style={{color:"red",fontSize:"40px"}} /></Link><Text color="green">{cartlength}</Text>
  
       </Box>
       
@@ -386,10 +386,7 @@ LogoutUser()
   
     
    
-      {
-        label: 'Mom',
-        link:"/moms"
-      },
+   
       {
         label: 'Health',
         link:"/health"
@@ -404,16 +401,16 @@ link:"/registration"
   ];
   const Desktop_NAV_ITEMS= [
     {
-      label: 'All Category',
+      label: 'All Products',
       link:"/all"
     },
     {
-      label: 'Boy Fashion',
+      label: 'Boys',
       link:"/boys"
       
     },
     {
-      label: 'Girl fashion',
+      label: 'Girls',
     link:"girls"
     },
     {
@@ -427,10 +424,7 @@ link:"/registration"
   
     
    
-      {
-        label: 'Mom',
-        link:"/moms"
-      },
+     
       {
         label: 'Health',
         link:"/health"

@@ -1,5 +1,7 @@
 
 /* //////////////////////  ADMIN PAGE DESIGN ////////////////////////////*/
+
+
 body {
   font-family: 'lato', sans-serif;
 }
@@ -36,7 +38,7 @@ li{
     justify-content: space-between;
     margin-bottom: 25px;
     font-size:large;
-    background-color: rgb(233, 80, 80);
+    
   
   };
   .table-header {

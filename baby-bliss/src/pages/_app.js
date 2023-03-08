@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   <ChakraProvider>
 <Navbaar/> 
 <Component {...pageProps} />
-<Footer/>
+{/* <Footer/> */}
 </ChakraProvider>
 </AuthContextProvider>
 </CartContextProvider>
