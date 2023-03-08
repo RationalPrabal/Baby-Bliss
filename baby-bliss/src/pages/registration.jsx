@@ -33,7 +33,8 @@ import logo from "./Image/logo.png"
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
-import {signInWithPopup} from "firebase/auth" 
+
+import {signInWithPopup, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth" 
 
 
 
@@ -43,10 +44,16 @@ import {signInWithPopup} from "firebase/auth"
 
 
 
-  const Registration = () => {
-const router=useRouter()
-// const [user,setuser]=useState({})
 
+const Registration = () => {
+  
+  // const [user,setuser]=useState({})
+  const router = useRouter()
+  const [registerdetails,setregisterdetails] =useState({})
+  const toast=useToast()
+  
+   const [showPassword, setShowPassword] = useState(false);
+//////////////////////// login with google ///////////////////
     const handleLogin = async () => {
 
 
@@ -76,50 +83,51 @@ const router=useRouter()
 
 
 
-   const [registerdetails,setregisterdetails] =useState({})
-    const toast=useToast()
-  
-     const [showPassword, setShowPassword] = useState(false);
 
 const handleChange=(e)=>{
   const {name, value} = e.target;setregisterdetails({ ...registerdetails, [name] : value})
 
 }
 
-
    const handleSubmit = async()=>{
+    let res= await createUserWithEmailAndPassword(auth,registerdetails.email , registerdetails.password)
+    console.log(res,"ressss")
+
+     let userobj={
+      id:res.user.uid,
+      img:"",
+      name:registerdetails.name,
+      email:registerdetails.email,
+      phone:registerdetails.phone,
+      cart:[],
+      wishlist:[],
+      order:0
+     }
  try { 
    let res=await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
  { 
   method:"POST", 
-   body:JSON.stringify(registerdetails), 
+   body:JSON.stringify(userobj), 
   headers:{"Content-Type": "application/json"}
 } 
 
 ) 
-let datahai=await res.json() 
-      
-       
+
        toast({
           title: 'Account created.',
           description: "We've created your account for you.",
           status: "success",
-          duration: 3000,
+          duration: 2000,
           variant: "solid",
           isClosable: true,
        
           position: "bottom-right",
         })
-  
-
-   
-    
     router.push("/login")
      }
        catch (error) {
    console.log("can not create the account");
  }
-
 
 
 
@@ -177,9 +185,9 @@ let datahai=await res.json()
                   </FormControl>
                 </Box>
               </HStack>
-              <FormControl id="phn" isRequired>
+              <FormControl id="phone" isRequired>
                 <FormLabel>Phone No</FormLabel>
-                <Input type="Phone"  borderColor={"gray.600"} name="phn" onChange={handleChange}/>
+                <Input type="Phone"  borderColor={"gray.600"} name="phone" onChange={handleChange}/>
               </FormControl>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
@@ -204,7 +212,7 @@ let datahai=await res.json()
               
               <Stack spacing={10} pt={2}>
                 <Button
-                isDisabled={registerdetails.password?.length<8||registerdetails.phn?.length<10||/[a-zA-Z]/.test(registerdetails.phn)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
+                isDisabled={registerdetails.password?.length<8||registerdetails.phone?.length<10||/[a-zA-Z]/.test(registerdetails.phone)||!/@/.test(registerdetails.email)||!/[!@#$%^&*(),.?":{}|<>]/.test(registerdetails.password)||!/[a-zA-Z]/.test(registerdetails.password)||!/\d/.test(registerdetails.password)}
                   loadingText="Submitting"
                   size="lg"
                   bg={'yellow.300'}

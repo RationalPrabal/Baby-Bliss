@@ -159,7 +159,7 @@ setCartLength(user?.cart?.length)
               } >Go to Profile</Button>
 <Button color={"red.300"} onClick={()=>{
 LogoutUser()
-getUserData(user.id)
+getUserData(user?.id)
 setAuth(false)
   toast({
     title: 'Logged out Successfully',
@@ -175,7 +175,33 @@ setAuth(false)
 </Popover>
  
             :
-            <AccountCircleIcon/>
+            <Popover>
+  <PopoverTrigger>
+ <AccountCircleIcon/>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverArrow />
+    <PopoverCloseButton />
+    <PopoverHeader>Hi,{user.name}</PopoverHeader>
+    <PopoverBody>
+      <Box display={"grid"}>
+<Button color={"green.300"}     onClick={
+                ()=>router.push("/UserDetails")
+              } >Go to Profile</Button>
+<Button color={"red.300"} onClick={()=>{
+LogoutUser()
+  toast({
+    title: 'Logged out Successfully',
+        
+            status: 'success',
+            duration: 4000,
+            isClosable: true,
+  })
+}}>LogOut</Button>
+</Box>
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
             }
 
           </Stack>
