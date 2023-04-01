@@ -18,31 +18,13 @@ import {
   import { useRouter } from 'next/router'
   import {signInWithEmailAndPassword}  from "firebase/auth"
   import {auth} from "../components/firebase"
-import { AuthContext } from '@/Context/AuthContext';
-import { useContext } from 'react';
-import { AiOutlineConsoleSql } from 'react-icons/ai';
+
 
   const Login = () => {
     const [email,setemail] =useState("")
     const [password,setpassword] =useState("")
 
     const router = useRouter()
-
-const validate=()=>{
-    let result = true;
-    if(email===""|| email===null){
-        result = false
-        alert("Please enter email")
-    }
-    if(password===""|| password===null){
-        result = false
-        alert("Please enter password")
-    }
-}
-
-
-const [data,setdata]= useState([])
-const toast=useToast()
   
 
  const signin= async(e)=>{
@@ -74,20 +56,7 @@ const toast=useToast()
  
 
  
- 
-<<<<<<< HEAD
-// useEffect(()=>{
-//     fetch('https://troubled-organized-denim.glitch.me/user')
-// .then((response) => response.json())
-// .then((data) => setdata(data));
-=======
-useEffect(()=>{
-    fetch(`${process.env.NEXT_PUBLIC_baseURL}/user`)
-.then((response) => response.json())
-.then((data) => setdata(data));
->>>>>>> 03d21c8c6ad32c5d4cc4fadbef1e106c152eb64d
 
-// },[])
 
     return (
       <Flex
