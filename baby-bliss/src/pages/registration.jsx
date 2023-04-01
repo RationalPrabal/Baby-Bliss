@@ -1,13 +1,5 @@
 import React from 'react'
 import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
-
-
-import {
     Flex,
     Box,
     FormControl,
@@ -27,33 +19,22 @@ import {
   } from '@chakra-ui/react';
 import {auth,provider} from "../components/firebase"
 import { FcGoogle } from 'react-icons/fc';
-import logo from "./Image/logo.png"
+
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-import {signInWithPopup, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth" 
-
-
-
-
-
-
-
-
-
-
+import {signInWithPopup, createUserWithEmailAndPassword} from "firebase/auth" 
 const Registration = () => {
-  
-  // const [user,setuser]=useState({})
+
   const router = useRouter()
   const [registerdetails,setregisterdetails] =useState({})
   const toast=useToast()
   
    const [showPassword, setShowPassword] = useState(false);
-//////////////////////// login with google ///////////////////
+
     const handleLogin = async () => {
 
 
@@ -91,7 +72,6 @@ const handleChange=(e)=>{
 
    const handleSubmit = async()=>{
     let res= await createUserWithEmailAndPassword(auth,registerdetails.email , registerdetails.password)
-    console.log(res,"ressss")
 
      let userobj={
       id:res.user.uid,
@@ -104,7 +84,7 @@ const handleChange=(e)=>{
       order:0
      }
  try { 
-   let res=await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
+   await fetch(`${process.env.NEXT_PUBLIC_NEXT_PUBLIC_baseURL}/user`,
  { 
   method:"POST", 
    body:JSON.stringify(userobj), 
