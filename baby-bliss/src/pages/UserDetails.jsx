@@ -4,14 +4,17 @@ import styles from "../styles/Details.module.css";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 import ChildDetails from "../components/ChildDetails";
-
+import Registration from "./registration";
 import { AddressModal } from "@/components/Address.Modal";
 import Addresses from "@/components/Addresses";
 import Order from "@/components/Order";
+import { AuthContext } from "@/Context/AuthContext";
+import { useRouter } from "next/router";
 const Form = () => {
   const [show, setShow] = useState(false);
   const { getUserData, user } = useContext(CartContext);
-
+  const { isAuth } = useContext(AuthContext);
+  const router = useRouter();
   const [childData, setChildData] = useState({
     name: "",
     dob: "",
@@ -35,17 +38,17 @@ const Form = () => {
         child: childData,
       })
       .then((res) => {
-        console.log(res);
         alert("succesfully patch");
         getUserData(user.id);
       })
       .catch((err) => {
-        console.log(err);
         alert(err.message);
       });
   };
 
-  return (
+  return !isAuth ? (
+    <Registration />
+  ) : (
     <>
       {user && (
         <div className={styles.mainContainer}>

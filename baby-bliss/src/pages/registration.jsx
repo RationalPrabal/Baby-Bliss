@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Flex,
   Box,
@@ -27,11 +27,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "@/Context/AuthContext";
+import Form from "./UserDetails";
 const Registration = () => {
   const router = useRouter();
   const [registerdetails, setregisterdetails] = useState({});
   const toast = useToast();
-
+  const { isAuth } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
@@ -65,7 +67,6 @@ const Registration = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(registerdetails);
     let res = await createUserWithEmailAndPassword(
       auth,
       registerdetails.email,
@@ -100,7 +101,9 @@ const Registration = () => {
     }
   };
 
-  return (
+  return isAuth ? (
+    <Form />
+  ) : (
     <>
       <Flex
         color={"rgb(243,171,24)"}

@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 export default function Order({ order }) {
-  console.log(order);
   return (
     <div className="p-4 mt-2">
       <div className="flex justify-between">
