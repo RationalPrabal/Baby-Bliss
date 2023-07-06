@@ -4,14 +4,15 @@
     width: 1000px;
     margin: auto;
     margin-top: 10%;
-    /* border: 1px solid red; */
     display: flex;
-    gap:30%
+    gap:30%;
+    box-shadow:"20px 20px 20px 20px 0px 0px";
+    padding: 4px;
 }
 
 .barContainer{
 
-    margin-left: 50px;
+  
     margin-top: 20px;
 }
 
@@ -26,7 +27,7 @@
 
 .Headings{
 
-    background-color: rgb(217, 214, 214);
+    background-color: #ffff40;
     text-align: center;
     width: 200px;
     font-weight: 600;
@@ -41,7 +42,7 @@
 
 .ProfileHeadings{
       
-    background-color: rgb(217, 214, 214);
+    background-color: #ffff40;
     text-align: center;
     width: 200px;
     font-weight: 400;
@@ -54,7 +55,7 @@
 
 .DetailsContainer{
 
-    margin-left: -150px;
+  
     margin-top: 20px;
     width: 80%;
     /* border: 1px solid blue; */
@@ -104,7 +105,7 @@
     gap: 30px;
 }
 .Contact{
-    background-color: rgb(217, 214, 214);
+    background-color: #ffff40;
     width: 100%;
     height: 40px;
     font-weight: 600;
@@ -285,7 +286,7 @@
 
      .MyProfile{
 
-        background-color: rgb(217, 214, 214);
+        background-color: #ffff40;
         width: 100%;
         height: 40px;
         font-weight: 600;

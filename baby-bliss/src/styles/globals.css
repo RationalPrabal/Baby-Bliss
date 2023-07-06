@@ -1,6 +1,8 @@
 
 /* //////////////////////  ADMIN PAGE DESIGN ////////////////////////////*/
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: 'lato', sans-serif;
