@@ -17,13 +17,21 @@
     "@mui/material": "^5.11.5",
     "@next/font": "13.1.2",
     "axios": "^1.2.2",
+    "country-cities": "^1.0.8",
     "dotenv": "^16.0.3",
+    "electron-to-chromium": "^1.4.449",
     "firebase": "^9.17.2",
     "framer-motion": "^8.4.7",
     "next": "13.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-simple-image-slider": "^2.4.1"
+    "react-simple-image-slider": "^2.4.1",
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2"
   }
 }

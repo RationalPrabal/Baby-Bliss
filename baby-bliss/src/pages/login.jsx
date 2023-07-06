@@ -16,41 +16,41 @@ import {
     useToast,
   } from '@chakra-ui/react';
   import { useRouter } from 'next/router'
-  import {signInWithEmailAndPassword}  from "firebase/auth"
-  import {auth} from "../components/firebase"
 
+  import {auth} from "../components/firebase"
+  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
   const Login = () => {
+
     const [email,setemail] =useState("")
     const [password,setpassword] =useState("")
 
     const router = useRouter()
-  
+  const auth=getAuth()
+  const toast= useToast()
 
  const signin= async(e)=>{
  e.preventDefault()
   
   try {
     let res =  await signInWithEmailAndPassword(auth,email,password)
-    console.log(res)
+    toast({
+      title: `Successfully Logged In`,
+      status: "success",
+      isClosable: true,
+    });
+    router.push("/boys")
   } catch (error) {
-    console.log(error)
+    toast({
+    title: ` Please Fill Correct details`,
+    status: "error",
+    isClosable: true,
+  });
   }
 
 
-  // toast({
-  //   title: `Successfully Logged In`,
-  //   status: "success",
-  //   isClosable: true,
-  // });
-  // router.push("/boys")
 
 
-  // toast({
-  //   title: ` Please Fill Correct details`,
-  //   status: "error",
-  //   isClosable: true,
-  // });
 }
 
  
