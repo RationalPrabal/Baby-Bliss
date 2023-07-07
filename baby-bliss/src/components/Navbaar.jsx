@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "./logo.png";
-//import {Link as RouterLink} from 'next/link'
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "@/Context/CartContext";
 import Link from "next/link";
@@ -15,7 +14,6 @@ import {
   Input,
   Collapse,
   Icon,
-  Toast,
   Popover,
   PopoverTrigger,
   PopoverArrow,
@@ -24,7 +22,6 @@ import {
   PopoverContent,
   PopoverHeader,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";

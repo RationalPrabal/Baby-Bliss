@@ -35,6 +35,7 @@ import React, { useEffect, useState } from "react";
 import CartItem from "@/components/CartItem";
 import WishlistItem from "@/components/WishlistItem";
 import Addresses from "@/components/Addresses";
+import { AddressModal } from "@/components/Address.Modal";
 
 function cart() {
   const { user } = useContext(CartContext);
@@ -274,6 +275,7 @@ function cart() {
         >
           <fieldset>
             <legend>Select an address for delivery:</legend>
+            <AddressModal />
             {user?.addresses.map((el) => {
               return (
                 <div className="flex">
@@ -301,86 +303,6 @@ function cart() {
           >
             PROCEED TO PAYMENT
           </button>
-          {/* <Stack spacing={4}>
-            <HStack>
-              <Box>
-                <FormControl id="firstName" isInvalid={nameError} isRequired>
-                  <FormLabel>First name</FormLabel>
-                  <Input
-                    onChange={(e) => setfname(e.target.value)}
-                    aria-required={true}
-                    type="text"
-                  />
-                  {!nameError ? null : (
-                    <FormErrorMessage>This field is required.</FormErrorMessage>
-                  )}
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last name</FormLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-            </HStack>
-            <FormControl id="email" isInvalid={addError} isRequired>
-              <FormLabel>Address</FormLabel>
-              <Input onChange={(e) => setAdd(e.target.value)} type="text" />
-              {!addError ? null : (
-                <FormErrorMessage>This field is requied.</FormErrorMessage>
-              )}
-            </FormControl>
-            <FormControl id="email" isInvalid={appError} isRequired>
-              <FormLabel>Apartment, suite, etc</FormLabel>
-              <Input onChange={(e) => setApp(e.target.value)} type="text" />
-              {!appError ? null : (
-                <FormErrorMessage>This field is requied.</FormErrorMessage>
-              )}
-            </FormControl>
-            <HStack>
-              <Box>
-                <FormControl id="firstName" isInvalid={cityError} isRequired>
-                  <FormLabel>City</FormLabel>
-                  <Input
-                    onChange={(e) => setCity(e.target.value)}
-                    type="text"
-                  />
-                  {!cityError ? null : (
-                    <FormErrorMessage>This field is requied.</FormErrorMessage>
-                  )}
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel>State</FormLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Postal code</FormLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-            </HStack>
-            <FormControl id="password">
-              <FormLabel>Phone Number</FormLabel>
-              <InputGroup>
-                <Input
-                  w={"100%"}
-                  onChange={(e) => setNum(e.target.value)}
-                  type={"number"}
-                  onInput={(e) =>
-                    (e.target.value = e.target.value.slice(0, 10))
-                  }
-                />
-                <InputRightElement h={"full"}></InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Stack spacing={10} pt={2}>
-           
-            </Stack>
-          </Stack>  */}
         </Box>
 
         {cartItems.length > 0 ? (
